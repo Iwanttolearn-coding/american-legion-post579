@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: american-legion-post579
+    runtime: static
+    repo: https://github.com/Iwanttolearn-coding/american-legion-post579
+    branch: main
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
