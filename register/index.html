@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="stylesheet" href="../assets/css/portal.css"/>
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-box" style="max-width:540px;">
+    <div class="auth-logo">
+      <div class="al-mark">American Legion</div>
+      <div class="al-sub">Post 579 — Mrs. Carden Post</div>
+    </div>
+    <div class="auth-title">Create Account</div>
+    <div class="auth-desc">Register to access the Post 579 member portal, events, and resources.</div>
+    <div class="auth-success" id="regSuccess">Account created! Redirecting to your dashboard...</div>
+    <form id="registerForm">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="auth-field"><label>First Name *</label><input type="text" name="first_name" required placeholder="First"/></div>
+        <div class="auth-field"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Last"/></div>
+      </div>
+      <div class="auth-field"><label>Email Address *</label><input type="email" name="email" required placeholder="your@email.com"/></div>
+      <div class="auth-field"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="(210) 674-8069"/></div>
+      <div class="auth-field"><label>Branch of Service *</label>
+        <select name="branch" required>
+          <option value="">-- Select Branch --</option>
+          <option>Army</option><option>Navy</option><option>Marine Corps</option>
+          <option>Air Force</option><option>Coast Guard</option><option>Space Force</option>
+          <option>National Guard</option><option>Reserves</option>
+          <option>Family Member / Supporter</option>
+        </select>
+      </div>
+      <div class="auth-field"><label>Password *</label><input type="password" name="password" required placeholder="Create a password (8+ chars)" minlength="8"/></div>
+      <div class="auth-field"><label>Confirm Password *</label><input type="password" name="confirm_password" required placeholder="Re-enter password"/></div>
+      <div style="margin-bottom:16px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.8rem;color:#555;cursor:pointer;">
+          <input type="checkbox" required style="margin-top:2px;accent-color:#B22234;"/>
+          I agree to the <a href="../terms/" style="color:#B22234;font-weight:bold;">Terms &amp; Conditions</a> and <a href="../privacy-policy/" style="color:#B22234;font-weight:bold;">Privacy Policy</a>
+        </label>
+      </div>
+      <button type="submit" class="auth-btn">Create Account</button>
+    </form>
+    <div class="auth-link">Already have an account? <a href="../login/">Sign In</a></div>
+    <div class="auth-link" style="margin-top:8px;"><a href="../index.html" style="color:#999;">← Back to Post 579 Home</a></div>
+  </div>
+</div>
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const fd = new FormData(this);
+  if(fd.get('password') !== fd.get('confirm_password')) {
+    alert('Passwords do not match.'); return;
+  }
+  document.getElementById('regSuccess').style.display = 'block';
+  this.style.display = 'none';
+  setTimeout(()=>{ window.location.href = '../member-dashboard/'; }, 2000);
+});
+</script>
+</body>
+</html>

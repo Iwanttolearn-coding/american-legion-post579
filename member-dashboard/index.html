@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member Dashboard | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="stylesheet" href="../assets/css/portal.css"/>
+</head>
+<body>
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar">
+    <div class="dash-sidebar-logo">
+      <h2>Post 579</h2>
+      <p>Mrs. Carden Post</p>
+    </div>
+    <nav class="dash-nav">
+      <div class="nav-section">Member Portal</div>
+      <a href="index.html" class="active"><span class="nav-icon">⌂</span> Dashboard</a>
+      <a href="#profile"><span class="nav-icon">👤</span> My Profile</a>
+      <a href="#membership"><span class="nav-icon">★</span> Membership Status</a>
+      <a href="#renewal"><span class="nav-icon">↺</span> Renew Membership</a>
+      <div class="nav-section">Activities</div>
+      <a href="../events/"><span class="nav-icon">📅</span> Events</a>
+      <a href="../tickets/"><span class="nav-icon">🎟</span> Buy Tickets</a>
+      <a href="#volunteer"><span class="nav-icon">✋</span> Volunteer Hours</a>
+      <a href="../calendar/"><span class="nav-icon">🗓</span> Calendar</a>
+      <div class="nav-section">Resources</div>
+      <a href="../veterans-services/"><span class="nav-icon">⚑</span> Veterans Services</a>
+      <a href="../announcements/"><span class="nav-icon">📢</span> Announcements</a>
+      <a href="#documents"><span class="nav-icon">📄</span> Documents</a>
+      <div class="nav-section">Post 579</div>
+      <a href="../index.html"><span class="nav-icon">←</span> Back to Website</a>
+    </nav>
+    <div class="dash-logout">
+      <a href="../login/">Sign Out</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <h1>Member Dashboard</h1>
+      <div class="dash-user">
+        <div class="dash-avatar" id="userInitial">M</div>
+        <div class="dash-user-name" id="userName">Member</div>
+      </div>
+    </div>
+    <div class="dash-content">
+
+      <!-- STATUS CARDS -->
+      <div class="dash-cards">
+        <div class="dash-card green">
+          <div class="dash-card-label">Membership Status</div>
+          <div class="dash-card-value" style="font-size:1.2rem;color:#2ecc71;">Active</div>
+          <div class="dash-card-sub">Expires Dec 31, 2026</div>
+        </div>
+        <div class="dash-card gold">
+          <div class="dash-card-label">Member Since</div>
+          <div class="dash-card-value" style="font-size:1.4rem;">2024</div>
+          <div class="dash-card-sub">Post 579 — Mrs. Carden Post</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-label">Upcoming Events</div>
+          <div class="dash-card-value">3</div>
+          <div class="dash-card-sub"><a href="../events/" style="color:#B22234;">View Events →</a></div>
+        </div>
+        <div class="dash-card red">
+          <div class="dash-card-label">Volunteer Hours</div>
+          <div class="dash-card-value">0</div>
+          <div class="dash-card-sub"><a href="#volunteer" style="color:#fff;text-decoration:underline;">Log Hours</a></div>
+        </div>
+      </div>
+
+      <!-- RENEWAL REMINDER -->
+      <div style="background:#fff3cd;border:1px solid #C8A84B;border-left:4px solid #C8A84B;border-radius:8px;padding:16px 20px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div>
+          <strong style="color:#856404;">Membership Renewal Reminder</strong><br/>
+          <span style="font-size:0.82rem;color:#856404;">Your 2026 membership expires December 31, 2026. Renew early to maintain continuous membership.</span>
+        </div>
+        <a href="../renew/" style="background:#C8A84B;color:#1B2A4A;padding:10px 20px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;">Renew Now</a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
+        <!-- PROFILE -->
+        <div class="dash-panel" id="profile">
+          <div class="dash-panel-title">My Profile</div>
+          <form id="profileForm">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+              <div><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">First Name</label><input type="text" value="" placeholder="First Name" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+              <div><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Last Name</label><input type="text" value="" placeholder="Last Name" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            </div>
+            <div style="margin-bottom:14px;"><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Email</label><input type="email" placeholder="your@email.com" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <div style="margin-bottom:14px;"><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Phone</label><input type="tel" placeholder="(210) 674-8069" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <div style="margin-bottom:16px;"><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Branch of Service</label><input type="text" placeholder="e.g. Army" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <button type="submit" style="background:#1B2A4A;color:#fff;border:none;padding:10px 20px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Save Profile</button>
+          </form>
+        </div>
+
+        <!-- NEWS FEED -->
+        <div class="dash-panel">
+          <div class="dash-panel-title">Latest Announcements</div>
+          <div style="border-left:3px solid #B22234;padding-left:14px;margin-bottom:16px;">
+            <div style="font-size:0.7rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Post Update</div>
+            <div style="font-size:0.88rem;color:#1B2A4A;font-weight:bold;margin-bottom:4px;">Post 579 Website Now Live</div>
+            <div style="font-size:0.8rem;color:#666;">Our new official website is now available. Share it with fellow veterans.</div>
+          </div>
+          <div style="border-left:3px solid #1B2A4A;padding-left:14px;margin-bottom:16px;">
+            <div style="font-size:0.7rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Veterans</div>
+            <div style="font-size:0.88rem;color:#1B2A4A;font-weight:bold;margin-bottom:4px;">Free VA Benefits Assistance Available</div>
+            <div style="font-size:0.8rem;color:#666;">Our Service Officer is available to help with VA claims and benefits questions.</div>
+          </div>
+          <div style="border-left:3px solid #C8A84B;padding-left:14px;">
+            <div style="font-size:0.7rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Fundraiser</div>
+            <div style="font-size:0.88rem;color:#1B2A4A;font-weight:bold;margin-bottom:4px;">Hall Rental Now Accepting Bookings</div>
+            <div style="font-size:0.8rem;color:#666;">Reserve the Post 579 facility for your next event. Proceeds support veteran programs.</div>
+          </div>
+          <a href="../announcements/" style="display:block;text-align:center;margin-top:20px;color:#B22234;font-size:0.78rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">View All Announcements →</a>
+        </div>
+
+      </div>
+
+      <!-- UPCOMING EVENTS -->
+      <div class="dash-panel" style="margin-top:0;">
+        <div class="dash-panel-title">Upcoming Events — Register or Buy Tickets</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+          <div style="border:1.5px solid #e0e0e0;border-radius:8px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+            <div style="background:#1B2A4A;color:#C8A84B;padding:10px 14px;border-radius:6px;text-align:center;flex-shrink:0;"><div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:1px;">Monthly</div><div style="font-size:1.6rem;font-weight:900;color:#fff;line-height:1;">TBD</div></div>
+            <div><div style="font-size:0.82rem;font-weight:bold;color:#1B2A4A;margin-bottom:4px;">General Membership Meeting</div><div style="font-size:0.78rem;color:#999;margin-bottom:10px;">All members welcome. Date TBD by Commander.</div><a href="../events/" style="background:#1B2A4A;color:#fff;padding:6px 14px;border-radius:4px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Details</a></div>
+          </div>
+          <div style="border:1.5px solid #e0e0e0;border-radius:8px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+            <div style="background:#B22234;color:#fff;padding:10px 14px;border-radius:6px;text-align:center;flex-shrink:0;"><div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.7);">Nov</div><div style="font-size:1.6rem;font-weight:900;line-height:1;">11</div></div>
+            <div><div style="font-size:0.82rem;font-weight:bold;color:#1B2A4A;margin-bottom:4px;">Veterans Day Observance</div><div style="font-size:0.78rem;color:#999;margin-bottom:10px;">Annual ceremony. Community welcome.</div><a href="../tickets/" style="background:#B22234;color:#fff;padding:6px 14px;border-radius:4px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Get Tickets</a></div>
+          </div>
+          <div style="border:1.5px solid #C8A84B;border-radius:8px;padding:16px;display:flex;gap:14px;align-items:flex-start;">
+            <div style="background:#C8A84B;color:#1B2A4A;padding:10px 14px;border-radius:6px;text-align:center;flex-shrink:0;"><div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:1px;">Annual</div><div style="font-size:1.6rem;font-weight:900;line-height:1;">TBD</div></div>
+            <div><div style="font-size:0.82rem;font-weight:bold;color:#1B2A4A;margin-bottom:4px;">Annual Steak Night Fundraiser</div><div style="font-size:0.78rem;color:#999;margin-bottom:10px;">Tickets required. Supports veteran programs.</div><a href="../tickets/" style="background:#C8A84B;color:#1B2A4A;padding:6px 14px;border-radius:4px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Buy Tickets</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+document.getElementById('profileForm').addEventListener('submit',function(e){e.preventDefault();alert('Profile saved successfully!');});
+</script>
+</body>
+</html>

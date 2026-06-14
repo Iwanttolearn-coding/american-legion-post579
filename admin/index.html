@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commander Admin | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="stylesheet" href="../assets/css/portal.css"/>
+</head>
+<body>
+<div class="dashboard-layout">
+
+  <!-- ADMIN SIDEBAR -->
+  <aside class="dash-sidebar" style="background:#0D1B33;">
+    <div class="dash-sidebar-logo" style="border-bottom-color:rgba(200,168,75,0.3);">
+      <h2>Admin Panel</h2>
+      <p>Commander Dashboard — Post 579</p>
+    </div>
+    <nav class="dash-nav">
+      <div class="nav-section">Overview</div>
+      <a href="index.html" class="active"><span class="nav-icon">⌂</span> Dashboard</a>
+      <div class="nav-section">Manage</div>
+      <a href="#members"><span class="nav-icon">👥</span> Members</a>
+      <a href="#applications"><span class="nav-icon">📋</span> Applications</a>
+      <a href="#events"><span class="nav-icon">📅</span> Events</a>
+      <a href="#tickets"><span class="nav-icon">🎟</span> Ticket Sales</a>
+      <a href="#rentals"><span class="nav-icon">⌂</span> Hall Rentals</a>
+      <a href="#volunteers"><span class="nav-icon">✋</span> Volunteers</a>
+      <a href="#donations"><span class="nav-icon">♥</span> Donations</a>
+      <a href="#veteran-requests"><span class="nav-icon">⚑</span> Vet Requests</a>
+      <div class="nav-section">Content</div>
+      <a href="#news"><span class="nav-icon">📢</span> News / Announcements</a>
+      <a href="#gallery-mgr"><span class="nav-icon">🖼</span> Photo Gallery</a>
+      <a href="#social"><span class="nav-icon">📱</span> Social Media</a>
+      <div class="nav-section">System</div>
+      <a href="../index.html"><span class="nav-icon">🌐</span> View Live Website</a>
+      <a href="../login/"><span class="nav-icon">←</span> Sign Out</a>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-topbar" style="background:#0D1B33;border-bottom-color:#C8A84B;">
+      <h1 style="color:#C8A84B;">Commander Admin Dashboard</h1>
+      <div class="dash-user">
+        <div class="dash-avatar" style="background:#B22234;color:#fff;">C</div>
+        <div class="dash-user-name" style="color:#fff;">Commander Harold — Post 579</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <!-- SUMMARY CARDS -->
+      <div class="dash-cards">
+        <div class="dash-card green"><div class="dash-card-label">Active Members</div><div class="dash-card-value">—</div><div class="dash-card-sub">Update after launch</div></div>
+        <div class="dash-card red"><div class="dash-card-label">Pending Applications</div><div class="dash-card-value" id="appCount">0</div><div class="dash-card-sub"><a href="#applications" style="color:#B22234;">Review →</a></div></div>
+        <div class="dash-card gold"><div class="dash-card-label">Ticket Revenue</div><div class="dash-card-value">$0</div><div class="dash-card-sub">This Month</div></div>
+        <div class="dash-card"><div class="dash-card-label">Hall Rental Requests</div><div class="dash-card-value" id="rentalCount">0</div><div class="dash-card-sub"><a href="#rentals" style="color:#B22234;">Review →</a></div></div>
+        <div class="dash-card green"><div class="dash-card-label">Donations</div><div class="dash-card-value">$0</div><div class="dash-card-sub">This Month</div></div>
+        <div class="dash-card red"><div class="dash-card-label">Veteran Requests</div><div class="dash-card-value" id="vetCount">0</div><div class="dash-card-sub"><a href="#veteran-requests" style="color:#B22234;">Review →</a></div></div>
+      </div>
+
+      <!-- MEMBERSHIP APPLICATIONS -->
+      <div class="dash-panel" id="applications">
+        <div class="dash-panel-title">Membership Applications</div>
+        <div id="applicationsTable">
+          <p style="color:#999;font-size:0.85rem;text-align:center;padding:32px 0;">No applications yet. They will appear here when submitted through the website.</p>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px;">
+          <button onclick="loadApplications()" style="background:#1B2A4A;color:#fff;border:none;padding:9px 18px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;cursor:pointer;">Refresh Applications</button>
+          <a href="../membership/" style="background:#B22234;color:#fff;padding:9px 18px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;">View Application Form</a>
+        </div>
+      </div>
+
+      <!-- EVENTS MANAGER -->
+      <div class="dash-panel" id="events">
+        <div class="dash-panel-title">Events Manager</div>
+        <div style="margin-bottom:20px;">
+          <h4 style="font-size:0.85rem;color:#1B2A4A;margin-bottom:14px;">Add New Event</h4>
+          <form id="addEventForm" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+            <div><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">Event Name</label><input type="text" placeholder="e.g. Steak Night" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <div><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">Date</label><input type="date" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <div><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">Ticket Price ($)</label><input type="number" placeholder="25.00" step="0.01" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;"/></div>
+            <div style="grid-column:1/-1;"><label style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">Description</label><textarea placeholder="Describe the event..." style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;min-height:80px;resize:vertical;"></textarea></div>
+            <div style="grid-column:1/-1;"><button type="submit" style="background:#B22234;color:#fff;border:none;padding:10px 24px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;cursor:pointer;">Add Event</button></div>
+          </form>
+        </div>
+        <hr style="border:none;border-top:1px solid #f0f0ea;margin:20px 0;"/>
+        <h4 style="font-size:0.85rem;color:#1B2A4A;margin-bottom:12px;">Existing Events</h4>
+        <table class="admin-table">
+          <thead><tr><th>Event</th><th>Date</th><th>Tickets Sold</th><th>Revenue</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Annual Steak Night</td><td>TBD</td><td>0</td><td>$0</td><td><span class="status-pill active">Active</span></td><td><a href="../tickets/" style="color:#B22234;font-size:0.78rem;font-weight:bold;">View Tickets</a></td></tr>
+            <tr><td>Fish Fry Fundraiser</td><td>TBD</td><td>0</td><td>$0</td><td><span class="status-pill pending">Pending Date</span></td><td><a href="../tickets/" style="color:#B22234;font-size:0.78rem;font-weight:bold;">View Tickets</a></td></tr>
+            <tr><td>Veterans Day Banquet</td><td>Nov 11, 2026</td><td>0</td><td>$0</td><td><span class="status-pill active">Active</span></td><td><a href="../tickets/" style="color:#B22234;font-size:0.78rem;font-weight:bold;">View Tickets</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SOCIAL MEDIA CONTROL CENTER -->
+      <div class="dash-panel" id="social">
+        <div class="dash-panel-title">Social Media Control Center</div>
+        <p style="font-size:0.85rem;color:#666;margin-bottom:20px;">Write once. Post everywhere. Create an announcement and publish to Facebook, Instagram, X, and the Post website simultaneously.</p>
+        <form id="socialForm">
+          <div style="margin-bottom:16px;">
+            <label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;font-weight:bold;">Announcement Title</label>
+            <input type="text" placeholder="e.g. Steak Night This Saturday!" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;font-weight:bold;">Post Content</label>
+            <textarea placeholder="Write your post here. Keep it under 280 characters for X..." style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;min-height:120px;resize:vertical;font-family:Georgia,serif;"></textarea>
+          </div>
+          <div style="margin-bottom:20px;">
+            <label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:10px;font-weight:bold;">Publish To:</label>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+              <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;background:#f5f5f0;padding:10px 16px;border-radius:6px;border:1.5px solid #e0e0e0;"><input type="checkbox" checked style="accent-color:#B22234;"/> <strong style="color:#1877F2;">Facebook</strong></label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;background:#f5f5f0;padding:10px 16px;border-radius:6px;border:1.5px solid #e0e0e0;"><input type="checkbox" checked style="accent-color:#B22234;"/> <strong style="color:#E1306C;">Instagram</strong></label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;background:#f5f5f0;padding:10px 16px;border-radius:6px;border:1.5px solid #e0e0e0;"><input type="checkbox" checked style="accent-color:#B22234;"/> <strong>X (Twitter)</strong></label>
+              <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;background:#f5f5f0;padding:10px 16px;border-radius:6px;border:1.5px solid #e0e0e0;"><input type="checkbox" checked style="accent-color:#B22234;"/> <strong style="color:#1B2A4A;">Post 579 Website</strong></label>
+            </div>
+          </div>
+          <button type="submit" style="background:#B22234;color:#fff;border:none;padding:12px 32px;border-radius:4px;font-size:0.85rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Publish Announcement</button>
+        </form>
+        <div id="socialSuccess" style="display:none;background:#f0fff4;border:2px solid #2ecc71;border-radius:6px;padding:14px;margin-top:16px;color:#155724;font-size:0.85rem;">
+          ✅ Announcement queued for publishing. Connect your social accounts in Settings to enable auto-posting.
+        </div>
+      </div>
+
+      <!-- NEWS MANAGER -->
+      <div class="dash-panel" id="news">
+        <div class="dash-panel-title">News &amp; Announcements Manager</div>
+        <form id="newsForm" style="margin-bottom:24px;">
+          <div style="margin-bottom:14px;"><label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;font-weight:bold;">Headline *</label><input type="text" required placeholder="Announcement headline..." style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/></div>
+          <div style="margin-bottom:14px;"><label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;font-weight:bold;">Category</label><select style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"><option>Post Update</option><option>Veterans</option><option>Community</option><option>Events</option><option>Fundraiser</option><option>Urgent</option></select></div>
+          <div style="margin-bottom:16px;"><label style="font-size:0.72rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;font-weight:bold;">Content *</label><textarea required placeholder="Full announcement content..." style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;min-height:120px;resize:vertical;font-family:Georgia,serif;"></textarea></div>
+          <button type="submit" style="background:#1B2A4A;color:#fff;border:none;padding:11px 28px;border-radius:4px;font-size:0.78rem;font-weight:bold;text-transform:uppercase;cursor:pointer;">Publish Announcement</button>
+        </form>
+        <div id="newsSuccess" style="display:none;background:#f0fff4;border:2px solid #2ecc71;border-radius:6px;padding:14px;color:#155724;font-size:0.85rem;">✅ Announcement published successfully.</div>
+      </div>
+
+      <!-- VETERAN REQUESTS -->
+      <div class="dash-panel" id="veteran-requests">
+        <div class="dash-panel-title">Veteran Assistance Requests</div>
+        <div id="vetRequestsTable">
+          <p style="color:#999;font-size:0.85rem;text-align:center;padding:32px 0;">No assistance requests yet. Submitted requests will appear here for review.</p>
+        </div>
+      </div>
+
+      <!-- HALL RENTALS -->
+      <div class="dash-panel" id="rentals">
+        <div class="dash-panel-title">Hall Rental Requests</div>
+        <div id="rentalTable">
+          <p style="color:#999;font-size:0.85rem;text-align:center;padding:32px 0;">No rental requests yet. Submitted inquiries will appear here.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+document.getElementById('socialForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('socialSuccess').style.display = 'block';
+  this.reset();
+});
+document.getElementById('newsForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('newsSuccess').style.display = 'block';
+  this.reset();
+});
+document.getElementById('addEventForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Event saved! Update the tickets page with the new date and pricing.');
+  this.reset();
+});
+function loadApplications(){
+  document.getElementById('applicationsTable').innerHTML = '<p style="color:#999;font-size:0.85rem;text-align:center;padding:20px;">Live data will appear here once connected to the backend. Applications submitted via the website are stored in the database.</p>';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Renew Membership | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+<div style="background:#1B2A4A;padding:12px 0;text-align:center;"><a href="../index.html" style="color:rgba(255,255,255,0.6);font-size:0.78rem;text-transform:uppercase;letter-spacing:1px;">← Back to Post 579</a></div>
+<div style="background:linear-gradient(135deg,#0D1B33,#1B2A4A);padding:56px 0;text-align:center;border-bottom:4px solid #C8A84B;">
+  <div style="font-size:0.72rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;">Post 579 — Mrs. Carden Post</div>
+  <h1 style="font-size:2rem;color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Renew Your Membership</h1>
+  <p style="color:rgba(255,255,255,0.7);">Keep your American Legion membership active and your benefits current.</p>
+</div>
+<div style="background:#f5f5f0;padding:60px 20px;">
+  <div style="max-width:680px;margin:0 auto;background:#fff;border-radius:12px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border-top:4px solid #B22234;">
+    <h2 style="font-size:1.1rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Membership Renewal</h2>
+    <p style="color:#999;font-size:0.85rem;margin-bottom:28px;">Enter your information and a Post officer will contact you with renewal payment details.</p>
+    <form id="renewForm" data-form-type="renewal">
+      <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off"/>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
+        <div><label style="font-size:0.75rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;font-weight:bold;display:block;margin-bottom:5px;">Full Name *</label><input type="text" name="full_name" required placeholder="Your full name" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/></div>
+        <div><label style="font-size:0.75rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;font-weight:bold;display:block;margin-bottom:5px;">Member ID (if known)</label><input type="text" name="member_id" placeholder="9-digit ID" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
+        <div><label style="font-size:0.75rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;font-weight:bold;display:block;margin-bottom:5px;">Email *</label><input type="email" name="email" required placeholder="your@email.com" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/></div>
+        <div><label style="font-size:0.75rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;font-weight:bold;display:block;margin-bottom:5px;">Phone *</label><input type="tel" name="phone_number" required placeholder="(210) 674-8069" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;"/></div>
+      </div>
+      <div style="margin-bottom:20px;"><label style="font-size:0.75rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;font-weight:bold;display:block;margin-bottom:5px;">Notes</label><textarea name="notes" placeholder="Any questions about your renewal..." style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.9rem;min-height:90px;resize:vertical;font-family:Georgia,serif;"></textarea></div>
+      <button type="submit" style="width:100%;padding:14px;background:#B22234;color:#fff;border:none;border-radius:5px;font-size:0.9rem;font-weight:bold;text-transform:uppercase;letter-spacing:2px;cursor:pointer;font-family:Georgia,serif;">Submit Renewal Request</button>
+    </form>
+    <div id="renewSuccess" style="display:none;background:#f0fff4;border:2px solid #2ecc71;border-radius:8px;padding:20px;text-align:center;margin-top:16px;">
+      <strong style="color:#155724;">✅ Renewal Request Received!</strong><br/><span style="font-size:0.85rem;color:#155724;">A Post 579 officer will contact you with payment instructions shortly.</span>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px;"><a href="../membership/" style="color:#B22234;font-size:0.85rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">New Member? Apply Here →</a></div>
+</div>
+<script>
+document.getElementById('renewForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  this.style.display='none';
+  document.getElementById('renewSuccess').style.display='block';
+});
+</script>
+</body>
+</html>

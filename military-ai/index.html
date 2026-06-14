@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Military Guide AI | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <style>
+    body{margin:0;font-family:Georgia,serif;background:#0D1B33;}
+    .ai-header{background:#0D1B33;border-bottom:3px solid #C8A84B;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+    .ai-header h1{font-size:0.95rem;color:#C8A84B;text-transform:uppercase;letter-spacing:2px;font-weight:900;line-height:1;margin:0;}
+    .ai-header p{font-size:0.65rem;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;margin:3px 0 0;}
+    .brand-mark{width:38px;height:38px;background:#B22234;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;font-weight:900;flex-shrink:0;}
+    .ai-layout{display:flex;height:calc(100vh - 65px);}
+    .ai-sidebar{width:250px;background:#0A1628;border-right:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;}
+    .sb-section{padding:14px 14px 4px;}
+    .sb-label{font-size:0.6rem;color:rgba(255,255,255,0.28);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;font-weight:bold;}
+    .topic-btn{display:block;width:100%;text-align:left;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:5px;padding:9px 11px;margin-bottom:5px;cursor:pointer;color:rgba(255,255,255,0.72);font-size:0.77rem;font-family:Georgia,serif;transition:all 0.15s;}
+    .topic-btn:hover,.topic-btn.active{background:rgba(200,168,75,0.13);border-color:rgba(200,168,75,0.3);color:#C8A84B;}
+    .sb-footer{margin-top:auto;padding:14px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.66rem;color:rgba(255,255,255,0.28);line-height:1.5;}
+    .ai-chat{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+    .chat-messages{flex:1;overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:14px;}
+    .msg{display:flex;gap:11px;align-items:flex-start;max-width:860px;}
+    .msg.user{flex-direction:row-reverse;margin-left:auto;}
+    .msg-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.82rem;font-weight:bold;flex-shrink:0;}
+    .msg.ai .msg-avatar{background:#B22234;color:#fff;}
+    .msg.user .msg-avatar{background:#C8A84B;color:#1B2A4A;}
+    .msg-bubble{padding:13px 17px;border-radius:11px;font-size:0.87rem;line-height:1.7;max-width:700px;}
+    .msg.ai .msg-bubble{background:#1B2A4A;color:rgba(255,255,255,0.88);border:1px solid rgba(255,255,255,0.07);}
+    .msg.user .msg-bubble{background:#C8A84B;color:#1B2A4A;font-weight:600;}
+    .msg-bubble strong{color:#C8A84B;}
+    .msg.user .msg-bubble strong{color:#0D1B33;}
+    .msg-bubble ul{margin:8px 0;padding-left:18px;}
+    .msg-bubble li{margin-bottom:5px;}
+    .msg-bubble table{width:100%;border-collapse:collapse;font-size:0.8rem;margin:10px 0;}
+    .msg-bubble th{background:rgba(255,255,255,0.1);padding:6px 8px;text-align:left;color:#C8A84B;}
+    .msg-bubble td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .typing{display:none;gap:11px;align-items:center;padding:0 22px 6px;}
+    .typing.show{display:flex;}
+    .dots{display:flex;gap:4px;padding:13px 17px;background:#1B2A4A;border-radius:11px;border:1px solid rgba(255,255,255,0.07);}
+    .dots span{width:6px;height:6px;background:#C8A84B;border-radius:50%;animation:blink 1.2s infinite;}
+    .dots span:nth-child(2){animation-delay:.2s;}
+    .dots span:nth-child(3){animation-delay:.4s;}
+    @keyframes blink{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-7px)}}
+    .input-area{background:#0A1628;border-top:1px solid rgba(255,255,255,0.07);padding:14px 22px;}
+    .input-row{display:flex;gap:10px;align-items:flex-end;max-width:920px;margin:0 auto;}
+    .chat-input{flex:1;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.1);border-radius:9px;padding:12px 15px;color:#fff;font-size:0.88rem;font-family:Georgia,serif;resize:none;min-height:46px;max-height:140px;transition:border-color .2s;}
+    .chat-input:focus{outline:none;border-color:#C8A84B;}
+    .chat-input::placeholder{color:rgba(255,255,255,0.3);}
+    .send-btn{background:#B22234;color:#fff;border:none;border-radius:9px;width:46px;height:46px;cursor:pointer;font-size:1.1rem;transition:background .2s;flex-shrink:0;}
+    .send-btn:hover{background:#8B0000;}
+    .input-note{font-size:0.66rem;color:rgba(255,255,255,0.22);text-align:center;margin-top:8px;max-width:920px;margin-left:auto;margin-right:auto;}
+    @media(max-width:768px){.ai-sidebar{display:none;}}
+  </style>
+</head>
+<body>
+
+<div class="ai-header">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="brand-mark">★</div>
+    <div>
+      <h1>American Legion Military Guide AI</h1>
+      <p>Post 579 — Veterans Resource Assistant — San Antonio, TX</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <a href="tel:2106748069" style="color:#C8A84B;font-size:0.75rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">(210) 674-8069</a>
+    <a href="../index.html" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);padding:6px 12px;border-radius:4px;font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;">← Post 579</a>
+  </div>
+</div>
+
+<div class="ai-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="ai-sidebar">
+    <div class="sb-section">
+      <div class="sb-label">Benefits & Claims</div>
+      <button class="topic-btn" onclick="askQ('What VA benefits am I eligible for as a veteran?')">⚑ VA Benefits Overview</button>
+      <button class="topic-btn" onclick="askQ('Explain the GI Bill education benefits.')">🎓 GI Bill / Education</button>
+      <button class="topic-btn" onclick="askQ('How do I file a VA disability claim?')">📋 Disability Claims</button>
+      <button class="topic-btn" onclick="askQ('What is the Veterans Crisis Line?')">🆘 Crisis Line — 988</button>
+      <button class="topic-btn" onclick="askQ('What VA home loan benefits are available?')">🏠 VA Home Loans</button>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Military Branches</div>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Army.')">🪖 U.S. Army</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Navy.')">⚓ U.S. Navy</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Marine Corps.')">🦅 Marine Corps</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Air Force.')">✈ Air Force</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Coast Guard.')">🚢 Coast Guard</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the United States Space Force.')">🚀 Space Force</button>
+      <button class="topic-btn" onclick="askQ('Tell me about the National Guard and Reserves.')">🏛 National Guard</button>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Post 579 Programs</div>
+      <button class="topic-btn" onclick="askQ('What is the American Legion and what does Post 579 do?')">★ About Post 579</button>
+      <button class="topic-btn" onclick="askQ('How do I join American Legion Post 579?')">👤 How to Join</button>
+      <button class="topic-btn" onclick="askQ('What is Boys State and Girls State?')">🏫 Boys / Girls State</button>
+      <button class="topic-btn" onclick="askQ('What scholarships does the American Legion offer?')">📜 Scholarships</button>
+      <button class="topic-btn" onclick="askQ('What is the American Legion Riders program?')">🏍 Riders Program</button>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Ranks & History</div>
+      <button class="topic-btn" onclick="askQ('Show all U.S. military officer ranks O-1 through O-10.')">⭐ Officer Ranks</button>
+      <button class="topic-btn" onclick="askQ('Show all U.S. military enlisted ranks E-1 through E-9.')">🎖 Enlisted Ranks</button>
+      <button class="topic-btn" onclick="askQ('Tell me about major U.S. military history.')">🏛 Military History</button>
+    </div>
+    <div class="sb-footer">
+      Informational only — not a recruiter, not legal/medical advice. For official VA decisions, contact the VA or a Post 579 Service Officer. Call (210) 674-8069.
+    </div>
+  </aside>
+
+  <!-- CHAT -->
+  <div class="ai-chat">
+    <div class="chat-messages" id="msgs">
+      <div class="msg ai">
+        <div class="msg-avatar">★</div>
+        <div class="msg-bubble">
+          <strong>Welcome to the American Legion Military Guide AI</strong><br/><br/>
+          I serve veterans, families, and community members connected to <strong>Post 579 — 3002 Gunsmoke Drive, San Antonio, TX 78227</strong>.<br/><br/>
+          I can help you with:
+          <ul>
+            <li>VA benefits, disability claims, GI Bill, and home loans</li>
+            <li>Military branch information and ranks (all 6 branches)</li>
+            <li>American Legion programs, membership, Boys/Girls State</li>
+            <li>Scholarships, youth programs, community resources</li>
+            <li>Veterans Crisis Line and mental health resources</li>
+          </ul>
+          How can I help you today?<br/><br/>
+          <span style="font-size:0.77rem;color:rgba(255,255,255,0.45);">Need direct help? Call Post 579 at <strong style="color:#C8A84B;">(210) 674-8069</strong> or the Veterans Crisis Line at <strong style="color:#C8A84B;">988 — Press 1</strong>.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="typing" id="typing">
+      <div class="msg-avatar" style="width:34px;height:34px;border-radius:50%;background:#B22234;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.82rem;font-weight:bold;flex-shrink:0;">★</div>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-row">
+        <textarea class="chat-input" id="inp" rows="1"
+          placeholder="Ask about VA benefits, military branches, GI Bill, American Legion programs..."
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send();}"></textarea>
+        <button class="send-btn" onclick="send()">➤</button>
+      </div>
+      <div class="input-note">Military Guide AI — Post 579 — Informational only. Not a recruiter. For urgent needs call (210) 674-8069 or 988 Press 1.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const KB = [
+  {k:['va benefit','benefit eligible','veteran benefit','what benefit'],
+   r:`<strong>VA Benefits Overview</strong><br/><br/>As a veteran, you may be eligible for:<br/><br/><strong>Healthcare:</strong><ul><li>VA medical centers and community clinics nationwide</li><li>Mental health services, PTSD treatment, substance abuse programs</li><li>Dental, vision, prescriptions (eligibility varies)</li></ul><strong>Disability Compensation:</strong><ul><li>Tax-free monthly payments for service-connected conditions</li><li>Rated 0%–100% based on severity — higher rating = higher pay</li><li>Post 579's Service Officer can file for you — <em>FREE</em></li></ul><strong>Education:</strong><ul><li>Post-9/11 GI Bill (Ch. 33) — full tuition + housing allowance</li><li>Montgomery GI Bill (Ch. 30) — monthly education stipend</li></ul><strong>Home Loans:</strong><ul><li>VA-backed mortgages — no down payment required</li></ul><strong>Pension & Insurance:</strong><ul><li>VA pension for low-income wartime veterans</li><li>Life insurance (SGLI, VGLI)</li></ul><br/>Call Post 579 at <strong>(210) 674-8069</strong> — free claims assistance, no cost ever.`},
+
+  {k:['gi bill','education benefit','chapter 33','chapter 30','tuition','college benefit'],
+   r:`<strong>GI Bill Education Benefits</strong><br/><br/><strong>Post-9/11 GI Bill (Chapter 33):</strong><ul><li>Full tuition and fees at public in-state universities</li><li>Monthly housing allowance (BAH equivalent)</li><li>$1,000/year books and supplies stipend</li><li>Requires 90+ days active service after Sept 10, 2001</li><li>Transferable to dependents after 6+ years of service</li></ul><strong>Montgomery GI Bill (Chapter 30):</strong><ul><li>Monthly education payments for eligible veterans</li><li>Requires $1,200 contribution during service</li></ul><strong>Vocational Rehabilitation (Chapter 31):</strong><ul><li>For veterans with service-connected disabilities</li><li>Covers education AND living expenses</li></ul><br/>Apply at <strong>va.gov/education</strong> or call <strong>1-888-GIBILL-1</strong>. Post 579 can help you navigate the process — (210) 674-8069.`},
+
+  {k:['disability claim','disability rating','disability compensation','file a claim','va claim'],
+   r:`<strong>VA Disability Claims</strong><br/><br/>If a health condition is connected to your military service, you may be entitled to tax-free monthly compensation.<br/><br/><strong>2026 Monthly Rates (approximate):</strong><ul><li>10% — ~$175/month</li><li>30% — ~$524/month</li><li>50% — ~$1,075/month</li><li>70% — ~$1,716/month</li><li>100% — ~$3,737+/month</li></ul><strong>How to file:</strong><ul><li>Online at <strong>va.gov/disability</strong></li><li>In person at a VA Regional Office</li><li>Through Post 579 — our Service Officer files for <em>FREE</em></li></ul><strong>Tips:</strong><ul><li>Gather your service records and medical documentation</li><li>Document every condition — don't leave anything out</li><li>Appeals are possible if denied</li></ul><br/><strong>Call (210) 674-8069</strong> — Post 579 Service Officer helps at no cost.`},
+
+  {k:['crisis','988','crisis line','veteran suicide','mental health','ptsd'],
+   r:`<strong>Veterans Crisis Line</strong><br/><br/><strong style="color:#C8A84B;font-size:1.1rem;">Call 988 — Press 1</strong><br/><strong>Text: 838255</strong><br/><strong>Chat: VeteransCrisisLine.net</strong><br/><br/>The Veterans Crisis Line is:<ul><li>Free — no cost ever</li><li>Confidential — your call is private</li><li>Available 24/7/365</li><li>Staffed by trained responders, many are veterans themselves</li></ul><strong>Post 579 also offers peer support.</strong><br/>Call Commander Harold at <strong>(210) 674-8069</strong>.<br/><br/>You served this country. You are not alone. Help is here.`},
+
+  {k:['home loan','va loan','mortgage','no down payment'],
+   r:`<strong>VA Home Loan Benefits</strong><br/><br/>The VA Home Loan Guaranty is one of the most powerful benefits available to veterans.<br/><br/><strong>Key advantages:</strong><ul><li>No down payment required</li><li>No private mortgage insurance (PMI)</li><li>Competitive interest rates</li><li>Easier qualification than conventional loans</li><li>Can be used multiple times</li></ul><strong>Eligibility:</strong><ul><li>90+ days active duty during wartime</li><li>181+ days active duty during peacetime</li><li>6+ years in National Guard or Reserves</li><li>Surviving spouses of veterans</li></ul><strong>How to apply:</strong><ul><li>Obtain your Certificate of Eligibility (COE) at va.gov</li><li>Work with a VA-approved lender</li></ul><br/>Post 579 can connect you with a VA-accredited housing counselor — call (210) 674-8069.`},
+
+  {k:['army','u.s. army','united states army'],
+   r:`<strong>United States Army</strong><br/><br/>Founded: June 14, 1775 — the oldest U.S. military branch.<br/><strong>Mission:</strong> Fight and win our nation's wars through prompt, sustained land dominance.<br/><br/><strong>Enlisted Ranks:</strong> E-1 Private → E-9 Sergeant Major of the Army<br/><strong>Officers:</strong> O-1 Second Lieutenant → O-10 General (O-11 General of the Army, wartime only)<br/><br/><strong>Components:</strong><ul><li>Active Army (full-time)</li><li>Army National Guard (state + federal)</li><li>Army Reserve (federal)</li></ul><strong>Signature equipment:</strong> M1A2 Abrams tank, Apache helicopter, M4 carbine<br/><strong>Major commands:</strong> FORSCOM, TRADOC, USARPAC, USAREUR-AF<br/><strong>Motto:</strong> <em>This We'll Defend</em>`},
+
+  {k:['navy','u.s. navy','united states navy'],
+   r:`<strong>United States Navy</strong><br/><br/>Founded: October 13, 1775.<br/><strong>Mission:</strong> Maintain, train, and equip combat-ready naval forces capable of winning wars and maintaining freedom of the seas.<br/><br/><strong>Enlisted Ranks:</strong> E-1 Seaman Recruit → E-9 Master Chief Petty Officer of the Navy<br/><strong>Officers:</strong> O-1 Ensign → O-10 Admiral<br/><br/><strong>Key assets:</strong><ul><li>11 nuclear-powered aircraft carriers</li><li>70+ submarines (attack and ballistic missile)</li><li>F/A-18, F-35C, EA-18G Growler aviation</li><li>Navy SEALs and special warfare</li></ul><strong>Motto:</strong> <em>Forged by the Sea</em>`},
+
+  {k:['marine','marines','marine corps','usmc'],
+   r:`<strong>United States Marine Corps</strong><br/><br/>Founded: November 10, 1775 — the Marine Corps Birthday is celebrated worldwide.<br/><strong>Mission:</strong> Expeditionary force in readiness — the "tip of the spear."<br/><br/><strong>Enlisted Ranks:</strong> E-1 Private → E-9 Sergeant Major of the Marine Corps<br/><strong>Officers:</strong> O-1 Second Lieutenant → O-10 General<br/><br/><strong>Key facts:</strong><ul><li>Every Marine is a rifleman first</li><li>Operates under the Department of the Navy</li><li>Specialty in amphibious assault operations</li><li>Marine One pilots protect the President</li><li>Silent Drill Platoon — precision ceremonial unit</li></ul><strong>Motto:</strong> <em>Semper Fidelis</em> (Always Faithful)`},
+
+  {k:['air force','usaf','united states air force'],
+   r:`<strong>United States Air Force</strong><br/><br/>Founded: September 18, 1947 — separated from the Army.<br/><strong>Mission:</strong> Fly, fight, and win in air, space, and cyberspace.<br/><br/><strong>Enlisted Ranks:</strong> E-1 Airman Basic → E-9 Chief Master Sergeant of the Air Force<br/><strong>Officers:</strong> O-1 Second Lieutenant → O-10 General<br/><br/><strong>Key capabilities:</strong><ul><li>Air superiority — F-22 Raptor, F-35A Lightning II</li><li>Strategic bombing — B-52 Stratofortress, B-2 Spirit, B-21 Raider</li><li>Airlift — C-17 Globemaster, C-130 Hercules</li><li>Aerial refueling — KC-135, KC-46</li><li>Nuclear deterrence — ICBMs</li></ul><strong>Motto:</strong> <em>Aim High... Fly-Fight-Win</em>`},
+
+  {k:['coast guard','uscg','united states coast guard'],
+   r:`<strong>United States Coast Guard</strong><br/><br/>Founded: 1790 as the Revenue Cutter Service — the oldest U.S. sea service.<br/><strong>Unique role:</strong> Both a military branch AND a federal law enforcement agency.<br/><br/><strong>Enlisted Ranks:</strong> E-1 Seaman Recruit → E-9 Master Chief Petty Officer of the Coast Guard<br/><strong>Officers:</strong> O-1 Ensign → O-10 Admiral<br/><br/><strong>Missions:</strong><ul><li>Search and rescue</li><li>Maritime law enforcement and drug interdiction</li><li>Port security and waterways management</li><li>Environmental protection</li><li>Aids to navigation</li></ul><strong>Motto:</strong> <em>Semper Paratus</em> (Always Ready)`},
+
+  {k:['space force','ussf','guardians','newest branch'],
+   r:`<strong>United States Space Force</strong><br/><br/>Founded: December 20, 2019 — the 6th and newest branch of the U.S. Armed Forces.<br/><strong>Mission:</strong> Protect U.S. and allied interests in space.<br/><br/><strong>Members are called:</strong> <em>Guardians</em><br/><strong>Enlisted:</strong> Specialist 1 (E-1) → Chief Master Sergeant of the Space Force (E-9)<br/><strong>Officers:</strong> Second Lieutenant (O-1) → General (O-10)<br/><br/><strong>Key responsibilities:</strong><ul><li>Satellite communications</li><li>GPS navigation systems</li><li>Missile warning and defense</li><li>Space domain awareness</li><li>Space launch operations</li></ul><strong>Motto:</strong> <em>Semper Supra</em> (Always Above)`},
+
+  {k:['national guard','reserve','guard','reservist'],
+   r:`<strong>National Guard & Reserve Components</strong><br/><br/><strong>Army National Guard:</strong><ul><li>Dual mission — responds to Governor (state) and President (federal)</li><li>Disaster response, civil support, overseas deployments</li><li>Typically 1 weekend/month + 2 weeks/year minimum</li></ul><strong>Air National Guard:</strong><ul><li>Same dual mission — air operations and homeland defense</li></ul><strong>Army Reserve / Air Force Reserve:</strong><ul><li>Federal force — supports active duty in contingencies and wartime</li></ul><strong>Benefits for Guard/Reserve:</strong><ul><li>GI Bill eligibility (varies by activation orders)</li><li>VA healthcare (if deployed or service-connected condition)</li><li>Retirement after 20 qualifying service years</li><li>American Legion eligibility during any federal active service</li></ul>`},
+
+  {k:['american legion','about post','what is the american legion','post 579'],
+   r:`<strong>American Legion Bicentennial Post 579</strong><br/><br/>The American Legion is the nation's largest veterans service organization, founded in 1919. There are 13,000+ posts worldwide.<br/><br/><strong>📍 Post 579</strong><br/>3002 Gunsmoke Drive, San Antonio, TX 78227<br/>📞 (210) 674-8069<br/>👤 Commander Harold<br/><br/><strong>What Post 579 does:</strong><ul><li>Free VA claims assistance through accredited Service Officers</li><li>Youth programs: Boys State, Girls State, Legion Baseball, scholarships</li><li>Veterans Day and Memorial Day ceremonies</li><li>Steak Night and Fish Fry fundraisers</li><li>Hall rental supporting veteran programs</li><li>Peer support and community fellowship</li></ul><strong>American Legion nationally advocates for:</strong><ul><li>Veterans' benefits legislation in Congress</li><li>Military family support</li><li>Patriotic education and Americanism</li></ul>`},
+
+  {k:['how to join','join post','membership eligibility','how do i join'],
+   r:`<strong>How to Join American Legion Post 579</strong><br/><br/><strong>Eligibility:</strong> You qualify if you served one or more days of federal active military duty since December 7, 1941 with an honorable discharge — or are currently serving honorably.<br/><br/><strong>All branches qualify:</strong> Army, Navy, Marine Corps, Air Force, Coast Guard, Space Force, National Guard (during federal activation), Reserves (during federal activation).<br/><br/><strong>3 ways to join Post 579:</strong><ol><li>Apply online at our website — <strong>/membership</strong></li><li>Call Commander Harold: <strong>(210) 674-8069</strong></li><li>Visit us: <strong>3002 Gunsmoke Drive, San Antonio TX 78227</strong></li></ol>Annual dues support Post 579 programs and national veteran advocacy. <strong>Every member counts.</strong>`},
+
+  {k:['boys state','girls state','boys nation','girls nation'],
+   r:`<strong>Boys State / Girls State</strong><br/><br/>One of America's most prestigious civic education programs — sponsored by the American Legion and American Legion Auxiliary since 1935.<br/><br/><strong>Who qualifies:</strong><ul><li>High school juniors (rising seniors)</li><li>Strong academic record and leadership potential</li></ul><strong>What it is:</strong><ul><li>Intensive week-long summer program</li><li>Students form a mock state government — elections, legislation, courts</li><li>Builds civic leadership and constitutional understanding</li><li>Top delegates selected for Boys/Girls Nation in Washington D.C.</li></ul><strong>Famous alumni:</strong> President Bill Clinton (Boys Nation), President Barack Obama (Boys State), Michael Jordan, Cory Booker, and hundreds of governors and senators.<br/><br/><strong>Post 579 nominates students annually.</strong> Contact Commander Harold at <strong>(210) 674-8069</strong> to nominate a student or apply.`},
+
+  {k:['scholarship','american legion scholarship','samsung','legacy scholarship','oratorical'],
+   r:`<strong>American Legion Scholarship Programs</strong><br/><br/><strong>National Scholarships:</strong><ul><li><strong>Samsung American Legion Scholarship</strong> — Up to $20,000 for Boys/Girls State graduates</li><li><strong>American Legion Legacy Scholarship</strong> — For children of veterans killed on active duty since 9/11</li><li><strong>National High School Oratorical Contest</strong> — $18,000–$25,000 scholarships; focuses on the U.S. Constitution</li><li><strong>American Legion Eagle Scout of the Year</strong> — $10,000 scholarship</li></ul><strong>Texas Department Scholarships:</strong><ul><li>Additional scholarships for Texas veterans and their families</li><li>Contact the Texas American Legion Department for current offerings</li></ul><strong>Most scholarships require:</strong><ul><li>U.S. citizenship</li><li>Veteran connection (self, parent, or grandparent)</li><li>Strong academic record</li></ul><br/>Post 579 can help you identify and apply — call <strong>(210) 674-8069</strong>.`},
+
+  {k:['riders','american legion riders','motorcycle'],
+   r:`<strong>American Legion Riders</strong><br/><br/>The American Legion Riders is the motorcycle program of The American Legion — open to members of the Legion, Auxiliary, and Sons of the American Legion who ride motorcycles.<br/><br/><strong>What Riders do:</strong><ul><li>Escort fallen warriors at funeral processions and ceremonies</li><li>Participate in patriotic events and parades</li><li>Fundraise for veteran causes and scholarships</li><li>Ride in the Legacy Run (national fundraiser for Legacy Scholarship)</li><li>Support the Warrior Ride program for disabled veterans</li></ul><strong>Requirements:</strong><ul><li>Must be an active American Legion, Auxiliary, or SAL member</li><li>Must own or regularly ride a motorcycle</li></ul>Contact Commander Harold at <strong>(210) 674-8069</strong> to connect with Post 579's Riders chapter.`},
+
+  {k:['officer rank','o-1','o-2','o-3','general','admiral','lieutenant','captain','major','colonel'],
+   r:`<strong>U.S. Military Officer Ranks</strong><br/><br/><table><tr><th>Pay Grade</th><th>Army / USMC / USSF</th><th>Navy / CG</th><th>Air Force</th></tr><tr><td>O-1</td><td>Second Lieutenant</td><td>Ensign</td><td>Second Lieutenant</td></tr><tr><td>O-2</td><td>First Lieutenant</td><td>Lieutenant (JG)</td><td>First Lieutenant</td></tr><tr><td>O-3</td><td>Captain</td><td>Lieutenant</td><td>Captain</td></tr><tr><td>O-4</td><td>Major</td><td>Lt. Commander</td><td>Major</td></tr><tr><td>O-5</td><td>Lt. Colonel</td><td>Commander</td><td>Lt. Colonel</td></tr><tr><td>O-6</td><td>Colonel</td><td>Captain</td><td>Colonel</td></tr><tr><td>O-7</td><td>Brigadier General</td><td>Rear Adm. (L)</td><td>Brigadier General</td></tr><tr><td>O-8</td><td>Major General</td><td>Rear Adm. (U)</td><td>Major General</td></tr><tr><td>O-9</td><td>Lt. General</td><td>Vice Admiral</td><td>Lt. General</td></tr><tr><td>O-10</td><td>General</td><td>Admiral</td><td>General</td></tr></table>`},
+
+  {k:['enlisted rank','e-1','e-2','sergeant','corporal','petty officer','private','airman'],
+   r:`<strong>U.S. Military Enlisted Ranks</strong><br/><br/><table><tr><th>Grade</th><th>Army</th><th>Navy</th><th>Marines</th><th>Air Force</th></tr><tr><td>E-1</td><td>Private</td><td>Seaman Recruit</td><td>Private</td><td>Airman Basic</td></tr><tr><td>E-2</td><td>PV2</td><td>Seaman Apprentice</td><td>PFC</td><td>Airman</td></tr><tr><td>E-3</td><td>PFC</td><td>Seaman</td><td>Lance Cpl</td><td>Airman 1st Class</td></tr><tr><td>E-4</td><td>Specialist</td><td>PO3</td><td>Corporal</td><td>Senior Airman</td></tr><tr><td>E-5</td><td>Sergeant</td><td>PO2</td><td>Sergeant</td><td>Staff Sergeant</td></tr><tr><td>E-6</td><td>Staff Sgt</td><td>PO1</td><td>Staff Sgt</td><td>Tech Sergeant</td></tr><tr><td>E-7</td><td>SFC</td><td>Chief PO</td><td>Gunnery Sgt</td><td>Master Sgt</td></tr><tr><td>E-8</td><td>Master Sgt</td><td>Senior Chief PO</td><td>Master Sgt</td><td>Sr. Master Sgt</td></tr><tr><td>E-9</td><td>Sergeant Major</td><td>Master Chief PO</td><td>Sgt Major MC</td><td>Chief Master Sgt</td></tr></table>`},
+
+  {k:['history','military history','world war','vietnam','korea','gulf war','iraq','afghanistan'],
+   r:`<strong>U.S. Military History — Major Conflicts</strong><br/><br/><ul><li><strong>World War I (1917–1918)</strong> — 4.7M served, 116K died. American Legion founded by WWI veterans in 1919.</li><li><strong>World War II (1941–1945)</strong> — 16M served, 405K died. Greatest generation. D-Day, Iwo Jima, Pacific Theater.</li><li><strong>Korean War (1950–1953)</strong> — "The Forgotten War." 1.8M served, 36K died. DMZ established.</li><li><strong>Vietnam War (1964–1975)</strong> — 2.7M served, 58K died. Agent Orange, POW/MIA, Vietnam Memorial.</li><li><strong>Gulf War (1990–1991)</strong> — Operation Desert Storm. 694K deployed, 148 combat deaths.</li><li><strong>Global War on Terror (2001–present)</strong> — Afghanistan (Operation Enduring Freedom), Iraq (Operation Iraqi Freedom). 2.7M+ served post-9/11.</li></ul>The American Legion represents veterans of every era. Post 579 honors ALL who served.`},
+];
+
+function getResponse(msg) {
+  const m = msg.toLowerCase();
+  for (const entry of KB) {
+    if (entry.k.some(k => m.includes(k))) return entry.r;
+  }
+  return `I understand you're asking about: <strong>"${msg}"</strong><br/><br/>I can help with VA benefits, GI Bill, disability claims, military branches, American Legion programs, Boys State, scholarships, and veterans resources. Try one of the topic buttons on the left, or rephrase your question.<br/><br/>For personalized help:<br/>• Call Post 579: <strong>(210) 674-8069</strong><br/>• Visit: <strong>3002 Gunsmoke Drive, San Antonio TX 78227</strong><br/>• Veterans Crisis Line: <strong>988 — Press 1</strong>`;
+}
+
+function addMsg(text, who) {
+  const c = document.getElementById('msgs');
+  const d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.innerHTML = `<div class="msg-avatar">${who==='ai'?'★':'Y'}</div><div class="msg-bubble">${text}</div>`;
+  c.appendChild(d);
+  c.scrollTop = 99999;
+}
+
+function showTyping(v) {
+  document.getElementById('typing').classList.toggle('show', v);
+  if(v) document.getElementById('msgs').scrollTop = 99999;
+}
+
+function send() {
+  const inp = document.getElementById('inp');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user');
+  inp.value = '';
+  inp.style.height = 'auto';
+  showTyping(true);
+  setTimeout(() => {
+    showTyping(false);
+    addMsg(getResponse(msg), 'ai');
+  }, 800 + Math.random() * 500);
+}
+
+function askQ(q) {
+  document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('inp').value = q;
+  send();
+}
+
+document.getElementById('inp').addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 140) + 'px';
+});
+</script>
+</body>
+</html>

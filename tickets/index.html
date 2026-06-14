@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Tickets | American Legion Post 579</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="stylesheet" href="../assets/css/portal.css"/>
+</head>
+<body>
+
+<div class="utility-bar" style="background:#fff;border-bottom:1px solid #e0e0e0;">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:8px 20px;font-size:0.78rem;">
+    <a href="../index.html" style="color:#1B2A4A;font-weight:bold;font-size:0.78rem;text-transform:uppercase;letter-spacing:1px;">← Back to Post 579</a>
+    <div style="display:flex;gap:8px;">
+      <a href="../membership/" style="background:#B22234;color:#fff;padding:6px 14px;border-radius:3px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;">Join</a>
+      <a href="../login/" style="background:#1B2A4A;color:#fff;padding:6px 14px;border-radius:3px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;">Login</a>
+    </div>
+  </div>
+</div>
+
+<div style="background:#1B2A4A;padding:48px 0;text-align:center;border-bottom:4px solid #C8A84B;">
+  <div style="font-size:0.72rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;">Post 579 — Mrs. Carden Post</div>
+  <h1 style="font-size:2.2rem;color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Event Tickets</h1>
+  <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;">Purchase tickets for Post 579 events. All proceeds support veteran programs.</p>
+</div>
+
+<div style="background:#f5f5f0;padding:60px 0;">
+  <div class="container" style="max-width:900px;">
+
+    <!-- EVENT 1: STEAK NIGHT -->
+    <div class="ticket-event-card" id="steak-night">
+      <div class="ticket-event-card-left">
+        <div class="tec-month">TBD</div>
+        <div class="tec-day">TBD</div>
+        <div class="tec-year">2026</div>
+      </div>
+      <div class="ticket-event-card-body">
+        <div>
+          <span class="tec-tag">Fundraiser</span>
+          <div class="tec-body">
+            <h2>Annual Steak Night</h2>
+            <p>Join Post 579 for our annual Steak Night fundraiser. Enjoy a great meal and support veteran programs. Date to be confirmed by the Commander.</p>
+            <div class="tec-details">
+              <div class="tec-detail"><strong>Date:</strong> To Be Confirmed</div>
+              <div class="tec-detail"><strong>Time:</strong> 6:00 PM</div>
+              <div class="tec-detail"><strong>Location:</strong> Post 579 — 3002 Gunsmoke Drive, San Antonio TX 78227</div>
+              <div class="tec-detail"><strong>Dress:</strong> Business Casual</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-buy-box">
+          <h4>Select Tickets</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Ticket Type</label>
+              <select id="steakType" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateSteakPrice()">
+                <option value="25">General Admission — $25/person</option>
+                <option value="45">Couple Ticket — $45/two people</option>
+                <option value="200">Table of 8 — $200</option>
+                <option value="500">Sponsor Table — $500 (includes recognition)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Quantity</label>
+              <select id="steakQty" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateSteakPrice()">
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>8</option><option>10</option>
+              </select>
+            </div>
+          </div>
+          <div class="ticket-price">Total: $<span id="steakTotal">25.00</span> <span>+ processing fee</span></div>
+          <button class="ticket-btn paypal" onclick="buyTickets('steak-night','Steak Night')">🔒 Purchase with PayPal</button>
+          <p style="font-size:0.72rem;color:#999;margin-top:8px;text-align:center;">Secure checkout via PayPal. Receipt emailed upon purchase.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENT 2: FISH FRY -->
+    <div class="ticket-event-card" id="fish-fry">
+      <div class="ticket-event-card-left" style="background:#B22234;">
+        <div class="tec-month">TBD</div>
+        <div class="tec-day">TBD</div>
+        <div class="tec-year">2026</div>
+      </div>
+      <div class="ticket-event-card-body">
+        <div>
+          <span class="tec-tag">Community</span>
+          <div class="tec-body">
+            <h2>Fish Fry Fundraiser</h2>
+            <p>Post 579's annual Fish Fry — a community tradition. All-you-can-eat fish, sides, and fellowship. Supports Post programs and veteran assistance funds.</p>
+            <div class="tec-details">
+              <div class="tec-detail"><strong>Date:</strong> To Be Confirmed</div>
+              <div class="tec-detail"><strong>Time:</strong> 5:00 PM</div>
+              <div class="tec-detail"><strong>Location:</strong> Post 579 — 3002 Gunsmoke Drive, San Antonio TX 78227</div>
+              <div class="tec-detail"><strong>Style:</strong> All-You-Can-Eat</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-buy-box">
+          <h4>Select Tickets</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Ticket Type</label>
+              <select id="fishType" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateFishPrice()">
+                <option value="15">Adult — $15/person</option>
+                <option value="8">Child (under 12) — $8</option>
+                <option value="12">Senior/Veteran — $12</option>
+                <option value="50">Family Pack (4) — $50</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Quantity</label>
+              <select id="fishQty" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateFishPrice()">
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>8</option><option>10</option>
+              </select>
+            </div>
+          </div>
+          <div class="ticket-price">Total: $<span id="fishTotal">15.00</span> <span>+ processing fee</span></div>
+          <button class="ticket-btn paypal" onclick="buyTickets('fish-fry','Fish Fry')">🔒 Purchase with PayPal</button>
+          <p style="font-size:0.72rem;color:#999;margin-top:8px;text-align:center;">QR code ticket emailed upon purchase for check-in at door.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENT 3: VETERANS DAY BANQUET -->
+    <div class="ticket-event-card" id="veterans-banquet">
+      <div class="ticket-event-card-left" style="background:#0D1B33;">
+        <div class="tec-month">NOV</div>
+        <div class="tec-day">11</div>
+        <div class="tec-year">2026</div>
+      </div>
+      <div class="ticket-event-card-body">
+        <div>
+          <span class="tec-tag" style="background:#C8A84B;color:#1B2A4A;">Ceremony</span>
+          <div class="tec-body">
+            <h2>Veterans Day Banquet</h2>
+            <p>Honor our veterans at Post 579's annual Veterans Day Banquet. Dinner, ceremony, keynote speaker, and recognition of service. Sponsor packages available for businesses.</p>
+            <div class="tec-details">
+              <div class="tec-detail"><strong>Date:</strong> November 11, 2026</div>
+              <div class="tec-detail"><strong>Time:</strong> 6:30 PM</div>
+              <div class="tec-detail"><strong>Location:</strong> Post 579 — 3002 Gunsmoke Drive, San Antonio TX 78227</div>
+              <div class="tec-detail"><strong>Dress:</strong> Business/Formal</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-buy-box">
+          <h4>Select Tickets / Sponsorship</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Ticket / Package</label>
+              <select id="banquetType" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateBanquetPrice()">
+                <option value="50">Individual Ticket — $50</option>
+                <option value="90">Couple — $90</option>
+                <option value="400">Reserved Table (8) — $400</option>
+                <option value="750">Silver Sponsor — $750 (table + program ad)</option>
+                <option value="1500">Gold Sponsor — $1,500 (table + stage recognition)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Quantity</label>
+              <select id="banquetQty" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;" onchange="updateBanquetPrice()">
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="ticket-price">Total: $<span id="banquetTotal">50.00</span> <span>+ processing fee</span></div>
+          <button class="ticket-btn paypal" onclick="buyTickets('veterans-banquet','Veterans Day Banquet')">🔒 Purchase with PayPal</button>
+          <p style="font-size:0.72rem;color:#999;margin-top:8px;text-align:center;">Confirmation and digital ticket sent to your email. Sponsor materials sent separately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HALL RENTAL DEPOSIT -->
+    <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);margin-bottom:28px;border:2px solid #C8A84B;">
+      <div style="background:#C8A84B;padding:20px 28px;">
+        <div style="font-size:0.72rem;color:rgba(0,0,0,0.5);text-transform:uppercase;letter-spacing:2px;font-weight:bold;margin-bottom:4px;">Facility Reservation</div>
+        <h2 style="font-size:1.2rem;color:#1B2A4A;font-weight:900;text-transform:uppercase;letter-spacing:1px;">Hall Rental Deposit</h2>
+      </div>
+      <div style="padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div>
+          <p style="font-size:0.88rem;color:#555;line-height:1.7;margin-bottom:16px;">Secure your date with a hall rental deposit. Full payment terms will be arranged with Commander Harold after booking confirmation.</p>
+          <ul style="font-size:0.82rem;color:#555;line-height:2.2;list-style:none;">
+            <li>★ Deposit secures your date</li>
+            <li>★ Applied to total rental balance</li>
+            <li>★ Confirmation sent within 24 hours</li>
+            <li>★ Refundable per rental agreement</li>
+          </ul>
+        </div>
+        <div class="ticket-buy-box">
+          <h4>Rental Deposit</h4>
+          <div style="margin-bottom:14px;">
+            <label style="font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:6px;">Deposit Amount</label>
+            <select id="depositAmt" style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:0.85rem;">
+              <option value="100">$100 — Standard Deposit</option>
+              <option value="200">$200 — Large Event Deposit</option>
+              <option value="500">$500 — Full Day Reservation</option>
+            </select>
+          </div>
+          <div class="ticket-price">$<span id="depositTotal">100.00</span></div>
+          <button class="ticket-btn paypal" onclick="payDeposit()">🔒 Pay Deposit via PayPal</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PURCHASE MODAL -->
+<div id="purchaseModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:16px;padding:40px;max-width:480px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.4);">
+    <div style="font-size:3rem;margin-bottom:16px;">🎟</div>
+    <h2 style="font-size:1.2rem;color:#1B2A4A;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" id="modalEventName">Event Tickets</h2>
+    <p style="color:#666;font-size:0.88rem;margin-bottom:24px;" id="modalDetails">Complete your purchase securely via PayPal.</p>
+    <div style="background:#f5f5f0;border-radius:8px;padding:20px;margin-bottom:24px;">
+      <div style="font-size:0.78rem;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Order Total</div>
+      <div style="font-size:2.4rem;font-weight:900;color:#1B2A4A;" id="modalTotal">$25.00</div>
+      <div style="font-size:0.72rem;color:#999;margin-top:4px;">+ PayPal processing fee</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <button onclick="closePurchaseModal()" style="padding:12px;background:#f5f5f0;border:1.5px solid #e0e0e0;border-radius:6px;font-size:0.82rem;font-weight:bold;text-transform:uppercase;cursor:pointer;color:#666;">Cancel</button>
+      <button onclick="confirmPayPal()" style="padding:12px;background:#003087;color:#fff;border:none;border-radius:6px;font-size:0.82rem;font-weight:bold;text-transform:uppercase;cursor:pointer;">Pay with PayPal →</button>
+    </div>
+    <p style="font-size:0.72rem;color:#999;margin-top:14px;">🔒 Secure • Digital receipt emailed • QR code for check-in</p>
+  </div>
+</div>
+
+<footer style="background:#1B2A4A;padding:24px;text-align:center;border-top:3px solid #C8A84B;">
+  <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;">&copy; 2026 American Legion Post 579 — Mrs. Carden Post | San Antonio, TX | <a href="../contact/" style="color:#C8A84B;">Contact</a> | <a href="../index.html" style="color:#C8A84B;">Home</a></p>
+</footer>
+
+<script>
+function updateSteakPrice(){
+  const price = parseFloat(document.getElementById('steakType').value);
+  const qty = parseInt(document.getElementById('steakQty').value);
+  document.getElementById('steakTotal').textContent = (price * qty).toFixed(2);
+}
+function updateFishPrice(){
+  const price = parseFloat(document.getElementById('fishType').value);
+  const qty = parseInt(document.getElementById('fishQty').value);
+  document.getElementById('fishTotal').textContent = (price * qty).toFixed(2);
+}
+function updateBanquetPrice(){
+  const price = parseFloat(document.getElementById('banquetType').value);
+  const qty = parseInt(document.getElementById('banquetQty').value);
+  document.getElementById('banquetTotal').textContent = (price * qty).toFixed(2);
+}
+document.getElementById('depositAmt').addEventListener('change',function(){
+  document.getElementById('depositTotal').textContent = parseFloat(this.value).toFixed(2);
+});
+
+let currentEvent = '';
+let currentTotal = 0;
+
+function buyTickets(eventId, eventName){
+  let total = 0;
+  if(eventId === 'steak-night') {
+    const p = parseFloat(document.getElementById('steakType').value);
+    const q = parseInt(document.getElementById('steakQty').value);
+    total = p * q;
+  } else if(eventId === 'fish-fry') {
+    const p = parseFloat(document.getElementById('fishType').value);
+    const q = parseInt(document.getElementById('fishQty').value);
+    total = p * q;
+  } else if(eventId === 'veterans-banquet') {
+    const p = parseFloat(document.getElementById('banquetType').value);
+    const q = parseInt(document.getElementById('banquetQty').value);
+    total = p * q;
+  }
+  currentEvent = eventName;
+  currentTotal = total;
+  document.getElementById('modalEventName').textContent = eventName + ' — Tickets';
+  document.getElementById('modalDetails').textContent = 'Confirm your purchase for ' + eventName + ' at Post 579.';
+  document.getElementById('modalTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('purchaseModal').style.display = 'flex';
+}
+
+function payDeposit(){
+  const amt = document.getElementById('depositAmt').value;
+  currentEvent = 'Hall Rental Deposit';
+  currentTotal = parseFloat(amt);
+  document.getElementById('modalEventName').textContent = 'Hall Rental Deposit';
+  document.getElementById('modalDetails').textContent = 'Secure your rental date with a deposit. Commander Harold will confirm your booking within 24 hours.';
+  document.getElementById('modalTotal').textContent = '$' + parseFloat(amt).toFixed(2);
+  document.getElementById('purchaseModal').style.display = 'flex';
+}
+
+function closePurchaseModal(){
+  document.getElementById('purchaseModal').style.display = 'none';
+}
+
+function confirmPayPal(){
+  // PayPal integration — replace PAYPAL_EMAIL with real email from Commander
+  const paypalEmail = 'commander@post579sa.org';
+  const amount = currentTotal.toFixed(2);
+  const item = encodeURIComponent('Post 579: ' + currentEvent);
+  const returnUrl = encodeURIComponent(window.location.origin + '/tickets/success.html');
+  const cancelUrl = encodeURIComponent(window.location.href);
+  const url = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${paypalEmail}&item_name=${item}&amount=${amount}&currency_code=USD&return=${returnUrl}&cancel_return=${cancelUrl}`;
+  window.open(url, '_blank');
+  closePurchaseModal();
+}
+</script>
+
+</body>
+</html>
