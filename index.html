@@ -3,676 +3,444 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>American Legion Bicentennial Post 579 | Mr. Harold Post | San Antonio, TX</title>
-<meta name="description" content="American Legion Post 579 — Mr. Harold Post, San Antonio, Texas 78227. Serving veterans, military families, and the community with honor, service, and patriotism."/>
-<meta property="og:title" content="American Legion Bicentennial Post 579 — San Antonio, TX"/>
-<meta property="og:description" content="Bicentennial Post 579 — Mr. Harold Post. Serving veterans, families, and the Lackland Terrace community since 1976."/>
-<link rel="stylesheet" href="assets/css/style.css">
+<title>American Legion Post 579 | Veterans Serving Veterans | San Antonio, TX</title>
+<meta name="description" content="American Legion Bicentennial Post 579, San Antonio, Texas. Serving veterans, military families, and the community since 1976."/>
 <link rel="stylesheet" href="assets/css/slideshow.css">
 <style>
-/* ── GLOBAL RESET ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f5f5; color: #222; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none}
 
-/* ── TOP BAR ── */
-.top-bar {
-  background: #B22234;
-  color: white;
-  font-size: 0.82rem;
-  padding: 7px 0;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-.top-bar a { color: #FFD700; text-decoration: none; font-weight: 700; }
-.top-bar a:hover { text-decoration: underline; }
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
 
-/* ── METALLIC HEADER ── */
-.post-masthead {
-  background: linear-gradient(135deg, #0a0f1e 0%, #1B2A47 40%, #0d1a35 100%);
-  padding: 22px 30px 18px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 4px solid #B22234;
-}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.75);font-size:0.8rem;text-align:center;padding:8px 20px;letter-spacing:0.04em}
+.top-strip a{color:#FFD700;font-weight:700}
 
-/* American flag stripe animation */
-.post-masthead::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(178,34,52,0.08) 0px,
-    rgba(178,34,52,0.08) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-  pointer-events: none;
-}
+/* METALLIC MASTHEAD */
+.masthead{background:linear-gradient(180deg,#071020 0%,#0d1a35 50%,#071020 100%);padding:28px 20px 22px;text-align:center;border-bottom:5px solid #B22234;position:relative;overflow:hidden}
+.masthead::before{content:'★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★';position:absolute;top:8px;left:0;right:0;font-size:0.7rem;color:rgba(255,255,255,0.1);letter-spacing:8px;text-align:center}
+.masthead-flags{font-size:1.8rem;letter-spacing:6px;margin-bottom:14px}
+.masthead-title{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.05;letter-spacing:0.06em;text-transform:uppercase;background:linear-gradient(180deg,#fff 0%,#f5e6b0 15%,#C5A028 35%,#fff 52%,#C5A028 68%,#8a6510 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.9));margin-bottom:6px}
+.masthead-title .rw{background:linear-gradient(180deg,#ff7070 0%,#B22234 35%,#ff4444 55%,#7a1020 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 12px rgba(0,0,0,1))}
+.masthead-sub{font-size:0.88rem;color:rgba(255,255,255,0.6);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:16px}
+.insignia-row{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:6px}
+.ins{display:flex;flex-direction:column;align-items:center;padding:6px 18px;gap:3px;border-right:1px solid rgba(255,255,255,0.1)}
+.ins:last-child{border-right:none}
+.ins-icon{font-size:1.5rem}
+.ins-lbl{font-size:0.52rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;font-weight:700;white-space:nowrap}
 
-/* Flag icons row */
-.flag-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-  opacity: 0.9;
-}
+/* NAV */
+nav.site-nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.nav-logo{color:white;font-weight:900;font-size:1rem;padding:14px 0;white-space:nowrap}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.82rem;font-weight:600;padding:16px 12px;letter-spacing:0.03em;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.nav-join:hover{background:#8B1A1A!important}
 
-/* Main post title — metallic */
-.post-masthead-title {
-  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: linear-gradient(180deg,
-    #ffffff 0%,
-    #e8d5a0 20%,
-    #C5A028 40%,
-    #ffffff 55%,
-    #C5A028 70%,
-    #a07818 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.8));
-  line-height: 1.1;
-  margin: 0;
-}
+main{max-width:1400px;margin:0 auto;padding:0 28px 60px}
 
-.post-masthead-title span.al {
-  background: linear-gradient(180deg,
-    #ff6b6b 0%,
-    #B22234 30%,
-    #ff4444 55%,
-    #8B1A1A 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.9));
-  font-size: 1.15em;
-}
+/* SECTION HEADER */
+.sh{text-align:center;margin-bottom:32px}
+.sh h2{font-size:2.3rem;font-weight:900;color:#0d1a35;text-transform:uppercase;letter-spacing:0.04em}
+.sh p{font-size:1rem;color:#555;margin-top:10px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:14px auto 0}
 
-.post-masthead-subtitle {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 6px;
-  font-weight: 600;
-}
+/* PHOTO BUTTON CARDS — your images ARE the buttons */
+.photo-btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:28px 0}
 
-/* Branch insignia row */
-.branch-insignia-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 12px;
-  flex-wrap: wrap;
+.photo-btn{
+  position:relative;height:200px;border-radius:14px;overflow:hidden;
+  cursor:pointer;display:block;text-decoration:none;
+  box-shadow:0 6px 24px rgba(0,0,0,0.25);
+  transition:transform 0.25s,box-shadow 0.25s;
 }
-.insignia-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-.insignia-badge:hover { opacity: 1; }
-.insignia-badge .i-icon { font-size: 1.6rem; }
-.insignia-badge .i-label {
-  font-size: 0.52rem;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.insignia-divider {
-  width: 1px;
-  height: 30px;
-  background: rgba(255,255,255,0.15);
-}
+.photo-btn:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 14px 40px rgba(0,0,0,0.35)}
+.photo-btn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-btn:hover img{transform:scale(1.06)}
+.photo-btn .pb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.25) 60%,transparent 100%)}
+.photo-btn .pb-body{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;color:white;z-index:2}
+.photo-btn .pb-tag{display:inline-block;background:#B22234;color:white;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:7px}
+.photo-btn .pb-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-btn h3{font-size:1.15rem;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,0.6);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.03em}
+.photo-btn p{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.4;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.photo-btn .pb-cta{display:inline-block;margin-top:8px;padding:7px 18px;background:#B22234;color:white;border-radius:6px;font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em}
+.photo-btn:hover .pb-cta{background:#8B1A1A}
+.photo-btn .pb-cta.gold{background:#C5A028;color:#0d1a35}
 
-/* ── HEADER / NAV ── */
-header {
-  background: #1B2A47;
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
-}
-.header-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 30px;
-}
-.logo-block { display: flex; align-items: center; gap: 14px; }
-.logo-icon { font-size: 2rem; }
-.logo-text h1 { font-size: 1.1rem; font-weight: 900; color: white; line-height: 1.1; }
-.logo-text p { font-size: 0.72rem; color: rgba(255,255,255,0.65); letter-spacing: 0.1em; text-transform: uppercase; }
+/* MISSION PHOTO CARDS */
+.mission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:28px 0}
+.mc{position:relative;height:240px;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.2);transition:transform 0.25s}
+.mc:hover{transform:translateY(-4px)}
+.mc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mc .mc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,16,32,0.9) 0%,rgba(7,16,32,0.3) 65%,transparent 100%);border-top:4px solid #B22234}
+.mc .mc-body{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;color:white;z-index:2}
+.mc .mc-icon{font-size:1.8rem;margin-bottom:6px}
+.mc h3{font-size:1.1rem;font-weight:900;color:#FFD700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px}
+.mc p{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.5}
 
-nav { display: flex; gap: 4px; flex-wrap: wrap; }
-nav a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-nav a:hover { background: rgba(255,255,255,0.12); color: white; }
-.nav-join {
-  background: #B22234 !important;
-  color: white !important;
-  border-radius: 6px;
-  padding: 8px 16px !important;
-}
-.nav-join:hover { background: #8B1A1A !important; }
+/* EVENTS */
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:28px 0}
+.ev{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.2);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform 0.25s}
+.ev:hover{transform:translateY(-4px)}
+.ev img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ev .ev-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.2) 70%,transparent 100%)}
+.ev .ev-body{position:relative;z-index:2;padding:22px}
+.ev .ev-badge{display:inline-block;background:#B22234;color:white;font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:8px}
+.ev h3{font-size:1.2rem;font-weight:900;color:white;margin-bottom:6px;text-transform:uppercase}
+.ev p{font-size:0.82rem;color:rgba(255,255,255,0.8);line-height:1.5;margin-bottom:12px}
+.ev a.ev-cta{display:inline-block;padding:9px 22px;background:#B22234;color:white;border-radius:7px;font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;transition:background 0.2s}
+.ev a.ev-cta:hover{background:#8B1A1A}
 
-/* ── HERO SLIDESHOW WRAPPER ── */
-.hero-wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0;
-}
+/* DARK SECTION */
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:44px 36px;margin:44px 0}
+.dark-section .sh h2{color:white}
+.dark-section .sh p{color:rgba(255,255,255,0.7)}
 
-/* ── ALERT BANNER ── */
-.alert-banner {
-  background: linear-gradient(135deg, #1B2A47, #2D3F6E);
-  color: white;
-  text-align: center;
-  padding: 14px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-.alert-banner span { color: #FFD700; }
+/* LINKS */
+.links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}
+.lc{background:white;border-radius:12px;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;border-left:4px solid #0d1a35;box-shadow:0 2px 10px rgba(0,0,0,0.07);transition:all 0.2s;color:inherit}
+.lc:hover{border-left-color:#B22234;transform:translateX(3px)}
+.lc .li{font-size:1.7rem;flex-shrink:0}
+.lc h4{font-size:0.95rem;font-weight:800;color:#0d1a35;margin-bottom:4px}
+.lc p{font-size:0.8rem;color:#666;line-height:1.4}
+.lc .lu{font-size:0.72rem;color:#B22234;font-weight:700;margin-top:4px}
 
-/* ── MAIN CONTENT ── */
-main { max-width: 1400px; margin: 0 auto; padding: 0 30px 60px; }
+/* CONTACT BANNER */
+.contact-banner{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin:40px 0}
+.contact-banner h2{font-size:2rem;color:white;font-weight:900}
+.contact-banner p{color:rgba(255,255,255,0.7);margin-top:6px}
+.cinfo{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+.cinfo span{color:white;font-size:0.88rem;display:flex;align-items:center;gap:6px}
+.cinfo a{color:#FFD700;font-weight:700}
 
-/* ── SECTION STYLES ── */
-.section { margin: 50px 0; }
-.section-header { text-align: center; margin-bottom: 36px; }
-.section-header h2 {
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #1B2A47;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.section-header p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 10px;
-  line-height: 1.6;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.red-line {
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #B22234;
-  margin: 14px auto 0;
-  border-radius: 2px;
-}
+/* BTNS */
+.btn{display:inline-block;padding:12px 26px;border-radius:8px;font-weight:800;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.1)}
 
-/* ── MISSION CARDS ── */
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin: 30px 0;
-}
-.mission-card {
-  background: white;
-  border-radius: 14px;
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  border-top: 4px solid #B22234;
-  transition: transform 0.2s;
-}
-.mission-card:hover { transform: translateY(-4px); }
-.mission-card .icon { font-size: 2.6rem; margin-bottom: 14px; }
-.mission-card h3 { font-size: 1.25rem; font-weight: 800; color: #1B2A47; margin-bottom: 10px; }
-.mission-card p { font-size: 0.95rem; color: #555; line-height: 1.6; }
+/* FOOTER */
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:48px 30px 22px}
+.foot-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.foot-brand h3{color:white;font-size:1rem;font-weight:900;margin-bottom:10px}
+.foot-brand p{font-size:0.83rem;line-height:1.75}
+.foot-col h4{color:white;font-size:0.82rem;font-weight:800;margin-bottom:12px;letter-spacing:0.1em;text-transform:uppercase}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:7px}
+.foot-col ul li a{color:rgba(255,255,255,0.6);font-size:0.82rem;transition:color 0.2s}
+.foot-col ul li a:hover{color:#FFD700}
+.foot-bottom{max-width:1400px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.78rem}
+.foot-bottom a{color:#FFD700}
 
-/* ── BRANCH SLIDESHOW GRID ── */
-.branch-section { background: #1B2A47; border-radius: 16px; padding: 40px 30px; margin: 50px 0; }
-.branch-section .section-header h2 { color: white; }
-.branch-section .section-header p { color: rgba(255,255,255,0.7); }
-
-/* ── EVENTS STRIP ── */
-.events-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-.event-card {
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.event-date-badge {
-  background: #B22234;
-  color: white;
-  text-align: center;
-  padding: 18px;
-}
-.event-date-badge .month { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
-.event-date-badge .day { font-size: 2.8rem; font-weight: 900; line-height: 1; }
-.event-info { padding: 20px 24px; flex: 1; }
-.event-info h3 { font-size: 1.2rem; font-weight: 800; color: #1B2A47; margin-bottom: 8px; }
-.event-info p { font-size: 0.9rem; color: #555; line-height: 1.6; }
-.event-info .btn { margin-top: 14px; }
-
-/* ── LINKS SECTION ── */
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin: 30px 0;
-}
-.link-card {
-  background: white;
-  border-radius: 12px;
-  padding: 22px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  text-decoration: none;
-  color: inherit;
-  border-left: 4px solid #1B2A47;
-  transition: all 0.2s;
-}
-.link-card:hover { border-left-color: #B22234; transform: translateX(3px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
-.link-card .link-icon { font-size: 1.8rem; flex-shrink: 0; }
-.link-card h4 { font-size: 1rem; font-weight: 800; color: #1B2A47; margin-bottom: 4px; }
-.link-card p { font-size: 0.82rem; color: #666; line-height: 1.4; }
-.link-card .link-url { font-size: 0.75rem; color: #B22234; font-weight: 600; margin-top: 4px; }
-
-/* ── CONTACT STRIP ── */
-.contact-strip {
-  background: linear-gradient(135deg, #1B2A47 0%, #2D3F6E 100%);
-  border-radius: 16px;
-  padding: 40px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin: 50px 0;
-}
-.contact-strip h2 { font-size: 2rem; color: white; font-weight: 900; }
-.contact-strip p { color: rgba(255,255,255,0.75); margin-top: 8px; font-size: 1rem; }
-.contact-info-row { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 14px; }
-.contact-info-row span { color: white; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
-
-/* ── BTNS ── */
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 0.9rem;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
-}
-.btn-primary { background: #B22234; color: white; }
-.btn-primary:hover { background: #8B1A1A; transform: translateY(-1px); }
-.btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
-.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
-.btn-gold { background: #C5A028; color: #1B2A47; }
-.btn-gold:hover { background: #A88020; }
-
-/* ── FOOTER ── */
-footer {
-  background: #0d1a2e;
-  color: rgba(255,255,255,0.75);
-  padding: 50px 30px 24px;
-}
-.footer-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-.footer-brand h3 { color: white; font-size: 1.1rem; font-weight: 900; margin-bottom: 10px; }
-.footer-brand p { font-size: 0.85rem; line-height: 1.7; }
-.footer-col h4 { color: white; font-size: 0.9rem; font-weight: 800; margin-bottom: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 8px; }
-.footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-.footer-col ul li a:hover { color: #FFD700; }
-.footer-bottom {
-  max-width: 1400px;
-  margin: 0 auto;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 0.8rem;
-}
-.footer-bottom a { color: #FFD700; text-decoration: none; }
-
-@media (max-width: 900px) {
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .contact-strip { flex-direction: column; text-align: center; }
-  .header-inner { flex-direction: column; gap: 14px; }
-  nav { justify-content: center; }
-}
-@media (max-width: 600px) {
-  .footer-inner { grid-template-columns: 1fr; }
-  main { padding: 0 16px 40px; }
-}
+@media(max-width:950px){.foot-inner{grid-template-columns:1fr 1fr}.nav-inner{flex-direction:column;padding:10px 20px}.contact-banner{flex-direction:column;text-align:center}.cinfo{justify-content:center}}
+@media(max-width:600px){.foot-inner{grid-template-columns:1fr}main{padding:0 14px 40px}.masthead-title{font-size:2rem}}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  🎖️ American Legion Bicentennial Post 579 &nbsp;|&nbsp; 3002 Gunsmoke Street, San Antonio, TX 78227 &nbsp;|&nbsp;
-  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;|&nbsp;
-  <a href="https://www.legion.org" target="_blank">legion.org</a>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp;
+  <a href="tel:2103857000">(210) 385-7000</a> &nbsp;·&nbsp; <a href="https://www.legion.org" target="_blank">legion.org ↗</a>
 </div>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo-block">
-      <div class="logo-icon">⚔️</div>
-      <div class="logo-text">
-        <h1>American Legion Bicentennial Post 579</h1>
-        <p>Mr. Harold Post · San Antonio, Texas · Est. 1976 · For God and Country</p>
-      </div>
-    </div>
-    <nav>
+<!-- METALLIC MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1 class="masthead-title"><span class="rw">AMERICAN LEGION</span><br>BICENTENNIAL POST 579</h1>
+  <p class="masthead-sub">⭐ San Antonio, Texas &nbsp;·&nbsp; Est. 1976 &nbsp;·&nbsp; For God and Country ⭐</p>
+  <div class="insignia-row">
+    <div class="ins"><span class="ins-icon">⚔️</span><span class="ins-lbl">Army</span></div>
+    <div class="ins"><span class="ins-icon">🦅</span><span class="ins-lbl">Marines</span></div>
+    <div class="ins"><span class="ins-icon">⚓</span><span class="ins-lbl">Navy</span></div>
+    <div class="ins"><span class="ins-icon">✈️</span><span class="ins-lbl">Air Force</span></div>
+    <div class="ins"><span class="ins-icon">🛡️</span><span class="ins-lbl">Coast Guard</span></div>
+    <div class="ins"><span class="ins-icon">🚀</span><span class="ins-lbl">Space Force</span></div>
+    <div class="ins"><span class="ins-icon">🎖️</span><span class="ins-lbl">Post 579</span></div>
+    <div class="ins"><span class="ins-icon">🇺🇸</span><span class="ins-lbl">USA</span></div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="about.html">About</a>
       <a href="membership.html">Membership</a>
       <a href="events.html">Events</a>
       <a href="veterans-services.html">Veterans</a>
       <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
       <a href="hall-rental.html">Hall Rental</a>
       <a href="donate.html">Donate</a>
       <a href="contact.html">Contact</a>
       <a href="membership.html" class="nav-join">Join Now</a>
-    </nav>
+    </div>
   </div>
-</header>
-
-<!-- ALERT BANNER -->
-<div class="alert-banner">
-  🇺🇸 <span>UPCOMING:</span> Steak Night — Every 3rd Friday &nbsp;|&nbsp;
-  <span>Veterans Day Banquet</span> — November 11, 2026 &nbsp;|&nbsp;
-  <a href="tickets/" style="color:#FFD700;text-decoration:none;font-weight:800;">Get Tickets →</a>
-</div>
+</nav>
 
 <!-- HERO SLIDESHOW -->
-<div class="hero-wrapper">
-  <div id="hero-slideshow"></div>
-</div>
+<div id="hero-slideshow"></div>
 
-<!-- MAIN -->
 <main>
 
-  <!-- MISSION CARDS -->
-  <section class="section">
-    <div class="section-header">
-      <h2>Our Mission at Post 579</h2>
-      <p>Bicentennial Post 579 — Mr. Harold Post — has served veterans, military families, and the Lackland Terrace community since our charter in 1976. We stand for honor, service, and patriotism.</p>
-      <span class="red-line"></span>
+  <!-- PHOTO BUTTON CARDS — MAIN NAVIGATION -->
+  <section style="margin-top:40px">
+    <div class="sh">
+      <h2>American Legion Post 579</h2>
+      <p>Veterans serving veterans in San Antonio since 1976. Click below to explore everything Post 579 has to offer.</p>
+      <span class="redline"></span>
+    </div>
+    <div class="photo-btn-grid">
+      <a href="membership.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="Join Post 579">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag">Membership</div>
+          <h3>Join Post 579</h3>
+          <p>Eligible veterans — apply for membership today</p>
+          <span class="pb-cta">Apply Now →</span>
+        </div>
+      </a>
+      <a href="veterans-services.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Veterans Assistance">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag">Veterans Help</div>
+          <h3>Veterans Assistance</h3>
+          <p>Free VA benefits, claims, housing &amp; more</p>
+          <span class="pb-cta">Get Help →</span>
+        </div>
+      </a>
+      <a href="events.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="Events at Post 579">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag">Events</div>
+          <h3>Upcoming Events</h3>
+          <p>Steak nights, fish fries, banquets &amp; more</p>
+          <span class="pb-cta">See Events →</span>
+        </div>
+      </a>
+      <a href="tickets/" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="Buy Tickets">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag gold">Buy Tickets</div>
+          <h3>🥩 Steak Night</h3>
+          <p>Every 3rd Friday — reserve your seat</p>
+          <span class="pb-cta gold">Get Tickets →</span>
+        </div>
+      </a>
+      <a href="hall-rental.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="Hall Rental">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag">Hall Rental</div>
+          <h3>Reserve the Hall</h3>
+          <p>Host your event at Post 579's facility</p>
+          <span class="pb-cta">Book Now →</span>
+        </div>
+      </a>
+      <a href="donate.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="Donate">
+        <div class="pb-overlay"></div>
+        <div class="pb-body">
+          <div class="pb-tag gold">Donate</div>
+          <h3>Support Post 579</h3>
+          <p>Your donation funds veteran programs &amp; community outreach</p>
+          <span class="pb-cta gold">Donate Now →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MISSION PHOTO CARDS -->
+  <section>
+    <div class="sh">
+      <h2>Our Mission</h2>
+      <p>For God and Country — Post 579 stands for honor, service, and patriotism in every action we take.</p>
+      <span class="redline"></span>
     </div>
     <div class="mission-grid">
-      <div class="mission-card">
-        <div class="icon">🎖️</div>
-        <h3>Honor Our Veterans</h3>
-        <p>We recognize and celebrate the service of every veteran from every branch who has defended our nation. No veteran stands alone at Post 579.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/1e1cd191e_99f7c1086_IMG_6467.jpg" alt="Honor Veterans">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">🎖️</div><h3>Honor Our Veterans</h3><p>Every veteran who served receives recognition and a community that never forgets their sacrifice.</p></div>
       </div>
-      <div class="mission-card">
-        <div class="icon">🤝</div>
-        <h3>Serve Our Community</h3>
-        <p>From youth programs to community service events, Post 579 is woven into the fabric of San Antonio's Lackland Terrace neighborhood.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/3c856512c_daaf1a755_IMG_6454.jpg" alt="Community Service">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">🤝</div><h3>Community Service</h3><p>From youth programs to patriotic ceremonies — Post 579 is woven into the Lackland Terrace community.</p></div>
       </div>
-      <div class="mission-card">
-        <div class="icon">🏥</div>
-        <h3>Veteran Assistance</h3>
-        <p>We connect veterans and their families with VA benefits, disability claims, housing resources, mental health support, and employment services.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7ef2844c2_60ad78586_IMG_6478.jpg" alt="Legislative Advocacy">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">📜</div><h3>Legislative Advocacy</h3><p>We fight for veterans' rights, proper VA funding, and legislation that honors those who served.</p></div>
       </div>
-      <div class="mission-card">
-        <div class="icon">🎓</div>
-        <h3>Youth &amp; Education</h3>
-        <p>Through Boys State, Girls State, scholarships, and youth programs, we invest in the next generation of American leaders.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e90242ebe_44d45c1bb_IMG_6556.jpg" alt="Youth Programs">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">🎓</div><h3>Youth Programs</h3><p>Boys State, Girls State, scholarships — investing in the next generation of American leaders.</p></div>
       </div>
-      <div class="mission-card">
-        <div class="icon">🏛️</div>
-        <h3>Legislative Advocacy</h3>
-        <p>We advocate at every level of government for veterans' rights, proper funding for the VA, and policies that protect those who served.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/16a3e8bb8_d1a3e5270_IMG_6472.jpg" alt="VA Assistance">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">🏥</div><h3>VA Assistance</h3><p>Free help with VA claims, disability, housing, employment, and mental health resources.</p></div>
       </div>
-      <div class="mission-card">
-        <div class="icon">🎺</div>
-        <h3>Ceremonies &amp; Tradition</h3>
-        <p>Memorial Day, Veterans Day, POW/MIA Recognition Day — we honor the fallen and celebrate American tradition with pride and dignity.</p>
+      <div class="mc">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/323f1bd78_013a10331_IMG_6463.jpg" alt="Ceremonies">
+        <div class="mc-overlay"></div>
+        <div class="mc-body"><div class="mc-icon">🎺</div><h3>Patriotic Ceremonies</h3><p>Memorial Day, Veterans Day, POW/MIA Recognition — we honor the fallen with dignity and pride.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- MILITARY BRANCH SLIDESHOW GRID -->
-  <section class="section branch-section">
-    <div class="section-header">
-      <h2>Honoring All Who Served</h2>
-      <p>Post 579 proudly welcomes veterans from every branch of the United States Armed Forces. We are one family — one mission — one nation.</p>
-      <span class="red-line"></span>
-    </div>
-    <div class="branch-slideshow-grid">
-      <div id="branch-mini-1"></div>
-      <div id="branch-mini-2"></div>
-      <div id="branch-mini-3"></div>
-    </div>
-    <div style="text-align:center;margin-top:28px;">
-      <a href="military-ai/" class="btn btn-gold">🤖 Ask Our Military Guide AI</a>
-      &nbsp;&nbsp;
-      <a href="veterans-services.html" class="btn btn-secondary">View Veterans Services →</a>
-    </div>
-  </section>
-
-  <!-- UPCOMING EVENTS -->
-  <section class="section">
-    <div class="section-header">
+  <!-- EVENTS — PHOTO CARDS -->
+  <section class="dark-section">
+    <div class="sh">
       <h2>Upcoming Events</h2>
-      <p>Join us for events that bring the community together, raise funds for veterans programs, and celebrate American tradition.</p>
-      <span class="red-line"></span>
+      <p>Steak nights, fish fries, ceremonies and community events throughout the year at Post 579.</p>
+      <span class="redline"></span>
     </div>
-    <div class="events-strip">
-      <div class="event-card">
-        <div class="event-date-badge">
-          <div class="month">Every Month</div>
-          <div class="day">3rd<br><span style="font-size:1rem">Fri</span></div>
-        </div>
-        <div class="event-info">
+    <div class="events-grid">
+      <div class="ev">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8ed9e26a3_0351b4a40_20260520_081000.jpg" alt="Steak Night">
+        <div class="ev-overlay"></div>
+        <div class="ev-body">
+          <div class="ev-badge">Every 3rd Friday</div>
           <h3>🥩 Steak Night</h3>
-          <p>Our famous monthly steak night dinner. Enjoy great food, live music, and camaraderie with fellow veterans and community members at the Post hall.</p>
-          <a href="tickets/" class="btn btn-primary">Get Tickets</a>
+          <p>Post 579's signature monthly fundraiser. Great food, fellowship — proceeds go to veteran programs.</p>
+          <a href="tickets/" class="ev-cta">Get Tickets →</a>
         </div>
       </div>
-      <div class="event-card">
-        <div class="event-date-badge" style="background:#1B2A47;">
-          <div class="month">November</div>
-          <div class="day">11</div>
-        </div>
-        <div class="event-info">
+      <div class="ev">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/18adc518c_15b0f7eea_20260520_083822.jpg" alt="Veterans Day Banquet">
+        <div class="ev-overlay"></div>
+        <div class="ev-body">
+          <div class="ev-badge">November 11</div>
           <h3>🎖️ Veterans Day Banquet</h3>
-          <p>An annual tribute to all who served. Formal dinner, awards ceremony, guest speakers, and recognition of Post 579 members for their contributions.</p>
-          <a href="tickets/" class="btn btn-primary">Reserve Seat</a>
+          <p>Annual tribute dinner with awards, guest speakers, and recognition of Post members for their service.</p>
+          <a href="tickets/" class="ev-cta">Reserve Seat →</a>
         </div>
       </div>
-      <div class="event-card">
-        <div class="event-date-badge" style="background:#2D5016;">
-          <div class="month">Monthly</div>
-          <div class="day">2nd<br><span style="font-size:1rem">Fri</span></div>
-        </div>
-        <div class="event-info">
+      <div class="ev">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/9db423c08_5ea49e56c_20260520_080919.jpg" alt="Fish Fry">
+        <div class="ev-overlay"></div>
+        <div class="ev-body">
+          <div class="ev-badge">Every 2nd Friday</div>
           <h3>🐟 Fish Fry Friday</h3>
-          <p>Monthly fish fry fundraiser. All proceeds support Post 579 veteran assistance programs and youth scholarships. Open to the community!</p>
-          <a href="events.html" class="btn btn-primary">Learn More</a>
+          <p>Monthly fish fry fundraiser open to the whole community. All proceeds support Post 579 scholarships.</p>
+          <a href="events.html" class="ev-cta">Learn More →</a>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:10px;">
-      <a href="events.html" class="btn btn-primary">View All Events →</a>
-      &nbsp;&nbsp;
+    <div style="text-align:center;margin-top:16px">
+      <a href="events.html" class="btn btn-red">Full Events Calendar →</a>
       <a href="hall-rental.html" class="btn btn-gold">Reserve the Hall</a>
     </div>
   </section>
 
-  <!-- OFFICIAL LEGION LINKS -->
-  <section class="section">
-    <div class="section-header">
-      <h2>Official American Legion Resources</h2>
-      <p>Connect with the American Legion national network — national headquarters, your state department, benefits assistance, and more.</p>
-      <span class="red-line"></span>
+  <!-- PHOTO GALLERY QUICK-ACCESS BUTTONS -->
+  <section>
+    <div class="sh">
+      <h2>Post 579 Photo Gallery</h2>
+      <p>Real photos from Post 579 — our facility, veterans, events, and community.</p>
+      <span class="redline"></span>
     </div>
-    <div class="links-grid">
-      <a href="https://www.legion.org" target="_blank" class="link-card">
-        <div class="link-icon">🏛️</div>
-        <div>
-          <h4>National Headquarters</h4>
-          <p>The official American Legion national website — news, advocacy, membership, and resources for all posts.</p>
-          <div class="link-url">legion.org →</div>
-        </div>
+    <div class="photo-btn-grid">
+      <a href="gallery.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ad0c21aa9_923bc921d_20260520_080913.jpg" alt="Post Facility">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag gold">Gallery</div><h3>Post 579 Facility</h3><p>Inside our hall at 3002 Gunsmoke Street</p><span class="pb-cta gold">View Gallery →</span></div>
       </a>
-      <a href="https://www.legion.org/membership" target="_blank" class="link-card">
-        <div class="link-icon">🪪</div>
-        <div>
-          <h4>National Membership Portal</h4>
-          <p>Renew your membership, manage your account, and access national member benefits through the Legion's official portal.</p>
-          <div class="link-url">legion.org/membership →</div>
-        </div>
+      <a href="gallery.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/729a27cd6_a396823ea_20260520_080940.jpg" alt="Post Events">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag">Events</div><h3>Post Events & Activities</h3><p>Steak nights, fish fries, ceremonies and more</p><span class="pb-cta">See All Photos →</span></div>
       </a>
-      <a href="https://www.legion.org/veteransbenefits" target="_blank" class="link-card">
-        <div class="link-icon">🎖️</div>
-        <div>
-          <h4>Veterans Benefits Center</h4>
-          <p>Free assistance with VA claims, disability compensation, education benefits, healthcare, and more from accredited Legion reps.</p>
-          <div class="link-url">legion.org/veteransbenefits →</div>
-        </div>
+      <a href="gallery.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e7c7ec19c_bd0ed4a0e_20260520_080909.jpg" alt="Veterans">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag">Veterans</div><h3>Our Veterans</h3><p>The men and women who make Post 579 what it is</p><span class="pb-cta">View Gallery →</span></div>
       </a>
-      <a href="https://www.legion.org/legislators" target="_blank" class="link-card">
-        <div class="link-icon">📜</div>
-        <div>
-          <h4>Legislative Action Center</h4>
-          <p>Contact your elected officials, track veteran-related legislation, and make your voice heard in Washington, D.C.</p>
-          <div class="link-url">legion.org/legislators →</div>
-        </div>
+      <a href="gallery.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/d74098385_de2a6d8d9_20260520_080933.jpg" alt="Community">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag gold">Community</div><h3>Community & Service</h3><p>Post 579 in the Lackland Terrace neighborhood</p><span class="pb-cta gold">See More →</span></div>
       </a>
-      <a href="https://www.legion.org/boysstate" target="_blank" class="link-card">
-        <div class="link-icon">🎓</div>
-        <div>
-          <h4>Boys State Program</h4>
-          <p>One of the most respected civic education programs in the country, run by American Legion posts nationwide for high school juniors.</p>
-          <div class="link-url">legion.org/boysstate →</div>
-        </div>
+      <a href="programs.html" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/c19cea45e_8632e4dc4_20260520_082001.jpg" alt="Programs">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag">Programs</div><h3>Post Programs</h3><p>Youth, community service, and veteran assistance</p><span class="pb-cta">View Programs →</span></div>
       </a>
-      <a href="https://www.legion.org/careers" target="_blank" class="link-card">
-        <div class="link-icon">💼</div>
-        <div>
-          <h4>Veterans Employment</h4>
-          <p>The Legion's veterans employment initiative connects transitioning service members with career opportunities nationwide.</p>
-          <div class="link-url">legion.org/careers →</div>
-        </div>
+      <a href="military-ai/" class="photo-btn">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/a3cb832eb_f7a3f8598_20260520_083818.jpg" alt="Military AI">
+        <div class="pb-overlay"></div>
+        <div class="pb-body"><div class="pb-tag gold">AI Tool</div><h3>Military Guide AI</h3><p>Ask questions about veteran benefits and military history</p><span class="pb-cta gold">Open AI Guide →</span></div>
       </a>
-      <a href="https://www.legion.org/mentalhealth" target="_blank" class="link-card">
-        <div class="link-icon">🧠</div>
-        <div>
-          <h4>Mental Health Resources</h4>
-          <p>Be The One — the Legion's suicide prevention initiative. Resources for veterans, families, and caregivers in mental health crisis.</p>
-          <div class="link-url">legion.org/mentalhealth →</div>
-        </div>
-      </a>
-      <a href="https://www.legion.org/convention" target="_blank" class="link-card">
-        <div class="link-icon">🗺️</div>
-        <div>
-          <h4>National Convention</h4>
-          <p>The American Legion National Convention brings together posts from all 50 states. Learn about upcoming conventions and how to attend.</p>
-          <div class="link-url">legion.org/convention →</div>
-        </div>
-      </a>
-      <a href="https://www.legion.org/emergency-fund" target="_blank" class="link-card">
-        <div class="link-icon">🆘</div>
-        <div>
-          <h4>Emergency Fund</h4>
-          <p>The Legion's Emergency Fund provides one-time financial assistance to Post members and their families in times of crisis.</p>
-          <div class="link-url">legion.org/emergency-fund →</div>
-        </div>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:10px;">
-      <a href="https://www.legion.org/sitemap" target="_blank" class="btn btn-primary">Full Legion Resource Directory →</a>
     </div>
   </section>
 
-  <!-- CONTACT STRIP -->
-  <div class="contact-strip">
+  <!-- LEGION LINKS -->
+  <section>
+    <div class="sh">
+      <h2>Official American Legion Resources</h2>
+      <p>Connect with the national American Legion network — headquarters, benefits, advocacy, and more.</p>
+      <span class="redline"></span>
+    </div>
+    <div class="links-grid">
+      <a href="https://www.legion.org" target="_blank" class="lc"><div class="li">🏛️</div><div><h4>National Headquarters</h4><p>Official American Legion site — news, advocacy, membership.</p><div class="lu">legion.org →</div></div></a>
+      <a href="https://www.legion.org/veteransbenefits" target="_blank" class="lc"><div class="li">🎖️</div><div><h4>Veterans Benefits Center</h4><p>Free help with VA claims, disability, education, and healthcare.</p><div class="lu">legion.org/veteransbenefits →</div></div></a>
+      <a href="https://www.legion.org/membership" target="_blank" class="lc"><div class="li">🪪</div><div><h4>National Membership</h4><p>Renew membership and access national member benefits.</p><div class="lu">legion.org/membership →</div></div></a>
+      <a href="https://www.legion.org/mentalhealth" target="_blank" class="lc"><div class="li">🧠</div><div><h4>Mental Health — Be The One</h4><p>Suicide prevention resources. Veterans Crisis Line: 988 · Press 1.</p><div class="lu">legion.org/mentalhealth →</div></div></a>
+      <a href="https://www.legion.org/legislators" target="_blank" class="lc"><div class="li">📜</div><div><h4>Legislative Action Center</h4><p>Contact elected officials and track veteran legislation.</p><div class="lu">legion.org/legislators →</div></div></a>
+      <a href="https://www.legion.org/emergency-fund" target="_blank" class="lc"><div class="li">🆘</div><div><h4>Emergency Fund</h4><p>One-time financial assistance for Post members in crisis.</p><div class="lu">legion.org/emergency-fund →</div></div></a>
+    </div>
+    <div style="text-align:center;margin-top:12px">
+      <a href="https://www.legion.org/sitemap" target="_blank" class="btn btn-red">Full Legion Resource Directory →</a>
+    </div>
+  </section>
+
+  <!-- CONTACT BANNER -->
+  <div class="contact-banner">
     <div>
-      <h2>Visit Bicentennial Post 579</h2>
-      <p>We're located in the heart of the Lackland Terrace community. Come find your Post family.</p>
-      <div class="contact-info-row">
+      <h2>🇺🇸 Visit Bicentennial Post 579</h2>
+      <p>Located in the heart of Lackland Terrace. Come find your Post family.</p>
+      <div class="cinfo">
         <span>📍 3002 Gunsmoke Street, San Antonio, TX 78227</span>
-        <span>📞 <a href="tel:2106748069" style="color:#FFD700">(210) 674-8069</a></span>
-        <span>🕐 Open to members daily</span>
+        <span>📞 <a href="tel:2106748069">(210) 674-8069</a></span>
+        <span>👤 Commander Mr. Harold · <a href="tel:2103857000">(210) 385-7000</a></span>
       </div>
     </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;">
-      <a href="membership.html" class="btn btn-primary">Join Post 579</a>
-      <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="membership.html" class="btn btn-red">Join Post 579</a>
+      <a href="contact.html" class="btn btn-outline">Contact Us</a>
       <a href="https://maps.google.com/?q=3002+Gunsmoke+Street+San+Antonio+TX+78227" target="_blank" class="btn btn-gold">Get Directions</a>
     </div>
   </div>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>⚔️ American Legion Bicentennial Post 579</h3>
-      <p>Mr. Harold Post · 3002 Gunsmoke Street · San Antonio, Texas 78227<br>
-      A 501(c)(19) nonprofit veterans' organization chartered in 1976.<br>
-      Serving veterans, military families, and the Lackland Terrace community with honor, service, and patriotism.</p>
-      <p style="margin-top:14px;font-size:0.82rem;color:rgba(255,255,255,0.4);">"For God and Country"</p>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <h3>🎖️ American Legion Bicentennial Post 579</h3>
+      <p>3002 Gunsmoke Street · San Antonio, Texas 78227<br>
+      501(c)(19) veterans' organization chartered in 1976.<br>
+      Commander: Mr. Harold · (210) 385-7000<br>
+      <em>"For God and Country."</em></p>
+      <div style="margin-top:14px;font-size:1.3rem">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
     </div>
-    <div class="footer-col">
+    <div class="foot-col">
       <h4>Post Pages</h4>
       <ul>
         <li><a href="about.html">About Post 579</a></li>
@@ -685,10 +453,10 @@ footer {
         <li><a href="news.html">News</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="foot-col">
       <h4>Get Involved</h4>
       <ul>
-        <li><a href="events.html">Upcoming Events</a></li>
+        <li><a href="events.html">Events</a></li>
         <li><a href="tickets/">Buy Tickets</a></li>
         <li><a href="hall-rental.html">Hall Rental</a></li>
         <li><a href="volunteer/">Volunteer</a></li>
@@ -698,7 +466,7 @@ footer {
         <li><a href="military-ai/">Military Guide AI</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="foot-col">
       <h4>Legion Network</h4>
       <ul>
         <li><a href="https://www.legion.org" target="_blank">legion.org</a></li>
@@ -707,14 +475,14 @@ footer {
         <li><a href="https://www.legion.org/boysstate" target="_blank">Boys State</a></li>
         <li><a href="https://www.legion.org/mentalhealth" target="_blank">Mental Health</a></li>
         <li><a href="https://www.legion.org/emergency-fund" target="_blank">Emergency Fund</a></li>
-        <li><a href="https://www.legion.org/legislators" target="_blank">Legislative Action</a></li>
         <li><a href="privacy-policy/">Privacy Policy</a></li>
+        <li><a href="admin/">Officer Login</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 American Legion Bicentennial Post 579 — Mr. Harold Post · San Antonio, TX 78227 · All rights reserved.</span>
-    <span><a href="login/">Member Login</a> · <a href="admin/">Admin</a> · <a href="https://www.legion.org" target="_blank">legion.org</a></span>
+  <div class="foot-bottom">
+    <span>© 2026 American Legion Bicentennial Post 579 · San Antonio TX 78227 · All rights reserved.</span>
+    <span>🇺🇸 <a href="https://www.legion.org" target="_blank">legion.org</a> · <a href="login/">Login</a> · Built by TM Designs™</span>
   </div>
 </footer>
 
