@@ -1,108 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hall Rental — American Legion Post 579 | San Antonio TX</title>
-<meta name="description" content="Rent the American Legion Post 579 facility in San Antonio, TX for parties, receptions, quinceañeras, meetings, and community events.">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hall Rental — American Legion Post 579 | San Antonio, TX</title>
+<meta name="description" content="Rent the American Legion Post 579 hall at 3002 Gunsmoke Street, San Antonio TX. Available for birthdays, quinceañeras, receptions, meetings, and community events.">
 <style>
-.features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px; }
-.feat-card { background:var(--light); border-radius:10px; padding:20px; text-align:center; border-top:3px solid var(--navy); }
-.feat-card .icon { font-size:2rem; margin-bottom:8px; }
-.feat-card h4 { color:var(--navy); margin-bottom:4px; }
-.feat-card p { font-size:.85rem; color:#666; }
-.pricing-box { background:var(--navy); color:#fff; border-radius:12px; padding:28px; margin-top:28px; }
-.pricing-box h3 { color:var(--gold); margin-bottom:16px; }
-.pricing-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.1); font-size:.9rem; }
-.pricing-row:last-child { border:none; }
-@media(max-width:768px){.features-grid{grid-template-columns:1fr 1fr;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.95rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.8rem;font-weight:600;padding:15px 11px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:56px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:1rem;max-width:580px;margin:0 auto}
+.page-hero .flags{font-size:1.4rem;letter-spacing:4px;margin-bottom:16px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:2rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+
+/* AMENITY PHOTO CARDS */
+.amenity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0}
+.amenity-card{position:relative;height:190px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.amenity-card:hover{transform:translateY(-4px)}
+.amenity-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.amenity-card .ac-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.3) 60%,transparent 100%)}
+.amenity-card .ac-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.amenity-card .ac-icon{font-size:1.6rem;margin-bottom:6px}
+.amenity-card h4{font-size:1rem;font-weight:900;color:#FFD700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px}
+.amenity-card p{font-size:0.76rem;color:rgba(255,255,255,0.82);line-height:1.4}
+
+/* EVENT TYPE CARDS */
+.event-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:24px 0}
+.et-card{position:relative;height:160px;border-radius:12px;overflow:hidden;cursor:default;box-shadow:0 4px 14px rgba(0,0,0,0.15);transition:transform 0.2s}
+.et-card:hover{transform:translateY(-3px)}
+.et-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.et-card .et-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+.et-card .et-body{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;z-index:2;padding:12px;text-align:center}
+.et-card .et-icon{font-size:1.8rem;margin-bottom:6px}
+.et-card h4{font-size:0.88rem;font-weight:900;text-transform:uppercase;letter-spacing:0.05em}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0}
+.price-card{background:white;border-radius:14px;padding:24px;border-top:4px solid #B22234;box-shadow:0 4px 16px rgba(0,0,0,0.08);text-align:center}
+.price-card.featured{background:linear-gradient(135deg,#0d1a35,#1B2A47);color:white;border-top-color:#C5A028}
+.price-card.featured h3{color:#FFD700}
+.price-card.featured p,.price-card.featured .price-note{color:rgba(255,255,255,0.75)}
+.price-card h3{font-size:1.1rem;font-weight:900;color:#0d1a35;text-transform:uppercase;margin-bottom:8px}
+.price-card .price-amount{font-size:2rem;font-weight:900;color:#B22234;margin:10px 0}
+.price-card.featured .price-amount{color:#FFD700}
+.price-card p{font-size:0.82rem;color:#555;line-height:1.6}
+.price-card .price-note{font-size:0.75rem;color:#888;margin-top:8px}
+
+/* RENTAL FORM */
+.rental-form-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:32px 0;color:white}
+.rental-form-section h2{font-size:1.8rem;font-weight:900;color:#FFD700;margin-bottom:8px}
+.rental-form-section p{color:rgba(255,255,255,0.7);margin-bottom:24px;line-height:1.7}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid.triple{grid-template-columns:1fr 1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.06em}
+.form-group input,.form-group select,.form-group textarea{
+  padding:11px 14px;border-radius:8px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.1);color:white;font-size:0.88rem;
+  transition:border-color 0.2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:#C5A028;background:rgba(255,255,255,0.15);
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.35)}
+.form-group select option{background:#0d1a35;color:white}
+
+/* SERVICES CHECKBOXES — clean grid */
+.services-section{margin:20px 0}
+.services-section h3{font-size:0.88rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.service-check{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 14px;
+  cursor:pointer;border:1px solid transparent;transition:all 0.2s;
+}
+.service-check:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.12)}
+.service-check input[type=checkbox]{width:18px;height:18px;accent-color:#C5A028;flex-shrink:0}
+.service-check .sc-text h5{font-size:0.85rem;font-weight:700;color:white;margin-bottom:2px}
+.service-check .sc-text p{font-size:0.72rem;color:rgba(255,255,255,0.6)}
+
+.btn{display:inline-block;padding:12px 26px;border-radius:8px;font-weight:800;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+
+/* SUCCESS */
+.form-success{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:32px 28px 20px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+
+@media(max-width:768px){.form-grid,.form-grid.triple{grid-template-columns:1fr}.form-group.full{grid-column:1}main{padding:24px 14px 40px}}
 </style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html" class="active">Hall Rental</a>
-    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
 
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--gold)">Hall Rental</span>
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Reserve Post 579 Facility</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">A proud San Antonio venue for birthdays, quinceañeras, receptions, meetings, and community events. Proceeds support our veteran programs.</p>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html" class="active">Hall Rental</a>
+      <a href="donate.html">Donate</a><a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
+    </div>
   </div>
-</section>
+</nav>
 
-<section class="section">
-  <div class="container">
-    <div class="two-column">
-      <div>
-        <span class="eyebrow">Venue Features</span>
-        <h2>The Post 579 Facility</h2>
-        <p>The Post 579 hall at 3002 Gunsmoke Street is a spacious, clean, and comfortable venue in San Antonio's Lackland Terrace community — available for private and community events.</p>
-        <div class="features-grid" style="margin-top:20px;">
-          <div class="feat-card"><div class="icon">👥</div><h4>Capacity</h4><p>Accommodates 50 to 200+ guests depending on layout</p></div>
-          <div class="feat-card"><div class="icon">🍽️</div><h4>Kitchen Access</h4><p>Commercial kitchen access available for catering</p></div>
-          <div class="feat-card"><div class="icon">🪑</div><h4>Tables & Chairs</h4><p>Tables and chairs included in rental</p></div>
-          <div class="feat-card"><div class="icon">🅿️</div><h4>Parking</h4><p>On-site parking for your guests</p></div>
-          <div class="feat-card"><div class="icon">🍺</div><h4>Bar Service</h4><p>Bar service available — contact Post for details</p></div>
-          <div class="feat-card"><div class="icon">📺</div><h4>AV Equipment</h4><p>Audio/visual equipment available for presentations</p></div>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Reserve Post 579 Hall</h1>
+  <p>A proud San Antonio venue for celebrations, meetings, and community events. Proceeds support our veteran programs.</p>
+</div>
+
+<main>
+
+  <!-- AMENITY PHOTO CARDS -->
+  <section>
+    <div class="sh">
+      <h2>Post 579 Venue Amenities</h2>
+      <p>Everything you need for a successful event — right here at 3002 Gunsmoke Street.</p>
+      <span class="redline"></span>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="Capacity">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">👥</div><h4>Capacity</h4><p>Seats 50–200+ guests depending on layout and setup</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Kitchen">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🍽️</div><h4>Kitchen Access</h4><p>Commercial kitchen available for catering and food prep</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="Tables & Chairs">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🪑</div><h4>Tables & Chairs</h4><p>Tables and chairs included — set up per your layout needs</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="Parking">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🅿️</div><h4>Parking</h4><p>On-site parking available for your guests</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="Bar Service">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🍺</div><h4>Bar Service</h4><p>Full bar service available — contact Post for details and pricing</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="AV Equipment">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">📺</div><h4>AV Equipment</h4><p>Audio/visual equipment available for presentations and events</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/1e1cd191e_99f7c1086_IMG_6467.jpg" alt="Security">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🔒</div><h4>Security Deposit</h4><p>$200 required to hold your date — refunded after event</p></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/3c856512c_daaf1a755_IMG_6454.jpg" alt="Event Support">
+        <div class="ac-overlay"></div>
+        <div class="ac-body"><div class="ac-icon">🤝</div><h4>Event Support</h4><p>Post officers available to assist with your event setup</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT TYPE CARDS -->
+  <section>
+    <div class="sh">
+      <h2>Perfect For Any Occasion</h2>
+      <p>Post 579's hall is available for a wide range of private and community events.</p>
+      <span class="redline"></span>
+    </div>
+    <div class="event-types-grid">
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7ef2844c2_60ad78586_IMG_6478.jpg" alt="Birthday"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">🎂</div><h4>Birthdays</h4></div></div>
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e90242ebe_44d45c1bb_IMG_6556.jpg" alt="Quinceañera"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">👑</div><h4>Quinceañeras</h4></div></div>
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/16a3e8bb8_d1a3e5270_IMG_6472.jpg" alt="Reception"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">💍</div><h4>Receptions</h4></div></div>
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/323f1bd78_013a10331_IMG_6463.jpg" alt="Meetings"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">🎖️</div><h4>Meetings</h4></div></div>
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="Fundraiser"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">🤝</div><h4>Fundraisers</h4></div></div>
+      <div class="et-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Community"><div class="et-overlay"></div><div class="et-body"><div class="et-icon">🏘️</div><h4>Community Events</h4></div></div>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section>
+    <div class="sh">
+      <h2>Rental Pricing</h2>
+      <p>All pricing is set by the Post Commander. Contact us for a custom quote based on your event type and needs.</p>
+      <span class="redline"></span>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Security Deposit</h3>
+        <div class="price-amount">$200</div>
+        <p>Required to hold your date. Fully refundable after your event if no damages occur.</p>
+        <div class="price-note">Due at time of booking</div>
+      </div>
+      <div class="price-card featured">
+        <h3>Custom Quote</h3>
+        <div class="price-amount">Call Us</div>
+        <p>Pricing varies by event type, duration, guest count, and services needed. We work with your budget.</p>
+        <div class="price-note"><a href="tel:2106748069" style="color:#FFD700">(210) 674-8069</a></div>
+      </div>
+      <div class="price-card">
+        <h3>Bar Service</h3>
+        <div class="price-amount">Add-On</div>
+        <p>Full bar service available for your event. Contact Post for current bar pricing and requirements.</p>
+        <div class="price-note">Contact Post for details</div>
+      </div>
+      <div class="price-card">
+        <h3>AV Package</h3>
+        <div class="price-amount">Add-On</div>
+        <p>Audio system, projector/screen, and microphone available for presentations and ceremonies.</p>
+        <div class="price-note">Contact Post for details</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTAL REQUEST FORM -->
+  <div class="rental-form-section">
+    <h2>📋 Request a Rental Date</h2>
+    <p>Fill out the form below and a Post officer will contact you within 24–48 hours to confirm availability and provide a custom quote.</p>
+
+    <div id="rental-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Your Full Name *</label>
+          <input type="text" id="rf-name" placeholder="Full name" required>
         </div>
-        <div class="pricing-box">
-          <h3>Rental Pricing</h3>
-          <p style="opacity:.8;font-size:.88rem;margin-bottom:16px;">Pricing is set by the Post Commander and varies based on event type, duration, and services needed. Contact us for a custom quote.</p>
-          <div class="pricing-row"><span>Security Deposit</span><span style="color:var(--gold);font-weight:bold;">$200 (required to hold date)</span></div>
-          <div class="pricing-row"><span>Hourly Rate</span><span>Contact Post for current rate</span></div>
-          <div class="pricing-row"><span>Full Day Rate</span><span>Contact Post for full-day pricing</span></div>
-          <div class="pricing-row"><span>Bar Service</span><span>Available — contact for details</span></div>
-          <div class="pricing-row"><span>Cleaning Fee</span><span>May apply depending on event</span></div>
-          <a href="tel:+12106748069" class="btn btn-gold" style="margin-top:16px;display:inline-block;">📞 Call for a Quote: (210) 674-8069</a>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="rf-email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="rf-phone" placeholder="(210) 000-0000" required>
+        </div>
+        <div class="form-group">
+          <label>Event Name *</label>
+          <input type="text" id="rf-event" placeholder="Birthday Party, Quinceañera, Meeting..." required>
+        </div>
+        <div class="form-group">
+          <label>Event Type *</label>
+          <select id="rf-type">
+            <option value="">Select event type...</option>
+            <option>Birthday Party</option>
+            <option>Quinceañera</option>
+            <option>Wedding Reception</option>
+            <option>Baby/Bridal Shower</option>
+            <option>Graduation Party</option>
+            <option>Business Meeting</option>
+            <option>Community Event</option>
+            <option>Fundraiser</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Estimated Guest Count *</label>
+          <input type="number" id="rf-guests" placeholder="e.g. 75" min="10" max="300">
+        </div>
+        <div class="form-group">
+          <label>Requested Date *</label>
+          <input type="date" id="rf-date">
+        </div>
+        <div class="form-group">
+          <label>Preferred Start Time</label>
+          <input type="time" id="rf-start">
+        </div>
+        <div class="form-group">
+          <label>Preferred End Time</label>
+          <input type="time" id="rf-end">
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select id="rf-referral">
+            <option value="">Select one...</option>
+            <option>Referred by a member</option>
+            <option>Google Search</option>
+            <option>Facebook</option>
+            <option>Drove by the Post</option>
+            <option>Word of mouth</option>
+            <option>Other</option>
+          </select>
         </div>
       </div>
 
-      <form class="form" id="hall-rental-form">
-        <h3>Hall Rental Request</h3>
-        <p style="font-size:.85rem;color:#666;">Submit your inquiry and a Post officer will contact you within 48 hours.</p>
-        <input type="text" name="renter_name" placeholder="Full Name" required>
-        <input type="email" name="renter_email" placeholder="Email Address" required>
-        <input type="tel" name="renter_phone" placeholder="Phone Number" required>
-        <input type="text" name="event_name" placeholder="Event Name / Type (e.g. Quinceañera, Birthday)" required>
-        <label style="font-size:.82rem;font-weight:700;color:#444;">Requested Date <span style="color:var(--red)">*</span></label>
-        <input type="date" name="event_date" required>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <div>
-            <label style="font-size:.82rem;font-weight:700;color:#444;">Start Time</label>
-            <input type="time" name="start_time">
-          </div>
-          <div>
-            <label style="font-size:.82rem;font-weight:700;color:#444;">End Time</label>
-            <input type="time" name="end_time">
-          </div>
+      <!-- SERVICES — clean checkboxes -->
+      <div class="services-section" style="margin-top:20px">
+        <h3>Additional Services Needed</h3>
+        <div class="services-grid">
+          <label class="service-check">
+            <input type="checkbox" id="svc-kitchen">
+            <div class="sc-text"><h5>🍽️ Kitchen Access</h5><p>Commercial kitchen for catering</p></div>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" id="svc-bar">
+            <div class="sc-text"><h5>🍺 Bar Service</h5><p>Full bar service for your event</p></div>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" id="svc-av">
+            <div class="sc-text"><h5>📺 AV Equipment</h5><p>Audio/visual and projector</p></div>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" id="svc-setup">
+            <div class="sc-text"><h5>🪑 Setup Assistance</h5><p>Help arranging tables and chairs</p></div>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" id="svc-cleanup">
+            <div class="sc-text"><h5>🧹 Cleanup Service</h5><p>Post-event cleanup assistance</p></div>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" id="svc-security">
+            <div class="sc-text"><h5>🔒 Security Personnel</h5><p>On-site security for large events</p></div>
+          </label>
         </div>
-        <input type="number" name="guest_count" placeholder="Estimated Number of Guests" min="1">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" name="need_bar_service" value="true"> Bar Service</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" name="need_catering" value="true"> Kitchen / Catering</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" name="need_av_equipment" value="true"> AV Equipment</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;"><input type="checkbox" name="need_tables_chairs" value="true" checked> Tables & Chairs</label>
+      </div>
+
+      <div class="form-grid" style="margin-top:16px">
+        <div class="form-group full">
+          <label>Special Requests or Notes</label>
+          <textarea id="rf-notes" rows="3" placeholder="Decorations, special setup requirements, dietary needs, anything else we should know..."></textarea>
         </div>
-        <textarea name="special_requests" placeholder="Special requests, additional details about your event, questions, etc."></textarea>
-        <p style="font-size:.8rem;color:#888;">A $200 deposit is required to confirm your rental date. Payment details provided after inquiry review.</p>
-        <button type="submit" class="btn btn-primary">Submit Rental Request</button>
-      </form>
+      </div>
+
+      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <button class="btn btn-red" onclick="submitRental()">Submit Rental Request →</button>
+        <button class="btn btn-gold" onclick="window.location.href='tel:2106748069'">📞 Call to Book: (210) 674-8069</button>
+      </div>
+
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:12px">
+        ⚠️ Submitting this form does <strong>not</strong> confirm your booking. A Post officer will contact you to confirm availability and finalize details. A $200 security deposit is required to hold your date.
+      </p>
+    </div>
+
+    <div class="form-success" id="rental-success">
+      <div style="font-size:2.5rem;margin-bottom:8px">✅</div>
+      <h3 style="color:#90ee90;font-size:1.4rem">Request Received!</h3>
+      <p style="color:rgba(255,255,255,0.75);margin-top:8px;line-height:1.7">
+        Thank you! A Post officer will contact you within 24–48 hours to confirm availability and provide a quote.<br>
+        Questions? Call us at <a href="tel:2106748069" style="color:#FFD700">(210) 674-8069</a>
+      </p>
     </div>
   </div>
-</section>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
+</main>
+
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+
+<script>
+function submitRental() {
+  const name = document.getElementById('rf-name').value.trim();
+  const email = document.getElementById('rf-email').value.trim();
+  const phone = document.getElementById('rf-phone').value.trim();
+  const event = document.getElementById('rf-event').value.trim();
+  const date = document.getElementById('rf-date').value;
+  if (!name || !email || !phone || !event || !date) {
+    alert('Please fill in all required fields (name, email, phone, event name, and date).');
+    return;
+  }
+  // In production: POST to Fly.io backend with FormData
+  document.getElementById('rental-form').style.display = 'none';
+  document.getElementById('rental-success').style.display = 'block';
+  document.getElementById('rental-success').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
 </body>
 </html>

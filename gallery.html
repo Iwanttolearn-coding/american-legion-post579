@@ -1,97 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery — American Legion Post 579</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — American Legion Post 579 | San Antonio, TX</title>
+<meta name="description" content="Photo gallery of American Legion Bicentennial Post 579 — events, ceremonies, veterans, community service, and Post 579 facility in San Antonio, TX.">
 <style>
-.gallery-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
-.gallery-tab { padding:8px 18px; border-radius:999px; font-size:.82rem; font-weight:700; border:2px solid #ddd; background:#fff; color:var(--navy); cursor:pointer; transition:.2s; text-transform:uppercase; letter-spacing:.5px; }
-.gallery-tab.active, .gallery-tab:hover { background:var(--navy); color:#fff; border-color:var(--navy); }
-.photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.photo-item { position:relative; aspect-ratio:1; border-radius:8px; overflow:hidden; cursor:pointer; }
-.photo-item img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
-.photo-item:hover img { transform:scale(1.05); }
-.photo-item .overlay { position:absolute; inset:0; background:rgba(7,29,65,.0); transition:.25s; display:flex; align-items:flex-end; padding:12px; }
-.photo-item:hover .overlay { background:rgba(7,29,65,.5); }
-.photo-item .overlay span { color:#fff; font-size:.82rem; font-weight:bold; opacity:0; transition:.25s; }
-.photo-item:hover .overlay span { opacity:1; }
-.placeholder-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.photo-placeholder { aspect-ratio:1; border-radius:8px; background:linear-gradient(135deg,var(--navy),#1a4080); display:flex; flex-direction:column; align-items:center; justify-content:center; color:rgba(255,255,255,.4); font-size:2rem; gap:8px; }
-.photo-placeholder p { font-size:.7rem; text-transform:uppercase; letter-spacing:1px; text-align:center; padding:0 8px; }
-.upload-cta { background:var(--light); border:2px dashed #c0ccdd; border-radius:12px; padding:40px; text-align:center; margin-top:32px; }
-.upload-cta h3 { color:var(--navy); margin-bottom:8px; }
-.upload-cta p { color:#666; font-size:.9rem; margin-bottom:16px; }
-@media(max-width:768px){.photo-grid,.placeholder-grid{grid-template-columns:repeat(2,1fr);}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+
+/* NAV */
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.95rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.8rem;font-weight:600;padding:15px 11px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+
+/* HERO */
+.page-hero{
+  background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);
+  padding:56px 28px;text-align:center;color:white;
+  border-bottom:4px solid #B22234;
+}
+.page-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;
+  background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:1rem;max-width:580px;margin:0 auto}
+.page-hero .flags{font-size:1.4rem;letter-spacing:4px;margin-bottom:16px}
+
+/* TABS */
+.gallery-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;justify-content:center}
+.gtab{padding:9px 20px;border-radius:999px;font-size:0.8rem;font-weight:700;border:2px solid #c0ccd8;
+  background:white;color:#0d1a35;cursor:pointer;transition:all 0.2s;text-transform:uppercase;letter-spacing:0.05em}
+.gtab.active,.gtab:hover{background:#0d1a35;color:white;border-color:#0d1a35}
+
+/* MASONRY GALLERY GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:32px;
+}
+.gallery-card{
+  position:relative;border-radius:12px;overflow:hidden;
+  cursor:pointer;background:#0d1a35;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.gallery-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 32px rgba(0,0,0,0.3)}
+.gallery-card.tall{grid-row:span 2}
+.gallery-card.wide{grid-column:span 2}
+.gallery-card img{
+  width:100%;height:100%;min-height:180px;
+  object-fit:cover;display:block;
+  transition:transform 0.4s;
+}
+.gallery-card:hover img{transform:scale(1.06)}
+.gallery-card .gc-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);
+  opacity:0;transition:opacity 0.25s;
+}
+.gallery-card:hover .gc-overlay{opacity:1}
+.gallery-card .gc-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:14px 16px;color:white;
+  transform:translateY(6px);opacity:0;transition:all 0.25s;
+  z-index:2;
+}
+.gallery-card:hover .gc-label{transform:translateY(0);opacity:1}
+.gallery-card .gc-label .gc-cat{
+  display:inline-block;background:#B22234;color:white;
+  font-size:0.62rem;font-weight:800;letter-spacing:0.1em;
+  text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px;
+}
+.gallery-card .gc-label h4{font-size:0.92rem;font-weight:800;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+
+/* UPLOAD SECTION */
+.upload-section{
+  background:linear-gradient(135deg,#0d1a35,#1B2A47);
+  border-radius:16px;padding:40px;margin:32px 0;color:white;
+}
+.upload-section h2{font-size:1.8rem;font-weight:900;color:#FFD700;margin-bottom:10px}
+.upload-section p{color:rgba(255,255,255,0.75);margin-bottom:20px;line-height:1.7}
+.upload-tabs{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.utab{padding:10px 22px;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;
+  border:2px solid rgba(255,255,255,0.3);color:white;background:transparent;transition:all 0.2s}
+.utab.active{background:#B22234;border-color:#B22234}
+.upload-form{display:none;background:rgba(255,255,255,0.07);border-radius:12px;padding:24px}
+.upload-form.show{display:block}
+.upload-form label{display:block;font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.8);margin-bottom:6px;margin-top:14px;text-transform:uppercase;letter-spacing:0.05em}
+.upload-form input,.upload-form select,.upload-form textarea{
+  width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.1);color:white;font-size:0.88rem;
+}
+.upload-form input::placeholder,.upload-form textarea::placeholder{color:rgba(255,255,255,0.4)}
+.upload-form select option{background:#0d1a35;color:white}
+.upload-dropzone{
+  border:2px dashed rgba(255,255,255,0.3);border-radius:10px;
+  padding:32px;text-align:center;margin-top:14px;cursor:pointer;
+  transition:all 0.2s;
+}
+.upload-dropzone:hover{border-color:#FFD700;background:rgba(255,215,0,0.05)}
+.upload-dropzone .dz-icon{font-size:2.5rem;margin-bottom:8px}
+.upload-dropzone p{color:rgba(255,255,255,0.6);font-size:0.85rem}
+.upload-dropzone strong{color:white}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;
+  text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+.btn-outline-white{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}
+.btn-outline-white:hover{border-color:white}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;
+  display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lightbox-close{position:absolute;top:20px;right:24px;color:white;font-size:2.5rem;
+  cursor:pointer;background:none;border:none;line-height:1;opacity:0.8}
+.lightbox-close:hover{opacity:1}
+.lightbox-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  color:white;font-size:0.9rem;background:rgba(0,0,0,0.6);padding:8px 20px;border-radius:8px}
+
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:2rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+
+/* FOOTER */
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:32px 28px 20px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-card.tall{grid-row:span 1}.gallery-card.wide{grid-column:span 1}}
+@media(max-width:500px){.gallery-grid{grid-template-columns:1fr 1fr}main{padding:24px 14px 40px}}
 </style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
-    <a href="gallery.html" class="active">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
 
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--gold)">Photo Gallery</span>
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Post 579 in Photos</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">Events, ceremonies, members, community service, and the spirit of American Legion Post 579. Awaiting your real Post photos.</p>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html" class="active">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
+    </div>
   </div>
-</section>
+</nav>
 
-<section class="section">
-  <div class="container">
+<!-- HERO -->
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Post 579 Photo Gallery</h1>
+  <p>Events, ceremonies, veterans, community service, and the people that make Post 579 great — in photos.</p>
+</div>
 
-    <div class="gallery-tabs">
-      <button class="gallery-tab active" onclick="filterGallery('all',this)">All Photos</button>
-      <button class="gallery-tab" onclick="filterGallery('events',this)">Events</button>
-      <button class="gallery-tab" onclick="filterGallery('ceremonies',this)">Ceremonies</button>
-      <button class="gallery-tab" onclick="filterGallery('community',this)">Community</button>
-      <button class="gallery-tab" onclick="filterGallery('members',this)">Members</button>
+<main>
+  <!-- FILTER TABS -->
+  <div class="gallery-tabs">
+    <button class="gtab active" onclick="filterGallery('all',this)">All Photos</button>
+    <button class="gtab" onclick="filterGallery('events',this)">Events</button>
+    <button class="gtab" onclick="filterGallery('ceremonies',this)">Ceremonies</button>
+    <button class="gtab" onclick="filterGallery('community',this)">Community</button>
+    <button class="gtab" onclick="filterGallery('members',this)">Members</button>
+    <button class="gtab" onclick="filterGallery('facility',this)">Facility</button>
+    <button class="gtab" onclick="filterGallery('fundraisers',this)">Fundraisers</button>
+    <button class="gtab" onclick="filterGallery('memorials',this)">Memorials</button>
+  </div>
+
+  <!-- REAL PHOTO MASONRY GRID -->
+  <div class="gallery-grid" id="gallery-grid">
+
+    <div class="gallery-card tall" data-cat="events">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="Post 579 Event" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Events</div><h4>Post 579 Events</h4></div>
     </div>
 
-    <!-- Placeholder gallery — replace with real photos -->
-    <div class="placeholder-grid" id="gallery-grid">
-      <div class="photo-placeholder">📸<p>Post Event Photo</p></div>
-      <div class="photo-placeholder">🎖️<p>Veterans Day Ceremony</p></div>
-      <div class="photo-placeholder">🤝<p>Community Service</p></div>
-      <div class="photo-placeholder">🍖<p>Steak Night Event</p></div>
-      <div class="photo-placeholder">🇺🇸<p>Memorial Day Service</p></div>
-      <div class="photo-placeholder">👥<p>Post Members</p></div>
-      <div class="photo-placeholder">🏛️<p>Post 579 Building</p></div>
-      <div class="photo-placeholder">🎤<p>Post Meeting</p></div>
-      <div class="photo-placeholder">🐟<p>Fish Fry Event</p></div>
-      <div class="photo-placeholder">⭐<p>Awards Ceremony</p></div>
-      <div class="photo-placeholder">👨‍👩‍👧<p>Family Event</p></div>
-      <div class="photo-placeholder">🎗️<p>Veterans Services</p></div>
+    <div class="gallery-card" data-cat="members">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Post 579 Veterans" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Members</div><h4>Post Veterans</h4></div>
     </div>
 
-    <div class="upload-cta">
-      <h3>📷 Real Post 579 Photos Coming Soon</h3>
-      <p>The gallery is ready to display your authentic Post 579 photos. Officers can upload approved photos through the Admin Dashboard. Target: 50–100 real Post photos before launch.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="admin/" class="btn btn-primary">Upload Photos (Officers)</a>
-        <a href="contact.html" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);">Submit a Photo for Approval</a>
+    <div class="gallery-card" data-cat="community">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="Community Service" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Community</div><h4>Community Outreach</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="facility">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="Post 579 Facility" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Facility</div><h4>Post 579 Hall</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="facility">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="Post 579 Building" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Facility</div><h4>3002 Gunsmoke St</h4></div>
+    </div>
+
+    <div class="gallery-card wide" data-cat="events">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="Post Event" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Events</div><h4>Fellowship & Events</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="members">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/1e1cd191e_99f7c1086_IMG_6467.jpg" alt="Post Members" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Members</div><h4>Post 579 Members</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="community">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/3c856512c_daaf1a755_IMG_6454.jpg" alt="Community" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Community</div><h4>Community Service</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="facility">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7ef2844c2_60ad78586_IMG_6478.jpg" alt="Post Hall" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Facility</div><h4>Post Hall Interior</h4></div>
+    </div>
+
+    <div class="gallery-card tall" data-cat="ceremonies">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e90242ebe_44d45c1bb_IMG_6556.jpg" alt="Ceremony" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Ceremonies</div><h4>Veterans Ceremony</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="memorials">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/16a3e8bb8_d1a3e5270_IMG_6472.jpg" alt="Memorial" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Memorials</div><h4>Memorial Service</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="facility">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/323f1bd78_013a10331_IMG_6463.jpg" alt="Post 579" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Facility</div><h4>Post 579 Exterior</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="events">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8ed9e26a3_0351b4a40_20260520_081000.jpg" alt="Post Activity" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Events</div><h4>Post Activities</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="fundraisers">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/18adc518c_15b0f7eea_20260520_083822.jpg" alt="Steak Night" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Fundraisers</div><h4>Steak Night</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="members">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/9db423c08_5ea49e56c_20260520_080919.jpg" alt="Veterans" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Members</div><h4>Our Veterans</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="community">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ad0c21aa9_923bc921d_20260520_080913.jpg" alt="Community" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Community</div><h4>Community Pride</h4></div>
+    </div>
+
+    <div class="gallery-card wide" data-cat="events">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/729a27cd6_a396823ea_20260520_080940.jpg" alt="Post Event" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Events</div><h4>Post 579 Events</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="ceremonies">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e7c7ec19c_bd0ed4a0e_20260520_080909.jpg" alt="Veterans Day" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Ceremonies</div><h4>Veterans Day</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="fundraisers">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/d74098385_de2a6d8d9_20260520_080933.jpg" alt="Fish Fry" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Fundraisers</div><h4>Fish Fry Friday</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="community">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/c19cea45e_8632e4dc4_20260520_082001.jpg" alt="Community Event" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Community</div><h4>Community Events</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="memorials">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/a3cb832eb_f7a3f8598_20260520_083818.jpg" alt="Memorial" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Memorials</div><h4>We Remember</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="facility">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/9d698feba_ccdca71ce_20260520_083814.jpg" alt="Post Gallery" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Facility</div><h4>Post Gallery</h4></div>
+    </div>
+
+    <div class="gallery-card" data-cat="members">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ef1d6ed4e_85aced7a3_20260520_080905.jpg" alt="Post 579" loading="lazy">
+      <div class="gc-overlay"></div>
+      <div class="gc-label"><div class="gc-cat">Members</div><h4>Post 579 Family</h4></div>
+    </div>
+
+  </div>
+
+  <!-- UPLOAD / SUBMIT SECTION -->
+  <div class="upload-section">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px">
+      <div>
+        <h2>📸 Add to the Gallery</h2>
+        <p style="margin:0">Officers can upload approved photos. Members and the public can submit photos for officer review before they appear publicly.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="admin/" class="btn btn-gold">Officer Upload (Admin)</a>
+        <button class="btn btn-outline-white" onclick="showSubmitForm()">Submit a Photo</button>
       </div>
     </div>
-  </div>
-</section>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
+    <!-- PUBLIC SUBMIT FORM -->
+    <div class="upload-form" id="submit-form">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name" id="sub-name">
+        </div>
+        <div>
+          <label>Your Email</label>
+          <input type="email" placeholder="email@example.com" id="sub-email">
+        </div>
+      </div>
+      <label>Photo Category</label>
+      <select id="sub-cat">
+        <option value="">Select a category...</option>
+        <option value="Events">Events</option>
+        <option value="Ceremonies">Ceremonies</option>
+        <option value="Community">Community</option>
+        <option value="Members">Members</option>
+        <option value="Veterans Services">Veterans Services</option>
+        <option value="Hall Rental">Hall Rental</option>
+        <option value="Memorials">Memorials</option>
+        <option value="Food/Fundraisers">Food/Fundraisers</option>
+      </select>
+      <label>Caption / Description</label>
+      <textarea rows="2" placeholder="Brief description of the photo..." id="sub-caption"></textarea>
+      <div class="upload-dropzone" onclick="document.getElementById('photo-file').click()">
+        <div class="dz-icon">📷</div>
+        <p><strong>Click to select photo</strong><br>JPG, PNG, HEIC supported · Max 10MB</p>
+        <input type="file" id="photo-file" accept="image/*" style="display:none" onchange="fileSelected(this)">
+        <p id="file-name" style="color:#FFD700;margin-top:8px"></p>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="submitPhoto()">Submit for Approval →</button>
+        <button class="btn btn-outline-white" onclick="document.getElementById('submit-form').classList.remove('show')">Cancel</button>
+      </div>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:10px">
+        ⚠️ All submitted photos are reviewed by Post officers before appearing publicly. Photos must be appropriate and Post 579 related.
+      </p>
+    </div>
+
+    <!-- SUCCESS MSG -->
+    <div id="submit-success" style="display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:20px;text-align:center;margin-top:16px">
+      <div style="font-size:2rem;margin-bottom:8px">✅</div>
+      <h3 style="color:#90ee90">Photo Submitted!</h3>
+      <p style="color:rgba(255,255,255,0.7);margin-top:6px">Thank you! A Post officer will review your photo before it appears in the gallery.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+
 <script>
+// Filter gallery
 function filterGallery(cat, btn) {
-  document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Lightbox
+document.querySelectorAll('.gallery-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img');
+    const label = card.querySelector('h4')?.textContent || '';
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-caption').textContent = label;
+    document.getElementById('lightbox').classList.add('open');
+  });
+});
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+
+// Upload form
+function showSubmitForm() {
+  document.getElementById('submit-form').classList.add('show');
+  document.getElementById('submit-form').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function fileSelected(input) {
+  const name = input.files[0]?.name || '';
+  document.getElementById('file-name').textContent = name ? '📎 ' + name : '';
+}
+function submitPhoto() {
+  const name = document.getElementById('sub-name').value.trim();
+  const email = document.getElementById('sub-email').value.trim();
+  const cat = document.getElementById('sub-cat').value;
+  const file = document.getElementById('photo-file').files[0];
+  if (!name || !email || !cat || !file) {
+    alert('Please fill in all fields and select a photo.');
+    return;
+  }
+  // In production: POST to backend with FormData
+  document.getElementById('submit-form').classList.remove('show');
+  document.getElementById('submit-success').style.display = 'block';
+  document.getElementById('submit-success').scrollIntoView({behavior:'smooth',block:'center'});
 }
 </script>
 </body>
