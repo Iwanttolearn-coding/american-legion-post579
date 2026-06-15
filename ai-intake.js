@@ -310,7 +310,7 @@ async function tryBackendChat(userMsg, localReply) {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         query: userMsg,
-        context: 'You are the AI assistant for American Legion Post 579, Mr. Harold Post, located at 3002 Gunsmoke Street, San Antonio TX 78227, phone (210) 674-8069. Answer questions about veteran assistance, membership, hall rental, events, donations, and Post 579 programs. Be concise, friendly, and patriotic.',
+        context: 'You are the AI assistant for American Legion Post 579, Bicentennial Post 579, located at 3002 Gunsmoke Street, San Antonio TX 78227, phone (210) 674-8069. Answer questions about veteran assistance, membership, hall rental, events, donations, and Post 579 programs. Be concise, friendly, and patriotic.',
       }),
     });
     if (!res.ok) return;

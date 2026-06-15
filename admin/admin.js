@@ -370,7 +370,7 @@ function genReceipt(id) {
   <style>body{font-family:Arial,sans-serif;max-width:600px;margin:40px auto;padding:30px;border:3px solid #071d41;}
   h1{color:#071d41;font-size:1.2rem}.amt{font-size:2.2rem;color:#16a34a;font-weight:900}.ft{color:#666;font-size:.8rem;margin-top:24px;border-top:1px solid #eee;padding-top:16px}</style></head>
   <body><h1>🇺🇸 American Legion Post 579</h1>
-  <p>Mr. Harold Post · 3002 Gunsmoke St, San Antonio TX 78227 · (210) 674-8069<br>501(c)(19) Veterans' Organization</p><hr>
+  <p>Bicentennial Post 579 · 3002 Gunsmoke St, San Antonio TX 78227 · (210) 674-8069<br>501(c)(19) Veterans' Organization</p><hr>
   <h2>OFFICIAL DONATION RECEIPT</h2>
   <p><strong>Donor:</strong> ${d.donor_name||'Anonymous'}</p>
   <p><strong>Amount:</strong> <span class="amt">${fm(d.amount)}</span></p>
