@@ -59,7 +59,46 @@ main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
 .success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
 footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
 footer a{color:#FFD700}
-@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}</style>
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}
+/* ── MILITARY BRANCHES SECTION ── */
+.branches-section{background:#06090f;padding:52px 28px;margin:0}
+.bs-inner{max-width:1400px;margin:0 auto}
+.bs-header{text-align:center;margin-bottom:32px}
+.bs-stars{color:rgba(255,215,0,0.4);font-size:1rem;letter-spacing:8px;margin-bottom:12px}
+.bs-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;text-transform:uppercase;letter-spacing:0.06em;
+  background:linear-gradient(180deg,#fff 0%,#C5A028 40%,#fff 65%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.8));margin-bottom:8px}
+.bs-sub{color:rgba(255,255,255,0.6);font-size:0.92rem;max-width:560px;margin:0 auto}
+
+/* 6 branch banner cards */
+.branch-cards{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:32px}
+.bc{border-radius:12px;padding:18px 12px;text-align:center;cursor:default;transition:transform 0.2s;border:1px solid rgba(255,255,255,0.1)}
+.bc:hover{transform:translateY(-3px)}
+.bc-icon{font-size:2rem;margin-bottom:8px}
+.bc-name{font-size:0.7rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:4px}
+.bc-motto{font-size:0.62rem;color:rgba(255,255,255,0.55);font-style:italic}
+.bc.army{background:linear-gradient(135deg,#1a1a0a,#2a2a10);border-color:#C5A028}
+.bc.marines{background:linear-gradient(135deg,#1a0505,#2d0000);border-color:#B22234}
+.bc.navy{background:linear-gradient(135deg,#020b1a,#071d3d);border-color:#1f4e9b}
+.bc.airforce{background:linear-gradient(135deg,#001530,#003087);border-color:#4a90d9}
+.bc.spaceforce{background:linear-gradient(135deg,#070714,#0e0e2a);border-color:#7070ff}
+.bc.coastguard{background:linear-gradient(135deg,#0a0505,#1a0505);border-color:#B22234}
+
+/* Full infographic */
+.branches-infographic{
+  background:#000;border-radius:16px;overflow:hidden;
+  border:2px solid rgba(197,160,40,0.3);
+  box-shadow:0 8px 40px rgba(0,0,0,0.6);
+}
+.branches-infographic img{
+  width:100%;height:auto;display:block;
+}
+
+@media(max-width:900px){.branch-cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.branch-cards{grid-template-columns:repeat(2,1fr)}}
+
+</style>
 </head>
 <body>
 <div class="flag-bar"></div>
@@ -102,6 +141,27 @@ footer a{color:#FFD700}
       <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7ef2844c2_60ad78586_IMG_6478.jpg" alt="Scholarships"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Scholarships</div><h3>Scholarship Programs</h3><p>Connecting veterans and students with national and state American Legion scholarship opportunities.</p></div></div>
     </div>
   </section>
+<!-- MILITARY BRANCHES SECTION -->
+<section class="branches-section">
+  <div class="bs-inner">
+    <div class="bs-header">
+      <div class="bs-stars">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
+      <h2 class="bs-title">Honoring All Six Branches</h2>
+      <p class="bs-sub">Post 579 proudly serves veterans from every branch of the United States Armed Forces</p>
+    </div>
+    <div class="branch-cards">
+      <div class="bc army"><div class="bc-icon">⚔️</div><div class="bc-name">U.S. ARMY</div><div class="bc-motto">This We'll Defend</div></div>
+      <div class="bc marines"><div class="bc-icon">🦅</div><div class="bc-name">U.S. MARINES</div><div class="bc-motto">Semper Fidelis</div></div>
+      <div class="bc navy"><div class="bc-icon">⚓</div><div class="bc-name">U.S. NAVY</div><div class="bc-motto">Forged By The Sea</div></div>
+      <div class="bc airforce"><div class="bc-icon">✈️</div><div class="bc-name">AIR FORCE</div><div class="bc-motto">Aim High · Fly-Fight-Win</div></div>
+      <div class="bc spaceforce"><div class="bc-icon">🚀</div><div class="bc-name">SPACE FORCE</div><div class="bc-motto">Semper Supra</div></div>
+      <div class="bc coastguard"><div class="bc-icon">🛡️</div><div class="bc-name">COAST GUARD</div><div class="bc-motto">Semper Paratus</div></div>
+    </div>
+    <div class="branches-infographic">
+      <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ade092b04_25bd8751d_55C973D9-ACDA-4183-99F6-A2B0C8B938C8.png" alt="All Six Military Branches — Seals, Special Operations, Combat Commands, and Service Logos" loading="lazy">
+    </div>
+  </div>
+</section>
   <div class="dark-section" style="text-align:center">
     <h2 style="color:#FFD700;font-size:1.8rem;font-weight:900;margin-bottom:10px">Get Involved with Post 579 Programs</h2>
     <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 22px">Volunteer, sponsor a youth activity, or join as a member to participate in everything Post 579 does for veterans and the community.</p>

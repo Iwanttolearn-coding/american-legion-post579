@@ -29,6 +29,26 @@ const SLIDES = [
   { img: CDN + "a3cb832eb_f7a3f8598_20260520_083818.jpg", label: "FREEDOM HAS A PRICE",  sub: "We honor every man and woman who paid it." },
   { img: CDN + "9d698feba_ccdca71ce_20260520_083814.jpg", label: "POST 579 GALLERY",     sub: "Decades of service, fellowship, and community" },
   { img: CDN + "ef1d6ed4e_85aced7a3_20260520_080905.jpg", label: "JOIN US",               sub: "American Legion Post 579 · For God and Country 🇺🇸" }
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/060ed68d1_u1.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8ab1cf8b0_u2.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7d97a1a84_u3.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e1b680ff2_u4.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7b3eedcd2_u5.jpg", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/b4ec4707f_u6.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f4e4d7ad5_u7.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/1d101b2c2_u8.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/08e507081_u9.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ef53a30ea_u10.jpg", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8c88f1a95_u11.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/b478bfa20_u12.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bad5626e5_u13.jpg", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/758ca21ed_u14.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2e87660c4_u15.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8081860cd_u16.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/0ec8d8a85_u17.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/af396f4b5_u18.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/21e77a8fa_u19.jpg", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
+  {{ img: "https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/33e42d9c7_u20.png", label: "BICENTENNIAL POST 579", sub: "American Legion Post 579 · San Antonio, Texas" }},
 ];
 
 // ── HERO SLIDESHOW ─────────────────────────────────────────
