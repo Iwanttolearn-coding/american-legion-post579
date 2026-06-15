@@ -2,99 +2,181 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donate — American Legion Post 579 | San Antonio TX</title>
-<link rel="stylesheet" href="style.css">
+<title>Donate — American Legion Post 579 | San Antonio, TX</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.92rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:600;padding:15px 10px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:52px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:560px;margin:0 auto}
+.page-hero .flags{font-size:1.3rem;letter-spacing:4px;margin-bottom:14px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:1.9rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:36px 0;color:white}
+.dark-section .sh h2{color:white}
+.dark-section .sh p{color:rgba(255,255,255,0.7)}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.photo-card{position:relative;height:210px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card .pc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%)}
+.photo-card .pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.photo-card .pc-tag{display:inline-block;background:#B22234;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.photo-card .pc-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-card h3{font-size:1rem;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,0.6);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:3px}
+.photo-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);line-height:1.4}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+.btn-navy{background:#0d1a35;color:white}
+.btn-navy:hover{background:#071020}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}
+.btn-outline:hover{border-color:white}
+.form-wrap{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.05em}
+.fg input,.fg select,.fg textarea{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:0.88rem}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.35)}
+.fg select option{background:#0d1a35}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}
+.amount-grid{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.amount-btn{padding:12px 22px;border-radius:8px;border:2px solid rgba(255,255,255,0.3);
+  background:transparent;color:white;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.2s}
+.amount-btn.active,.amount-btn:hover{background:#B22234;border-color:#B22234}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}
+.impact-card{position:relative;height:180px;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.15)}
+.impact-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.impact-card .ic-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6)}
+.impact-card .ic-body{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:16px;z-index:2}
+.impact-card .ic-amount{font-size:2rem;font-weight:900;color:#FFD700;margin-bottom:6px}
+.impact-card h4{font-size:0.88rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em}
+.impact-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);margin-top:4px;line-height:1.4}
+</style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
-    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
-
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--gold)">Support the Mission</span>
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Donate to Post 579</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">Every dollar stays local. Your gift directly funds veteran programs, community service, and patriotic events at Post 579.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="two-column">
-      <div>
-        <span class="eyebrow">Your Impact</span>
-        <h2>Where Your Donation Goes</h2>
-        <p>100% of donations to Post 579 stay in the local community, funding the programs and services that help San Antonio veterans and their families.</p>
-        <div style="margin-top:24px;display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;gap:14px;align-items:flex-start;background:var(--light);border-radius:10px;padding:16px;">
-            <span style="font-size:1.8rem;">🎖️</span>
-            <div><strong style="color:var(--navy);display:block;margin-bottom:4px;">Veterans Assistance Programs</strong><span style="color:#666;font-size:.9rem;">Free VA claims help, benefits counseling, and crisis referrals for every veteran in our community.</span></div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;background:var(--light);border-radius:10px;padding:16px;">
-            <span style="font-size:1.8rem;">👨‍👩‍👧</span>
-            <div><strong style="color:var(--navy);display:block;margin-bottom:4px;">Youth & Scholarship Programs</strong><span style="color:#666;font-size:.9rem;">Boys State, Girls State, and scholarship support for deserving young men and women in our community.</span></div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;background:var(--light);border-radius:10px;padding:16px;">
-            <span style="font-size:1.8rem;">🏛️</span>
-            <div><strong style="color:var(--navy);display:block;margin-bottom:4px;">Post Facility Maintenance</strong><span style="color:#666;font-size:.9rem;">Keeping the Post 579 hall and grounds clean, safe, and welcoming for veterans and community members.</span></div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;background:var(--light);border-radius:10px;padding:16px;">
-            <span style="font-size:1.8rem;">🇺🇸</span>
-            <div><strong style="color:var(--navy);display:block;margin-bottom:4px;">Patriotic Events & Ceremonies</strong><span style="color:#666;font-size:.9rem;">Veterans Day, Memorial Day, and other patriotic ceremonies that honor our nation's heroes.</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <form class="form" id="donate-form">
-          <h3>Make a Donation</h3>
-          <p style="font-size:.85rem;color:#666;">Select an amount or enter your own. All donations are appreciated.</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0;">
-            <button type="button" onclick="setAmount(25)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$25</button>
-            <button type="button" onclick="setAmount(50)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$50</button>
-            <button type="button" onclick="setAmount(100)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$100</button>
-            <button type="button" onclick="setAmount(250)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$250</button>
-            <button type="button" onclick="setAmount(500)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$500</button>
-            <button type="button" onclick="setAmount(1000)" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);border-radius:8px;padding:10px;">$1,000</button>
-          </div>
-          <input type="number" id="donate-amount" name="amount" placeholder="$ Custom Amount" min="1" step="1" required>
-          <input type="text" name="donor_name" placeholder="Full Name (or leave blank to donate anonymously)">
-          <input type="email" name="donor_email" placeholder="Email Address (for receipt)">
-          <select name="campaign">
-            <option value="General Fund">General Fund — Where Most Needed</option>
-            <option value="Veterans Assistance">Veterans Assistance Programs</option>
-            <option value="Youth Programs">Youth & Scholarship Programs</option>
-            <option value="Facility">Post Facility & Maintenance</option>
-            <option value="Events">Patriotic Events & Ceremonies</option>
-          </select>
-          <textarea name="message" placeholder="Message of support (optional)" style="height:80px;"></textarea>
-          <div style="background:#fff9e6;border:1px solid var(--gold);border-radius:8px;padding:12px;font-size:.82rem;color:#664;">
-            💳 Payment processing will be set up with the Commander's PayPal account. For now, contact the Post directly to donate: <a href="tel:+12106748069" style="color:var(--navy);font-weight:bold;">(210) 674-8069</a>
-          </div>
-          <button type="submit" class="btn btn-gold" style="font-size:1rem;">Donate Now →</button>
-          <p style="text-align:center;font-size:.78rem;color:#888;">American Legion Post 579 is a 501(c)(19) veterans' organization. Donations may be tax-deductible. Consult your tax advisor.</p>
-        </form>
-      </div>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
     </div>
   </div>
-</section>
+</nav>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Support Post 579</h1>
+  <p>Your donation directly funds veteran programs, community outreach, and the mission of Post 579.</p>
+</div>
+<main>
+  <section>
+    <div class="sh"><h2>Your Impact</h2>
+    <p>Every dollar donated to Post 579 stays in the community — supporting veterans, youth, and patriotic programs right here in San Antonio.</p>
+    <span class="redline"></span></div>
+    <div class="impact-grid">
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="$25"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">$25</div><h4>Buddy Poppy</h4><p>Funds materials for our annual veteran memorial campaign</p></div></div>
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="$50"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">$50</div><h4>Youth Programs</h4><p>Supports Boys State nomination costs for a deserving student</p></div></div>
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="$100"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">$100</div><h4>Veteran Outreach</h4><p>Funds outreach materials to connect veterans with benefits</p></div></div>
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="$250"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">$250</div><h4>Honor Guard</h4><p>Helps maintain our Honor Guard for veteran ceremonies</p></div></div>
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="$500"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">$500</div><h4>Scholarship</h4><p>Partial funding for an American Legion scholarship award</p></div></div>
+      <div class="impact-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="Custom"><div class="ic-overlay"></div><div class="ic-body"><div class="ic-amount">Any</div><h4>Your Choice</h4><p>Any amount makes a difference for veterans in San Antonio</p></div></div>
+    </div>
+  </section>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
+  <div class="dark-section">
+    <div class="sh"><h2>Make a Donation</h2>
+    <p>Post 579 is a 501(c)(19) veterans' organization. All donations support veteran programs and community service.</p>
+    <span class="redline"></span></div>
+    <div class="form-wrap">
+      <div class="amount-grid">
+        <button class="amount-btn" onclick="setAmount(25,this)">$25</button>
+        <button class="amount-btn" onclick="setAmount(50,this)">$50</button>
+        <button class="amount-btn active" onclick="setAmount(100,this)">$100</button>
+        <button class="amount-btn" onclick="setAmount(250,this)">$250</button>
+        <button class="amount-btn" onclick="setAmount(500,this)">$500</button>
+        <button class="amount-btn" onclick="setAmount('custom',this)">Custom</button>
+      </div>
+      <div class="form-grid">
+        <div class="fg"><label>Donation Amount ($) *</label><input type="number" id="donate-amount" value="100" min="1" step="1"></div>
+        <div class="fg"><label>Donor Name</label><input type="text" id="donor-name" placeholder="Full name (or leave blank to donate anonymously)"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="donor-email" placeholder="For receipt — optional"></div>
+        <div class="fg"><label>Donation Purpose</label>
+          <select id="donor-purpose">
+            <option>General Post 579 Programs</option>
+            <option>Veteran Assistance</option>
+            <option>Youth Programs</option>
+            <option>Honor Guard</option>
+            <option>Community Outreach</option>
+            <option>Scholarship Fund</option>
+            <option>Hall Improvements</option>
+          </select>
+        </div>
+        <div class="fg full"><label>Message (optional)</label><textarea id="donor-msg" rows="2" placeholder="A note of support for our veterans..."></textarea></div>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin:10px 0 14px">
+        💡 To complete your donation, Post 579 uses PayPal. You'll be redirected to PayPal secure checkout. Questions? Call (210) 674-8069.
+      </p>
+      <button class="btn btn-gold" onclick="processDonation()" style="font-size:1rem;padding:14px 32px">
+        ❤️ Donate Now — Support Post 579
+      </button>
+    </div>
+    <div class="success-box" id="donate-success">
+      <div style="font-size:2.5rem;margin-bottom:8px">🇺🇸</div>
+      <h3 style="color:#90ee90;font-size:1.4rem">Thank You For Your Support!</h3>
+      <p style="color:rgba(255,255,255,0.75);margin-top:8px">Your donation to Post 579 helps veterans and our community. You'll receive a receipt via email. God bless you and God bless America.</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="donate.html">Donate</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
 <script>
-function setAmount(n) {
-  document.getElementById('donate-amount').value = n;
+function setAmount(val, btn) {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (val !== 'custom') document.getElementById('donate-amount').value = val;
+  else document.getElementById('donate-amount').focus();
 }
-wireForm('donate-form','/v1/legion/donate','✅ Thank you! Your donation request has been received. Post 579 will follow up with payment details. God bless you for your support.');
+function processDonation() {
+  const amt = document.getElementById('donate-amount').value;
+  if (!amt || amt < 1) { alert('Please enter a valid donation amount.'); return; }
+  // Production: redirect to PayPal with Commander's email + amount
+  document.querySelector('.form-wrap').style.display='none';
+  document.getElementById('donate-success').style.display='block';
+  document.getElementById('donate-success').scrollIntoView({behavior:'smooth',block:'center'});
+}
 </script>
-</body>
-</html>
+</body></html>

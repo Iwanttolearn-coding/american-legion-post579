@@ -2,142 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veterans Services — American Legion Post 579</title>
-<meta name="description" content="Free VA benefits assistance, claims help, crisis resources, and community referrals for veterans in San Antonio. American Legion Post 579.">
-<link rel="stylesheet" href="style.css">
-<style>
-.services-hero-box { background:var(--red); color:#fff; border-radius:12px; padding:28px 32px; margin-bottom:32px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-.crisis-card { background:var(--red); color:#fff; border-radius:16px; padding:32px; text-align:center; }
-.crisis-card .crisis-num { font-size:4rem; font-weight:900; color:#fff; line-height:1; }
-.crisis-card p { opacity:.9; font-size:.95rem; line-height:1.6; }
-.services-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
-.svc-tile { background:var(--white); border-radius:12px; padding:28px; box-shadow:0 4px 18px rgba(0,0,0,.09); border-top:4px solid var(--navy); }
-.svc-tile:hover { border-top-color:var(--red); }
-.svc-tile .svc-icon { font-size:2rem; margin-bottom:12px; }
-.svc-tile h3 { color:var(--navy); margin-bottom:8px; }
-.svc-tile p { color:#555; font-size:.9rem; line-height:1.6; }
-.assist-form-wrap { max-width:680px; margin:0 auto; }
-@media(max-width:768px){.services-full-grid{grid-template-columns:1fr;}}
+<title>Veterans Services — American Legion Post 579 | San Antonio, TX</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.92rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:600;padding:15px 10px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:52px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:560px;margin:0 auto}
+.page-hero .flags{font-size:1.3rem;letter-spacing:4px;margin-bottom:14px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:1.9rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:36px 0;color:white}
+.dark-section .sh h2{color:white}.dark-section .sh p{color:rgba(255,255,255,0.7)}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.photo-card{position:relative;height:200px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card .pc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%)}
+.photo-card .pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.photo-card .pc-tag{display:inline-block;background:#B22234;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.photo-card .pc-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-card h3{font-size:1rem;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,0.6);text-transform:uppercase;margin-bottom:3px}
+.photo-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);line-height:1.4}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}.btn-gold:hover{background:#a07818}
+.btn-navy{background:#0d1a35;color:white}.btn-navy:hover{background:#071020}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}.btn-outline:hover{border-color:white}
+.form-wrap{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.05em}
+.fg input,.fg select,.fg textarea{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:0.88rem}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.35)}
+.fg select option{background:#0d1a35}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}
+.service-card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.25s}
+.service-card:hover{transform:translateY(-3px)}
+.service-card .sc-img{height:160px;overflow:hidden;position:relative}
+.service-card .sc-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.service-card:hover .sc-img img{transform:scale(1.05)}
+.service-card .sc-body{padding:20px}
+.service-card .sc-tag{display:inline-block;background:#0d1a35;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px}
+.service-card h3{font-size:1.05rem;font-weight:900;color:#0d1a35;margin-bottom:6px}
+.service-card p{font-size:0.82rem;color:#555;line-height:1.6}
+.crisis-banner{background:linear-gradient(135deg,#8B1A1A,#B22234);border-radius:14px;padding:28px 32px;margin:28px 0;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.crisis-banner .cb-icon{font-size:3rem;flex-shrink:0}
+.crisis-banner h3{color:white;font-size:1.3rem;font-weight:900;margin-bottom:6px}
+.crisis-banner p{color:rgba(255,255,255,0.85);font-size:0.88rem;line-height:1.6}
+.crisis-banner a{color:#FFD700;font-weight:700}
 </style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html" class="active">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
-    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
-
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--gold)">Veterans Services</span>
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Veterans Serving Veterans</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:600px;margin:0 auto;">Free, confidential assistance for every veteran — regardless of Post 579 membership status.</p>
-  </div>
-</section>
-
-<!-- CRISIS ALERT -->
-<div class="alert-bar">🆘 Veterans Crisis Line: <a href="tel:988">Call 988 — Press 1</a> · Free · Confidential · 24/7 · Also: <a href="sms:838255">Text 838255</a></div>
-
-<section class="section">
-  <div class="container">
-    <div class="services-hero-box">
-      <div style="font-size:3rem;">🎖️</div>
-      <div>
-        <h3 style="font-size:1.2rem;margin-bottom:6px;">Free Benefits Help — No Membership Required</h3>
-        <p style="opacity:.9;">Post 579 Service Officers provide completely free, confidential VA claims assistance to <strong>all veterans</strong> in our community. You don't have to be a member to get help.</p>
-      </div>
-      <a href="#assist-form" class="btn btn-gold" style="flex-shrink:0;">Request Assistance</a>
-    </div>
-
-    <div class="services-full-grid">
-      <div class="svc-tile"><div class="svc-icon">⚖️</div><h3>VA Disability Claims</h3><p>Free help filing, documenting, and appealing VA disability compensation claims. We help you build the strongest possible case for the benefits you've earned.</p></div>
-      <div class="svc-tile"><div class="svc-icon">🏥</div><h3>VA Healthcare Enrollment</h3><p>Help enrolling in VA healthcare, finding VA facilities near you, and understanding your healthcare options and copays as a veteran.</p></div>
-      <div class="svc-tile"><div class="svc-icon">🎓</div><h3>Education Benefits</h3><p>GI Bill guidance, STEM programs, vocational rehabilitation, and education benefits counseling for veterans, dependents, and survivors.</p></div>
-      <div class="svc-tile"><div class="svc-icon">🏠</div><h3>Housing Assistance</h3><p>VA home loan information, housing instability referrals, HUD-VASH voucher guidance, and emergency housing resources in Bexar County.</p></div>
-      <div class="svc-tile"><div class="svc-icon">💼</div><h3>Employment Support</h3><p>Job placement referrals, vocational rehabilitation (Chapter 31), Hiring Our Heroes connections, and transitioning service member resources.</p></div>
-      <div class="svc-tile"><div class="svc-icon">🧠</div><h3>Mental Health Resources</h3><p>PTSD and MST resources, Vet Center referrals, peer support connections, and the Veterans Crisis Line (988, Press 1) for immediate help.</p></div>
-      <div class="svc-tile"><div class="svc-icon">👨‍👩‍👧</div><h3>Survivor Benefits</h3><p>DIC (Dependency and Indemnity Compensation), survivor benefit plans, burial allowances, and support for surviving spouses and dependents.</p></div>
-      <div class="svc-tile"><div class="svc-icon">⛓️</div><h3>Incarcerated Veterans</h3><p>VA benefits restoration, legal aid referrals, discharge upgrade guidance, and post-release reintegration support for veterans involved in the justice system.</p></div>
-      <div class="svc-tile"><div class="svc-icon">🍽️</div><h3>Food & Emergency Help</h3><p>Food bank referrals, emergency financial assistance applications, Salvation Army coordination, and community resource navigation for veterans in crisis.</p></div>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
     </div>
   </div>
-</section>
+</nav>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Veterans Services</h1>
+  <p>Free assistance, advocacy, and resources for every veteran at Post 579 — regardless of membership status.</p>
+</div>
+<main>
 
-<!-- CRISIS RESOURCES -->
-<section class="section dark">
-  <div class="container">
-    <span class="eyebrow">Crisis Resources</span>
-    <h2>If You're in Crisis — Help Is Available Right Now</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:28px;">
-      <div class="crisis-card">
-        <div class="crisis-num">988</div>
-        <h4 style="margin:10px 0 8px;font-size:1rem;text-transform:uppercase;letter-spacing:1px;">Veterans Crisis Line</h4>
-        <p>Call 988, then press 1. Free, confidential, 24/7. Real support from veterans who understand.</p>
-        <a href="tel:988" class="btn btn-gold" style="margin-top:16px;display:inline-block;">Call 988 Now</a>
+  <!-- CRISIS FIRST -->
+  <div class="crisis-banner">
+    <div class="crisis-icon">🆘</div>
+    <div>
+      <h3>Veterans Crisis Line — 24/7 Support</h3>
+      <p>If you or a veteran you know is in crisis, help is available now. <strong>Dial 988, then press 1.</strong> Or text 838255. You are not alone.<br>
+      American Legion Be The One: <a href="https://www.legion.org/mentalhealth" target="_blank">legion.org/mentalhealth →</a></p>
+    </div>
+    <a href="tel:988" class="btn btn-gold" style="white-space:nowrap;flex-shrink:0">📞 Call 988 Now</a>
+  </div>
+
+  <!-- SERVICE CARDS WITH PHOTOS -->
+  <section>
+    <div class="sh"><h2>How Post 579 Helps Veterans</h2>
+    <p>Our service officers and volunteers are ready to assist veterans with navigating the VA system and accessing the benefits they earned.</p>
+    <span class="redline"></span></div>
+    <div class="photo-card-grid">
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="VA Claims"></div>
+        <div class="sc-body"><div class="sc-tag">Free Help</div><h3>VA Benefits & Claims</h3><p>Free assistance filing VA disability claims, appeals, and benefits applications. Our accredited service officers guide you through the entire process.</p></div>
       </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:32px;text-align:center;">
-        <div style="font-size:3rem;margin-bottom:12px;">💬</div>
-        <h4 style="color:var(--gold);margin-bottom:8px;font-size:1rem;text-transform:uppercase;letter-spacing:1px;">Text Line</h4>
-        <p style="opacity:.85;font-size:.95rem;line-height:1.6;">Text 838255 — confidential crisis support via text message for veterans who prefer not to call.</p>
-        <a href="sms:838255" class="btn btn-gold" style="margin-top:16px;display:inline-block;">Text 838255</a>
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Healthcare"></div>
+        <div class="sc-body"><div class="sc-tag">Healthcare</div><h3>VA Healthcare Navigation</h3><p>Help enrolling in VA healthcare, understanding your eligibility, and connecting with the right VA medical facilities and community care options in San Antonio.</p></div>
       </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:32px;text-align:center;">
-        <div style="font-size:3rem;margin-bottom:12px;">💻</div>
-        <h4 style="color:var(--gold);margin-bottom:8px;font-size:1rem;text-transform:uppercase;letter-spacing:1px;">Chat Online</h4>
-        <p style="opacity:.85;font-size:.95rem;line-height:1.6;">Visit VeteransCrisisLine.net for confidential online chat with a qualified crisis responder.</p>
-        <a href="https://www.veteranscrisisline.net" target="_blank" class="btn btn-gold" style="margin-top:16px;display:inline-block;">Chat Now</a>
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="Housing"></div>
+        <div class="sc-body"><div class="sc-tag">Housing</div><h3>Housing Assistance</h3><p>Information and referrals for veterans facing housing insecurity — including HUD-VASH, transitional housing, and emergency shelter resources.</p></div>
+      </div>
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="Employment"></div>
+        <div class="sc-body"><div class="sc-tag">Employment</div><h3>Employment Support</h3><p>Resume assistance, job fairs, employer connections, and referrals to veteran employment programs in San Antonio and Bexar County.</p></div>
+      </div>
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="Mental Health"></div>
+        <div class="sc-body"><div class="sc-tag">Mental Health</div><h3>Mental Health Resources</h3><p>Connection to PTSD treatment, counseling, peer support programs, and the Vet Center in San Antonio. No veteran should suffer alone.</p></div>
+      </div>
+      <div class="service-card">
+        <div class="sc-img"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="Education"></div>
+        <div class="sc-body"><div class="sc-tag">Education</div><h3>GI Bill & Education</h3><p>Help understanding and using GI Bill benefits, scholarship opportunities, and vocational rehabilitation programs through the VA.</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ASSISTANCE FORM -->
-<section id="assist-form" class="section" style="background:var(--light);">
-  <div class="container">
-    <span class="eyebrow">Get Help Today</span>
-    <h2 style="text-align:center;margin-bottom:8px;">Request Veteran Assistance</h2>
-    <p style="text-align:center;color:#666;margin-bottom:32px;">Fill out the form below and a Post 579 Service Officer will contact you. All inquiries are confidential.</p>
-    <div class="assist-form-wrap">
-      <div class="form" id="veteran-assist-form-outer">
-        <form id="veteran-assist-form">
-          <h3>Veteran Assistance Request</h3>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-            <input type="text" name="full_name" placeholder="Full Name" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-          </div>
-          <input type="email" name="email" placeholder="Email Address">
-          <select name="subject" required>
-            <option value="">Type of Assistance Needed</option>
-            <option>VA Disability Claim</option>
-            <option>VA Healthcare Enrollment</option>
-            <option>Education Benefits</option>
-            <option>Housing Assistance</option>
-            <option>Employment / Vocational Rehab</option>
-            <option>Mental Health Resources</option>
-            <option>Survivor Benefits</option>
-            <option>Incarcerated Veteran</option>
-            <option>Food / Emergency Help</option>
-            <option>General Question</option>
+  <!-- REQUEST HELP FORM -->
+  <div class="dark-section">
+    <div class="sh"><h2>Request Assistance</h2>
+    <p>Contact our service team. All information is completely confidential.</p>
+    <span class="redline"></span></div>
+    <div class="form-wrap" id="vet-form">
+      <div class="form-grid">
+        <div class="fg"><label>Full Name *</label><input type="text" id="vf-name" placeholder="Your full name" required></div>
+        <div class="fg"><label>Phone *</label><input type="tel" id="vf-phone" placeholder="(210) 000-0000" required></div>
+        <div class="fg"><label>Email</label><input type="email" id="vf-email" placeholder="Optional — for follow-up"></div>
+        <div class="fg"><label>Branch of Service</label>
+          <select id="vf-branch">
+            <option>Army</option><option>Marines</option><option>Navy</option>
+            <option>Air Force</option><option>Coast Guard</option><option>Space Force</option>
+            <option>National Guard</option><option>Reserves</option>
           </select>
-          <textarea name="message" placeholder="Describe what you need help with (optional — all information is confidential)"></textarea>
-          <p style="font-size:.8rem;color:#888;">🔒 Your information is kept strictly confidential and is never published or shared.</p>
-          <button type="submit" class="btn btn-primary">Request Assistance</button>
-        </form>
+        </div>
+        <div class="fg"><label>Type of Assistance Needed *</label>
+          <select id="vf-type">
+            <option>VA Benefits / Disability Claim</option>
+            <option>VA Healthcare Enrollment</option>
+            <option>Housing Assistance</option>
+            <option>Employment Support</option>
+            <option>Mental Health Resources</option>
+            <option>GI Bill / Education</option>
+            <option>Emergency Financial Assistance</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="fg"><label>Urgency</label>
+          <select id="vf-urgency">
+            <option>Not urgent — general information</option>
+            <option>Moderate — within a few weeks</option>
+            <option>Urgent — need help soon</option>
+            <option>Crisis — need immediate help</option>
+          </select>
+        </div>
+        <div class="fg full"><label>Describe Your Situation (optional)</label>
+          <textarea id="vf-msg" rows="3" placeholder="Tell us what you need help with — all information is confidential..."></textarea>
+        </div>
       </div>
+      <button class="btn btn-red" onclick="submitVetHelp()" style="margin-top:8px;font-size:0.95rem;padding:13px 28px">Submit Request — We'll Contact You →</button>
+      <p style="font-size:0.76rem;color:rgba(255,255,255,0.4);margin-top:10px">All information provided is kept strictly confidential. Post 579 service officers will contact you directly.</p>
+    </div>
+    <div class="success-box" id="vet-success">
+      <div style="font-size:2.5rem;margin-bottom:8px">🎖️</div>
+      <h3 style="color:#90ee90;font-size:1.4rem">Request Received — We've Got You</h3>
+      <p style="color:rgba(255,255,255,0.75);margin-top:8px">A Post 579 service officer will contact you shortly. If this is an emergency, please call (210) 674-8069 or dial 988 for the Veterans Crisis Line.</p>
     </div>
   </div>
-</section>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579 — Bicentennial</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">🆘 Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
-<script>wireForm('veteran-assist-form','/v1/legion/contact','✅ Assistance request received. A Service Officer will contact you shortly. For urgent help, call (210) 674-8069 or dial 988.');</script>
-</body>
-</html>
+</main>
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="donate.html">Donate</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+<script>
+function submitVetHelp() {
+  const name = document.getElementById('vf-name').value.trim();
+  const phone = document.getElementById('vf-phone').value.trim();
+  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  document.getElementById('vet-form').style.display='none';
+  document.getElementById('vet-success').style.display='block';
+  document.getElementById('vet-success').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body></html>

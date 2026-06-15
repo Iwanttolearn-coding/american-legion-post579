@@ -1,30 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Programs | American Legion Post 579 | San Antonio, TX</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs — American Legion Post 579 | San Antonio, TX</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.92rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:600;padding:15px 10px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:52px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:560px;margin:0 auto}
+.page-hero .flags{font-size:1.3rem;letter-spacing:4px;margin-bottom:14px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:1.9rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:36px 0;color:white}
+.dark-section .sh h2{color:white}
+.dark-section .sh p{color:rgba(255,255,255,0.7)}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.photo-card{position:relative;height:210px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card .pc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%)}
+.photo-card .pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.photo-card .pc-tag{display:inline-block;background:#B22234;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.photo-card .pc-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-card h3{font-size:1rem;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,0.6);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:3px}
+.photo-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);line-height:1.4}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+.btn-navy{background:#0d1a35;color:white}
+.btn-navy:hover{background:#071020}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}
+.btn-outline:hover{border-color:white}
+.form-wrap{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.05em}
+.fg input,.fg select,.fg textarea{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:0.88rem}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.35)}
+.fg select option{background:#0d1a35}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}</style>
 </head>
 <body>
-<div class="top-bar"><div class="container"><div class="top-bar-left"><span>📍 San Antonio, Texas</span><span>📞 (210) TBD-POST</span></div><div class="top-bar-right"><a href="membership.html">Join</a><a href="membership.html#renew">Renew</a><a href="donate.html">Donate</a><a href="contact.html">Contact Us</a></div></div></div>
-<div class="flag-stripe"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<header class="main-header"><div class="container"><div class="header-inner"><a href="index.html" class="logo-block"><div class="logo-emblem">★</div><div class="logo-text"><h1>American Legion</h1><p>Post 579 — Bicentennial</p></div></a><nav class="main-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a><a href="programs.html" class="active">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a><a href="membership.html" class="btn-nav-join">Join Now</a></nav><button class="hamburger"><span></span><span></span><span></span></button></div></div><div class="mobile-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a><a href="programs.html">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></div></header>
-<div class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Programs</span></div><h1>Programs</h1><p>Youth, community, veterans outreach, and patriotism programs at Post 579</p></div></div>
-<section class="section-pad bg-white"><div class="container"><div class="section-title text-center">Post 579 Programs</div><div class="section-divider"></div><p class="section-subtitle">The American Legion is committed to serving veterans, youth, and the community through meaningful programs. Post 579 supports and participates in the following.</p>
-<div class="programs-grid">
-  <div class="program-card"><h3>American Legion Baseball</h3><p>One of the most successful amateur athletic programs in the nation. American Legion Baseball has helped develop countless Major League Baseball players. Post 579 supports youth participation in this premier program.</p></div>
-  <div class="program-card"><h3>Boys State / Girls State</h3><p>A premier civic education program where high school students learn about state and local government through immersive, hands-on participation. Post 579 nominates and sponsors qualified local students annually.</p></div>
-  <div class="program-card"><h3>Oratorical Contest</h3><p>The American Legion National High School Oratorical Contest — a scholarship program and Constitution-focused competition that develops public speaking skills and patriotic values in young Americans.</p></div>
-  <div class="program-card"><h3>Buddy Poppy Program</h3><p>The Buddy Poppy is The American Legion's symbol of sacrifice. Our annual campaign honors fallen veterans and raises funds to support disabled veterans and their families in our community.</p></div>
-  <div class="program-card"><h3>Community Service</h3><p>Post 579 actively participates in community service projects throughout San Antonio — from food drives and cleanups to supporting local schools and families in need.</p></div>
-  <div class="program-card"><h3>Veteran Outreach</h3><p>We actively seek out veterans who may not know about their benefits or who need assistance connecting with VA services, community resources, and the American Legion network.</p></div>
-  <div class="program-card"><h3>Honor Guard</h3><p>Post 579 maintains an Honor Guard for military funerals and ceremonial events. We believe every veteran deserves a proper farewell with military honors.</p></div>
-  <div class="program-card"><h3>Americanism Programs</h3><p>Flag education, Constitution Day observances, essay contests, and civic programs that teach the values and history of the United States to students and the broader community.</p></div>
-  <div class="program-card"><h3>Scholarships</h3><p>The American Legion offers scholarship programs at the national and state level. Post 579 works to connect qualified veterans and students with scholarship opportunities.</p></div>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
 </div>
-</div></section>
-<div class="cta-band"><div class="container"><h2>Get Involved</h2><p>Volunteer for Post 579 programs, sponsor a youth activity, or join as a member to participate in all we do.</p><div class="cta-buttons"><a href="membership.html" class="btn btn-primary btn-lg">Join Post 579</a><a href="contact.html#volunteer" class="btn btn-secondary btn-lg">Volunteer</a><a href="donate.html" class="btn btn-gold btn-lg">Support Programs</a></div></div></div>
-<footer><div class="footer-main"><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>American Legion Post 579</h3><p>Bicentennial Post 579 — San Antonio, Texas 78227. For God and Country.</p></div><div class="footer-col"><h4>Navigate</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a></div><div class="footer-col"><h4>Services</h4><a href="programs.html">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Emergency</h4><a href="tel:988">Veterans Crisis: 988</a><a href="veterans-services.html">Get Help Now</a></div></div></div></div><div class="footer-bottom"><div class="container"><p>&copy; 2026 <span>American Legion Post 579</span>. San Antonio, TX. Built by <span>TM Designs&trade;</span> | <a href="privacy-policy/" style="color:rgba(255,255,255,0.4);">Privacy</a> | <a href="terms/" style="color:rgba(255,255,255,0.4);">Terms</a></p></div></div></footer>
-<script src="assets/js/main.js"></script>
-<div style="background:#1B2A4A;padding:20px;text-align:center;"><a href="military-ai/" style="display:inline-block;background:#B22234;color:#fff;padding:12px 28px;border-radius:6px;font-size:0.85rem;font-weight:bold;text-transform:uppercase;letter-spacing:2px;">Try the Military Guide AI →</a></div></body>
-</html>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
+    </div>
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Post 579 Programs</h1>
+  <p>Youth, community outreach, patriotism, and veteran support programs at Bicentennial Post 579.</p>
+</div>
+<main>
+  <section>
+    <div class="sh"><h2>Programs We Support</h2>
+    <p>Post 579 actively participates in national American Legion programs that serve veterans, youth, and our community in San Antonio.</p>
+    <span class="redline"></span></div>
+    <div class="photo-card-grid">
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/824194d92_b8641addf_IMG_6548.png" alt="Boys State"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Youth</div><h3>Boys State</h3><p>Premier civic education for high school juniors — Post 579 nominates and sponsors qualified students annually.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/00f5c56c7_729d45095_IMG_6643.png" alt="Baseball"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Youth</div><h3>Legion Baseball</h3><p>One of America's top amateur athletic programs. Post 579 supports youth participation in this historic program.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/bdf3a213d_396b25c30_IMG_6465.jpg" alt="Oratorical"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Scholarships</div><h3>Oratorical Contest</h3><p>National Constitution-focused scholarship competition developing public speaking and patriotic values.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/020753d69_580d65494_IMG_6480.png" alt="Honor Guard"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Military</div><h3>Honor Guard</h3><p>Post 579 maintains an Honor Guard for military funerals and ceremonial events. Every veteran deserves honors.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/f1b178b8b_740f32138_IMG_6464.jpg" alt="Community Service"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Community</div><h3>Community Service</h3><p>Food drives, cleanups, school support, and community outreach throughout Lackland Terrace and San Antonio.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/2f1ff7abb_7c1cf3f89_IMG_6481.png" alt="Buddy Poppy"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Memorial</div><h3>Buddy Poppy</h3><p>Annual campaign honoring fallen veterans and raising funds to support disabled veterans and their families.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/1e1cd191e_99f7c1086_IMG_6467.jpg" alt="Veteran Outreach"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Veterans</div><h3>Veteran Outreach</h3><p>Connecting veterans who may not know about their benefits with VA services and the Legion network.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/3c856512c_daaf1a755_IMG_6454.jpg" alt="Americanism"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Patriotism</div><h3>Americanism Programs</h3><p>Flag education, Constitution Day, essay contests, and civic programs teaching American values and history.</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/7ef2844c2_60ad78586_IMG_6478.jpg" alt="Scholarships"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Scholarships</div><h3>Scholarship Programs</h3><p>Connecting veterans and students with national and state American Legion scholarship opportunities.</p></div></div>
+    </div>
+  </section>
+  <div class="dark-section" style="text-align:center">
+    <h2 style="color:#FFD700;font-size:1.8rem;font-weight:900;margin-bottom:10px">Get Involved with Post 579 Programs</h2>
+    <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 22px">Volunteer, sponsor a youth activity, or join as a member to participate in everything Post 579 does for veterans and the community.</p>
+    <a href="membership.html" class="btn btn-red">Join Post 579</a>
+    <a href="contact.html" class="btn btn-gold">Volunteer</a>
+    <a href="donate.html" class="btn btn-outline">Support Programs</a>
+  </div>
+</main>
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="donate.html">Donate</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+</body></html>

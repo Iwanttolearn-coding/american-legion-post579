@@ -2,123 +2,150 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — American Legion Post 579</title>
-<meta name="description" content="About American Legion Bicentennial Post 579, Bicentennial Post 579 — San Antonio, Texas. History, mission, and post information.">
-<link rel="stylesheet" href="style.css">
-<style>
-.history-timeline { position:relative; padding-left:32px; border-left:3px solid var(--red); margin:32px 0; }
-.timeline-event { position:relative; margin-bottom:28px; }
-.timeline-event::before { content:''; position:absolute; left:-40px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--red); border:3px solid #fff; box-shadow:0 0 0 3px var(--red); }
-.timeline-year { color:var(--red); font-weight:900; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; }
-.timeline-event h3 { color:var(--navy); margin:4px 0; }
-.timeline-event p { color:#555; font-size:.9rem; }
-.branch-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px; }
-.branch-card { border-radius:12px; padding:22px; color:#fff; text-align:center; }
-.branch-card h4 { font-size:1rem; margin-bottom:6px; }
-.branch-card p { font-size:.82rem; opacity:.85; }
-.army { background:linear-gradient(135deg,#3d4a1e,#4B5320); }
-.marines { background:linear-gradient(135deg,#7a0000,#990000); }
-.navy-b { background:linear-gradient(135deg,#000060,#000080); }
-.airforce { background:linear-gradient(135deg,#002060,#003087); }
-.coast { background:linear-gradient(135deg,#990000,#CC0000); }
-.space { background:linear-gradient(135deg,#080e1a,#0D1B2A); }
-.mission-pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
-.pillar { background:var(--light); border-radius:12px; padding:24px; text-align:center; border-top:4px solid var(--red); }
-.pillar .p-icon { font-size:2rem; margin-bottom:10px; }
-.pillar h4 { color:var(--navy); margin-bottom:6px; }
-.pillar p { font-size:.85rem; color:#666; }
-@media(max-width:768px){.branch-grid,.mission-pillars{grid-template-columns:1fr 1fr;}.branch-grid{grid-template-columns:1fr 1fr;}}
+<title>About — American Legion Post 579 | San Antonio, TX</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.92rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:600;padding:15px 10px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:52px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:560px;margin:0 auto}
+.page-hero .flags{font-size:1.3rem;letter-spacing:4px;margin-bottom:14px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:1.9rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:36px 0;color:white}
+.dark-section .sh h2{color:white}
+.dark-section .sh p{color:rgba(255,255,255,0.7)}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.photo-card{position:relative;height:210px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card .pc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%)}
+.photo-card .pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.photo-card .pc-tag{display:inline-block;background:#B22234;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.photo-card .pc-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-card h3{font-size:1rem;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,0.6);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:3px}
+.photo-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);line-height:1.4}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}
+.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}
+.btn-gold:hover{background:#a07818}
+.btn-navy{background:#0d1a35;color:white}
+.btn-navy:hover{background:#071020}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}
+.btn-outline:hover{border-color:white}
+.form-wrap{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.05em}
+.fg input,.fg select,.fg textarea{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:0.88rem}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.35)}
+.fg select option{background:#0d1a35}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:36px 0}
+.about-photo{border-radius:16px;overflow:hidden;height:360px;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:28px 0}
+.stat-card{background:white;border-radius:12px;padding:22px;text-align:center;border-top:4px solid #B22234;box-shadow:0 4px 14px rgba(0,0,0,0.07)}
+.stat-card .stat-num{font-size:2.2rem;font-weight:900;color:#B22234;margin-bottom:4px}
+.stat-card .stat-lbl{font-size:0.8rem;font-weight:700;color:#0d1a35;text-transform:uppercase;letter-spacing:0.05em}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
-    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
-
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;text-align:center;color:#fff;">
-  <div class="container">
-    <p class="eyebrow" style="color:var(--gold)">About Post 579</p>
-    <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:12px;">Committed to Veterans<br>Since 1976</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:600px;margin:0 auto;">American Legion Bicentennial Post 579 — Bicentennial Post 579 — Lackland Terrace, San Antonio, Texas.</p>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="section">
-  <div class="container">
-    <div class="two-column" style="align-items:center;">
-      <div>
-        <span class="eyebrow">Our Mission</span>
-        <h2>For God and Country</h2>
-        <p>American Legion Post 579 exists to serve those who served. We provide fellowship, veteran support, community service, patriotic programs, and opportunities for members to continue serving with purpose and honor.</p>
-        <p style="margin-top:12px;">Our charter mandates four pillars of service: Veterans, Defense, Americanism, and Youth & Children. Every program and activity at Post 579 flows from these core commitments.</p>
-      </div>
-      <div class="mission-pillars" style="margin-top:0;">
-        <div class="pillar"><div class="p-icon">🎖️</div><h4>Veterans</h4><p>Advocating for VA benefits, healthcare, and dignity for all who served.</p></div>
-        <div class="pillar"><div class="p-icon">🛡️</div><h4>Defense</h4><p>Supporting a strong national defense and honoring active duty service.</p></div>
-        <div class="pillar"><div class="p-icon">🦅</div><h4>Americanism</h4><p>Promoting patriotism, civic education, and love of country.</p></div>
-        <div class="pillar"><div class="p-icon">🌟</div><h4>Youth</h4><p>Investing in the next generation through Boys State, Girls State, and scholarships.</p></div>
-      </div>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
     </div>
   </div>
-</section>
-
-<!-- POST HISTORY -->
-<section class="section" style="background:var(--light);">
-  <div class="container">
-    <span class="eyebrow">Our Story</span>
-    <h2>History of Post 579</h2>
-    <div class="two-column" style="margin-top:28px;">
-      <div class="history-timeline">
-        <div class="timeline-event"><div class="timeline-year">1976</div><h3>Post Chartered</h3><p>American Legion Bicentennial Post 579 is chartered in the Lackland Terrace neighborhood of San Antonio during the nation's Bicentennial year. The post is named in honor of Mr. Harold for her dedication to the veterans community.</p></div>
-        <div class="timeline-event"><div class="timeline-year">1980s</div><h3>Growth & Programs</h3><p>Post 579 expands its membership and launches community programs including Boys State sponsorships, patriotic ceremonies, and veteran assistance services.</p></div>
-        <div class="timeline-event"><div class="timeline-year">1990s</div><h3>Gulf War Era Service</h3><p>Post 579 welcomes a new generation of Gulf War veterans and expands its VA benefits counseling services to meet growing demand.</p></div>
-        <div class="timeline-event"><div class="timeline-year">2001–Present</div><h3>Post-9/11 Service</h3><p>Post 579 serves veterans of OEF, OIF, and subsequent conflicts, growing its support network for combat veterans, their families, and the wider community.</p></div>
-        <div class="timeline-event"><div class="timeline-year">2026</div><h3>Serving Today</h3><p>Post 579 continues to serve San Antonio veterans and families with honor, launching new digital tools, community events, and expanded outreach programs.</p></div>
-      </div>
+</nav>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>About Post 579</h1>
+  <p>Serving veterans, military families, and the San Antonio community since 1976.</p>
+</div>
+<main>
+  <section>
+    <div class="about-grid">
+      <div class="about-photo"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/8ed9e26a3_0351b4a40_20260520_081000.jpg" alt="Post 579"></div>
       <div>
-        <div class="info-box">
-          <h3>Post 579 At a Glance</h3>
-          <div class="info-row"><span class="info-icon">📅</span><div><strong>Founded:</strong> 1976</div></div>
-          <div class="info-row"><span class="info-icon">🏛️</span><div><strong>Named For:</strong> Mr. Harold — respected community leader and veterans advocate</div></div>
-          <div class="info-row"><span class="info-icon">📍</span><div><strong>Location:</strong> 3002 Gunsmoke Street, San Antonio TX 78227 — Lackland Terrace</div></div>
-          <div class="info-row"><span class="info-icon">⚖️</span><div><strong>Status:</strong> 501(c)(19) Veterans' Organization — nonprofit</div></div>
-          <div class="info-row"><span class="info-icon">🇺🇸</span><div><strong>National:</strong> American Legion — founded 1919, 2M+ members, 12,000+ posts worldwide</div></div>
-          <div class="info-row"><span class="info-icon">📞</span><div><strong>Phone:</strong> <a href="tel:+12106748069">(210) 674-8069</a></div></div>
+        <div class="sh" style="text-align:left"><h2>Our Story</h2><span class="redline" style="margin:12px 0 0"></span></div>
+        <p style="margin-top:18px;line-height:1.8;color:#333">American Legion Bicentennial Post 579 was chartered in 1976 in San Antonio's Lackland Terrace community. For nearly five decades, Post 579 has served as a home for veterans of every branch of the United States Armed Forces — a place of fellowship, service, and patriotic purpose.</p>
+        <p style="margin-top:14px;line-height:1.8;color:#333">Under the leadership of Commander Mr. Harold, Post 579 continues its mission to serve veterans, advocate for their rights, support youth programs, and strengthen the bonds of the community. We are proud to carry forward the American Legion's mission: <em>"For God and Country."</em></p>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="membership.html" class="btn btn-red">Join Post 579</a>
+          <a href="contact.html" class="btn btn-navy">Contact Us</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- MILITARY BRANCHES -->
-<section class="section dark">
-  <div class="container">
-    <span class="eyebrow">We Serve All Branches</span>
-    <h2>Every Branch, Every Era</h2>
-    <p style="opacity:.8;margin-bottom:8px;">Post 579 proudly serves veterans of all six branches of the U.S. Armed Forces.</p>
-    <div class="branch-grid">
-      <div class="branch-card army">⚔️<h4>U.S. Army</h4><p>America's oldest branch. The force of decisive action.</p></div>
-      <div class="branch-card marines">🦅<h4>U.S. Marine Corps</h4><p>Semper Fidelis — Always Faithful.</p></div>
-      <div class="branch-card navy-b">⚓<h4>U.S. Navy</h4><p>Command of the sea since 1775.</p></div>
-      <div class="branch-card airforce">✈️<h4>U.S. Air Force</h4><p>Airpower and global vigilance.</p></div>
-      <div class="branch-card coast">🚢<h4>U.S. Coast Guard</h4><p>Semper Paratus — Always Ready.</p></div>
-      <div class="branch-card space">🛰️<h4>U.S. Space Force</h4><p>Semper Supra — Always Above.</p></div>
+  <section>
+    <div class="sh"><h2>Post 579 By the Numbers</h2><span class="redline"></span></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">1976</div><div class="stat-lbl">Year Chartered</div></div>
+      <div class="stat-card"><div class="stat-num">50<span style="font-size:1.2rem">+</span></div><div class="stat-lbl">Years Serving</div></div>
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-lbl">Military Branches</div></div>
+      <div class="stat-card"><div class="stat-num">501c19</div><div class="stat-lbl">Veterans Org</div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579 — Bicentennial</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="privacy-policy/">Privacy Policy</a> · <a href="admin/">Officer Login</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
-</body>
-</html>
+  <section>
+    <div class="sh"><h2>The Post 579 Facility</h2>
+    <p>Our hall at 3002 Gunsmoke Street is the heart of Post 579 — available for meetings, events, and community gatherings.</p>
+    <span class="redline"></span></div>
+    <div class="photo-card-grid">
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/18adc518c_15b0f7eea_20260520_083822.jpg" alt="Hall"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Facility</div><h3>Post Hall</h3><p>Spacious venue for events, meetings, and fellowship</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/9db423c08_5ea49e56c_20260520_080919.jpg" alt="Community"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag gold">Community</div><h3>Community Hub</h3><p>A gathering place for veterans and neighbors alike</p></div></div>
+      <div class="photo-card"><img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/ad0c21aa9_923bc921d_20260520_080913.jpg" alt="Post"><div class="pc-overlay"></div><div class="pc-body"><div class="pc-tag">Post 579</div><h3>3002 Gunsmoke St</h3><p>Located in Lackland Terrace, San Antonio, TX 78227</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:16px">
+      <a href="hall-rental.html" class="btn btn-red">Reserve the Hall</a>
+      <a href="gallery.html" class="btn btn-gold">View Gallery</a>
+    </div>
+  </section>
+
+  <div class="dark-section" style="text-align:center">
+    <h2 style="color:#FFD700;font-size:1.8rem;font-weight:900;margin-bottom:10px">📍 Visit Us</h2>
+    <p style="color:rgba(255,255,255,0.75);margin-bottom:16px">3002 Gunsmoke Street · San Antonio, Texas 78227<br>Post Phone: (210) 674-8069 · Commander Mr. Harold: (210) 385-7000</p>
+    <a href="https://maps.google.com/?q=3002+Gunsmoke+Street+San+Antonio+TX+78227" target="_blank" class="btn btn-gold">Get Directions</a>
+    <a href="membership.html" class="btn btn-red">Join Post 579</a>
+  </div>
+</main>
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="donate.html">Donate</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+</body></html>

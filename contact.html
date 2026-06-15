@@ -2,86 +2,205 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — American Legion Post 579 | San Antonio TX</title>
-<link rel="stylesheet" href="style.css">
+<title>Contact — American Legion Post 579 | San Antonio, TX</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}
+a{text-decoration:none;color:inherit}
+.flag-bar{background:linear-gradient(90deg,#B22234 0%,#B22234 33%,#fff 33%,#fff 66%,#003087 66%);height:6px}
+.top-strip{background:#0a1628;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;padding:7px 20px}
+.top-strip a{color:#FFD700;font-weight:700}
+nav{background:#12213d;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-wrap:wrap}
+.nav-logo{color:white;font-weight:900;font-size:0.92rem;padding:14px 0}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:600;padding:15px 10px;text-transform:uppercase;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#FFD700;background:rgba(255,255,255,0.07)}
+.nav-join{background:#B22234!important;color:white!important;border-radius:4px}
+.page-hero{background:linear-gradient(135deg,#071020 0%,#0d1a35 100%);padding:52px 28px;text-align:center;color:white;border-bottom:4px solid #B22234}
+.page-hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(180deg,#fff 0%,#C5A028 45%,#fff 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.7));margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:560px;margin:0 auto}
+.page-hero .flags{font-size:1.3rem;letter-spacing:4px;margin-bottom:14px}
+main{max-width:1400px;margin:0 auto;padding:40px 28px 60px}
+.sh{text-align:center;margin-bottom:28px}
+.sh h2{font-size:1.9rem;font-weight:900;color:#0d1a35;text-transform:uppercase}
+.sh p{color:#555;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.redline{display:block;width:60px;height:4px;background:#B22234;border-radius:2px;margin:12px auto 0}
+.dark-section{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:40px;margin:36px 0;color:white}
+.dark-section .sh h2{color:white}.dark-section .sh p{color:rgba(255,255,255,0.7)}
+.photo-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.photo-card{position:relative;height:200px;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.25s}
+.photo-card:hover{transform:translateY(-4px)}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card .pc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 60%)}
+.photo-card .pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:white;z-index:2}
+.photo-card .pc-tag{display:inline-block;background:#B22234;color:white;font-size:0.62rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.photo-card .pc-tag.gold{background:#C5A028;color:#0d1a35}
+.photo-card h3{font-size:1rem;font-weight:900;text-shadow:0 2px 6px rgba(0,0,0,0.6);text-transform:uppercase;margin-bottom:3px}
+.photo-card p{font-size:0.75rem;color:rgba(255,255,255,0.8);line-height:1.4}
+.btn{display:inline-block;padding:11px 24px;border-radius:8px;font-weight:800;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;border:none;margin:4px}
+.btn-red{background:#B22234;color:white}.btn-red:hover{background:#8B1A1A}
+.btn-gold{background:#C5A028;color:#0d1a35}.btn-gold:hover{background:#a07818}
+.btn-navy{background:#0d1a35;color:white}.btn-navy:hover{background:#071020}
+.btn-outline{border:2px solid rgba(255,255,255,0.4);color:white;background:transparent}.btn-outline:hover{border-color:white}
+.form-wrap{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.05em}
+.fg input,.fg select,.fg textarea{padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:0.88rem}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.35)}
+.fg select option{background:#0d1a35}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.success-box{display:none;background:rgba(0,180,0,0.15);border:1px solid rgba(0,255,0,0.3);border-radius:10px;padding:24px;text-align:center;margin-top:16px}
+footer{background:#06090f;color:rgba(255,255,255,0.65);padding:28px 28px 18px;text-align:center;font-size:0.82rem}
+footer a{color:#FFD700}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:1}main{padding:24px 14px 40px}}
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin:36px 0;align-items:start}
+.contact-info-card{background:linear-gradient(135deg,#0d1a35,#1B2A47);border-radius:16px;padding:32px;color:white}
+.contact-info-card h2{font-size:1.4rem;font-weight:900;color:#FFD700;margin-bottom:18px}
+.contact-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.contact-row:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.contact-row .cr-icon{font-size:1.6rem;flex-shrink:0}
+.contact-row h4{font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.contact-row p,.contact-row a{font-size:0.95rem;color:white;font-weight:600;line-height:1.5}
+.contact-row a{color:#FFD700}
+.map-thumb{margin-top:20px;border-radius:10px;overflow:hidden;height:160px;background:#0a1628;display:flex;align-items:center;justify-content:center}
+.map-thumb a{color:#FFD700;font-weight:700;font-size:0.9rem;text-align:center}
+.contact-form-card{background:white;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.contact-form-card h2{font-size:1.4rem;font-weight:900;color:#0d1a35;margin-bottom:18px}
+.cf-fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.cf-fg label{font-size:0.78rem;font-weight:700;color:#0d1a35;text-transform:uppercase;letter-spacing:0.05em}
+.cf-fg input,.cf-fg select,.cf-fg textarea{padding:10px 14px;border-radius:8px;border:1.5px solid #d0d8e4;font-size:0.88rem;color:#1a1a2e;transition:border-color 0.2s}
+.cf-fg input:focus,.cf-fg select:focus,.cf-fg textarea:focus{outline:none;border-color:#0d1a35}
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf-grid .full{grid-column:1/-1}
+.cf-success{display:none;background:#f0fff4;border:1px solid #90ee90;border-radius:10px;padding:20px;text-align:center;margin-top:14px}
+@media(max-width:768px){.contact-layout{grid-template-columns:1fr}.cf-grid{grid-template-columns:1fr}.cf-grid .full{grid-column:1}}
+</style>
 </head>
 <body>
-<header class="site-header"><div class="container nav-wrapper">
-  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Bicentennial Post 579 · San Antonio, TX</p></div></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
-    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
-    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
-    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html" class="active">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</div></header>
-
-<div class="alert-bar">🆘 Veterans Crisis Line: <a href="tel:988">Call 988 — Press 1</a> · Free · Confidential · 24/7</div>
-
-<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
-  <div class="container">
-    <span class="eyebrow" style="color:var(--gold)">Contact Post 579</span>
-    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Get in Touch</h1>
-    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">Questions about membership, veterans services, hall rental, events, or anything else — we're here.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="two-column">
-      <div>
-        <span class="eyebrow">Post Information</span>
-        <h2>American Legion Bicentennial Post 579</h2>
-        <p style="font-size:.92rem;color:#555;margin-bottom:24px;">Bicentennial Post 579 — Lackland Terrace, San Antonio, Texas</p>
-        <div class="contact-details">
-          <div class="contact-row"><span>📍</span><div><strong>Address</strong><br>3002 Gunsmoke Street<br>San Antonio, Texas 78227<br>Lackland Terrace</div></div>
-          <div class="contact-row"><span>📞</span><div><strong>Phone</strong><br><a href="tel:+12106748069">(210) 674-8069</a></div></div>
-          <div class="contact-row"><span>✉️</span><div><strong>Email</strong><br><a href="mailto:commander@post579sa.org">commander@post579sa.org</a></div></div>
-          <div class="contact-row"><span>🕐</span><div><strong>Hours</strong><br>Contact the Post for current office hours and meeting schedule</div></div>
-          <div class="contact-row"><span>🆘</span><div><strong>Veterans Crisis Line — 24/7</strong><br><a href="tel:988" style="color:var(--red);font-size:1.1rem;font-weight:900;">988 — Press 1</a><br><span style="font-size:.85rem;color:#888;">Free · Confidential · Available 24/7</span></div></div>
-        </div>
-        <a href="https://maps.google.com/?q=3002+Gunsmoke+Street+San+Antonio+TX+78227" target="_blank" class="btn btn-primary" style="margin-top:24px;display:inline-block;">📍 Get Directions</a>
-        <div style="margin-top:28px;background:var(--light);border-radius:10px;padding:20px;">
-          <h4 style="color:var(--navy);margin-bottom:12px;">Quick Links</h4>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a href="veterans-services.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">🎖️ Request Veterans Assistance</a>
-            <a href="membership.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">★ Join / Membership Application</a>
-            <a href="hall-rental.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">🏛️ Hall Rental Inquiry</a>
-            <a href="donate.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">💙 Donate to Post 579</a>
-          </div>
-        </div>
-      </div>
-      <form class="form" id="contact-form">
-        <h3>Contact Form</h3>
-        <input type="text" name="full_name" placeholder="Full Name" required>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <input type="email" name="email" placeholder="Email Address" required>
-          <input type="tel" name="phone" placeholder="Phone Number">
-        </div>
-        <select name="subject">
-          <option value="">Subject — How Can We Help?</option>
-          <option>Membership Information</option>
-          <option>Veterans Assistance / Benefits</option>
-          <option>Hall Rental Inquiry</option>
-          <option>Event Information</option>
-          <option>Volunteer Opportunity</option>
-          <option>Donation / Sponsorship</option>
-          <option>Media / Press Inquiry</option>
-          <option>General Question</option>
-        </select>
-        <textarea name="message" placeholder="Tell us how we can help…" style="height:160px;"></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        <p style="text-align:center;font-size:.8rem;color:#888;">We typically respond within 2–3 business days. For urgent matters, please call <a href="tel:+12106748069">(210) 674-8069</a>.</p>
-      </form>
+<div class="flag-bar"></div>
+<div class="top-strip">
+  🇺🇸 American Legion Bicentennial Post 579 &nbsp;·&nbsp; 3002 Gunsmoke St, San Antonio TX 78227 &nbsp;·&nbsp;
+  <a href="tel:2106748069">(210) 674-8069</a> &nbsp;·&nbsp; Commander: <strong style="color:white">Mr. Harold</strong> &nbsp;·&nbsp; <a href="tel:2103857000">(210) 385-7000</a>
+</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🎖️ POST 579 — AMERICAN LEGION</div>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a>
+      <a href="events.html">Events</a><a href="veterans-services.html">Veterans</a>
+      <a href="programs.html">Programs</a><a href="gallery.html">Gallery</a>
+      <a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="membership.html" class="nav-join">Join Now</a>
     </div>
   </div>
-</section>
+</nav>
+<div class="page-hero">
+  <div class="flags">🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸 🇺🇸</div>
+  <h1>Contact Post 579</h1>
+  <p>Reach out to us by phone, email, or the form below. We're here to help veterans and the community.</p>
+</div>
+<main>
+  <div class="contact-layout">
+    <!-- INFO CARD -->
+    <div class="contact-info-card">
+      <h2>📍 Post 579 Information</h2>
+      <div class="contact-row">
+        <div class="cr-icon">📍</div>
+        <div><h4>Address</h4><p>3002 Gunsmoke Street<br>San Antonio, Texas 78227</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-icon">📞</div>
+        <div><h4>Post Phone</h4><a href="tel:2106748069">(210) 674-8069</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-icon">👤</div>
+        <div><h4>Commander Mr. Harold</h4><a href="tel:2103857000">(210) 385-7000</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-icon">🌐</div>
+        <div><h4>National Legion</h4><a href="https://www.legion.org" target="_blank">legion.org ↗</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-icon">🆘</div>
+        <div><h4>Veterans Crisis Line</h4><p><strong style="color:#FFD700">988 → Press 1</strong><br><span style="font-size:0.8rem;color:rgba(255,255,255,0.6)">Available 24/7, free, confidential</span></p></div>
+      </div>
+      <div class="map-thumb">
+        <a href="https://maps.google.com/?q=3002+Gunsmoke+Street+San+Antonio+TX+78227" target="_blank">
+          📍 Click to Open Google Maps<br><span style="font-size:0.75rem;opacity:0.7">3002 Gunsmoke St · San Antonio TX 78227</span>
+        </a>
+      </div>
+    </div>
 
-<footer class="footer"><div class="container footer-content">
-  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
-  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
-</div></footer>
-<script src="main.js"></script>
-</body>
-</html>
+    <!-- CONTACT FORM -->
+    <div class="contact-form-card">
+      <h2>Send Us a Message</h2>
+      <div id="contact-form">
+        <div class="cf-grid">
+          <div class="cf-fg"><label>Full Name *</label><input type="text" id="cf-name" placeholder="Your full name" required></div>
+          <div class="cf-fg"><label>Phone</label><input type="tel" id="cf-phone" placeholder="(210) 000-0000"></div>
+          <div class="cf-fg"><label>Email *</label><input type="email" id="cf-email" placeholder="your@email.com" required></div>
+          <div class="cf-fg"><label>Subject</label>
+            <select id="cf-subject">
+              <option>General Inquiry</option>
+              <option>Membership Information</option>
+              <option>Veterans Assistance</option>
+              <option>Hall Rental</option>
+              <option>Events & Tickets</option>
+              <option>Volunteering</option>
+              <option>Donate / Support</option>
+              <option>Media / Press</option>
+            </select>
+          </div>
+          <div class="cf-fg full"><label>Message *</label><textarea id="cf-msg" rows="5" placeholder="Tell us how we can help you..." required></textarea></div>
+        </div>
+        <button class="btn btn-red" onclick="submitContact()" style="margin-top:4px;font-size:0.9rem;padding:13px 28px">Send Message →</button>
+        <p style="font-size:0.75rem;color:#888;margin-top:10px">We typically respond within 24–48 hours. For urgent matters, please call (210) 674-8069 directly.</p>
+      </div>
+      <div class="cf-success" id="contact-success">
+        <div style="font-size:2rem;margin-bottom:8px">✅</div>
+        <h3 style="color:#0d6b2d">Message Sent!</h3>
+        <p style="color:#555;margin-top:6px">Thank you! A Post officer will respond within 24–48 hours.<br>For immediate help: <a href="tel:2106748069" style="color:#B22234;font-weight:700">(210) 674-8069</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <section>
+    <div class="sh"><h2>Quick Actions</h2><span class="redline"></span></div>
+    <div class="photo-card-grid">
+      <a href="membership.html" class="photo-card" style="cursor:pointer">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/e90242ebe_44d45c1bb_IMG_6556.jpg" alt="Join"><div class="pc-overlay"></div>
+        <div class="pc-body"><div class="pc-tag">Membership</div><h3>Join Post 579</h3><p>Apply for membership — eligible veterans welcome</p></div>
+      </a>
+      <a href="hall-rental.html" class="photo-card" style="cursor:pointer">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/16a3e8bb8_d1a3e5270_IMG_6472.jpg" alt="Hall Rental"><div class="pc-overlay"></div>
+        <div class="pc-body"><div class="pc-tag gold">Hall Rental</div><h3>Reserve the Hall</h3><p>Book our facility for your next event</p></div>
+      </a>
+      <a href="veterans-services.html" class="photo-card" style="cursor:pointer">
+        <img src="https://base44.app/api/apps/6a0a2d575b77f3b9ebb6b1c9/files/mp/public/6a0a2d575b77f3b9ebb6b1c9/323f1bd78_013a10331_IMG_6463.jpg" alt="Veterans"><div class="pc-overlay"></div>
+        <div class="pc-body"><div class="pc-tag">Veterans</div><h3>Get Veterans Help</h3><p>Free VA benefits guidance and assistance</p></div>
+      </a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div style="max-width:1400px;margin:0 auto">
+    <p>🇺🇸 <strong>American Legion Bicentennial Post 579</strong> · 3002 Gunsmoke Street · San Antonio, TX 78227 · (210) 674-8069</p>
+    <p style="margin-top:6px">Commander: Mr. Harold · (210) 385-7000 &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="donate.html">Donate</a> &nbsp;|&nbsp; Built by TM Designs™</p>
+  </div>
+</footer>
+<script>
+function submitContact() {
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const msg = document.getElementById('cf-msg').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in your name, email, and message.'); return; }
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('contact-success').style.display='block';
+  document.getElementById('contact-success').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body></html>
