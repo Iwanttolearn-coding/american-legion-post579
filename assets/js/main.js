@@ -1,126 +1,120 @@
 /* ============================================================
-   AMERICAN LEGION POST 579 — MAIN JAVASCRIPT
+   POST 579 — MAIN JAVASCRIPT
    ============================================================ */
+const POST579 = {
+  backend: 'https://terrellos-backend.fly.dev',
+  post: 'American Legion Bicentennial Post 579',
+  address: '3002 Gunsmoke St, San Antonio TX 78227',
+  phone: '(210) 674-8069',
+  email: 'commander@post579sa.org',
+  crisis: '988 — Press 1',
+};
 
-document.addEventListener('DOMContentLoaded', function () {
-
-  /* ─── MOBILE NAV TOGGLE ─── */
+/* ── Mobile nav ── */
+document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (hamburger && mobileNav) {
+  const nav = document.querySelector('.main-nav');
+  if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
-      const open = mobileNav.style.display === 'block';
-      mobileNav.style.display = open ? 'none' : 'block';
+      hamburger.classList.toggle('open');
+      nav.classList.toggle('open');
     });
   }
 
-  /* ─── ACTIVE NAV HIGHLIGHT ─── */
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.main-nav a, .mobile-nav a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
+  // Mark active nav link
+  const path = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '') || '/';
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    const href = a.getAttribute('href').replace(/\/$/, '').replace(/\/index\.html$/, '');
+    if (href && path.endsWith(href)) a.classList.add('active');
   });
-
-  /* ─── SMOOTH SCROLL for anchor links ─── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (mobileNav) mobileNav.style.display = 'none';
-      }
-    });
-  });
-
-  /* ─── FORM SUBMISSIONS ─── */
-  document.querySelectorAll('form[data-form-type]').forEach(form => {
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const type = this.dataset.formType;
-      const btn = this.querySelector('.form-submit-btn');
-      const successEl = this.nextElementSibling;
-      const original = btn.textContent;
-
-      btn.textContent = 'Submitting...';
-      btn.disabled = true;
-
-      const data = {};
-      new FormData(this).forEach((val, key) => { data[key] = val; });
-      data.form_type = type;
-      data.submitted_at = new Date().toISOString();
-      data.post = '579';
-
-      try {
-        // Post to backend handler
-        await fetch('/forms/handler.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        }).catch(() => {}); // graceful fail — DB save still happens via Base44
-
-        // Always show success
-        form.style.display = 'none';
-        if (successEl && successEl.classList.contains('form-success')) {
-          successEl.style.display = 'block';
-        }
-      } catch (err) {
-        btn.textContent = original;
-        btn.disabled = false;
-      }
-    });
-  });
-
-  /* ─── ANTI-SPAM: Honeypot hidden field check ─── */
-  document.querySelectorAll('form').forEach(form => {
-    const hp = form.querySelector('input[name="website"]');
-    if (hp) {
-      form.addEventListener('submit', function (e) {
-        if (hp.value) { e.preventDefault(); e.stopPropagation(); return false; }
-      }, true);
-    }
-  });
-
-  /* ─── GALLERY LIGHTBOX (simple) ─── */
-  document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
-    item.addEventListener('click', () => {
-      const overlay = document.createElement('div');
-      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
-      const img = document.createElement('img');
-      img.src = item.dataset.src;
-      img.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:8px;border:2px solid #C8A84B;';
-      overlay.appendChild(img);
-      overlay.addEventListener('click', () => overlay.remove());
-      document.body.appendChild(overlay);
-    });
-  });
-
-  /* ─── SET TODAY'S DATE on date fields ─── */
-  const today = new Date().toISOString().split('T')[0];
-  document.querySelectorAll('input[name="preferred_date"]').forEach(el => {
-    if (!el.value) el.setAttribute('min', today);
-  });
-
-  /* ─── SCROLL TO TOP BUTTON ─── */
-  const scrollBtn = document.createElement('button');
-  scrollBtn.textContent = '▲';
-  scrollBtn.setAttribute('aria-label', 'Scroll to top');
-  scrollBtn.style.cssText = `
-    position: fixed; bottom: 28px; right: 28px;
-    background: #B22234; color: white;
-    border: 2px solid #C8A84B; border-radius: 50%;
-    width: 44px; height: 44px; font-size: 1rem;
-    cursor: pointer; display: none; z-index: 500;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-  `;
-  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  document.body.appendChild(scrollBtn);
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
-  });
-
-  console.log('American Legion Post 579 — Site loaded. For God and Country.');
 });
+
+/* ── Generic form submit ── */
+async function submitForm(formId, endpoint, successMsg) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    const origText = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+
+    const data = {};
+    new FormData(form).forEach((v, k) => { data[k] = v; });
+
+    try {
+      const res = await fetch(`${POST579.backend}${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (res.ok) {
+        showAlert(formId, successMsg || json.message || 'Submitted successfully!', 'success');
+        form.reset();
+      } else {
+        showAlert(formId, json.detail || json.message || 'Something went wrong. Please try again.', 'error');
+      }
+    } catch {
+      showAlert(formId, 'Connection error. Please call us at ' + POST579.phone, 'error');
+    } finally {
+      if (btn) { btn.textContent = origText; btn.disabled = false; }
+    }
+  });
+}
+
+function showAlert(containerId, msg, type = 'info') {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const existing = container.querySelector('.form-alert');
+  if (existing) existing.remove();
+  const div = document.createElement('div');
+  div.className = `alert alert-${type} form-alert`;
+  div.innerHTML = msg;
+  container.insertBefore(div, container.firstChild);
+  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ── Lightbox ── */
+window.openLightbox = (src, caption = '') => {
+  const lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.querySelector('img').src = src;
+  const cap = lb.querySelector('.lb-caption');
+  if (cap) cap.textContent = caption;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+window.closeLightbox = () => {
+  const lb = document.getElementById('lightbox');
+  if (lb) lb.classList.remove('active');
+  document.body.style.overflow = '';
+};
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ── Load events from backend ── */
+async function loadEvents(containerId, limit = 6) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  try {
+    const res = await fetch(`${POST579.backend}/v1/legion/events`);
+    const data = await res.json();
+    const events = (data.events || []).slice(0, limit);
+    if (!events.length) { el.innerHTML = '<p style="color:#888">No upcoming events. Check back soon.</p>'; return; }
+    el.innerHTML = events.map(ev => `
+      <div class="card">
+        <div class="card-body">
+          <span class="badge badge-red">${ev.event_type || 'Event'}</span>
+          <h3 style="margin-top:10px">${ev.name}</h3>
+          <p style="color:#888;font-size:.82rem;margin:4px 0 8px">📍 ${ev.location || POST579.address}</p>
+          <p>${ev.description || ''}</p>
+          ${ev.ticket_price ? `<p style="font-weight:bold;color:var(--navy);margin-top:8px">$${ev.ticket_price} per person</p>` : ''}
+          <a href="tickets/" class="btn btn-primary btn-sm" style="margin-top:12px">Get Tickets</a>
+        </div>
+      </div>
+    `).join('');
+  } catch {
+    el.innerHTML = '<p style="color:#888">Unable to load events. Please call (210) 674-8069.</p>';
+  }
+}

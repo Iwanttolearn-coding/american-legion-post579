@@ -1,0 +1,85 @@
+# ============================================================
+# AMERICAN LEGION POST 579 — NETLIFY DEPLOYMENT CONFIG
+# ============================================================
+
+[build]
+  publish = "."
+  command = "echo 'Static site — no build step required'"
+
+# ── REDIRECT RULES ──────────────────────────────────────────
+[[redirects]]
+  from = "/api/ai-intake"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/contact"
+  status = 200
+  force  = true
+  [redirects.headers]
+    Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "/api/membership"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/membership/apply"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/hall-rental"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/hall-rental"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/contact"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/contact"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/donate"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/donate"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/volunteer"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/volunteer"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/events"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/events"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from = "/api/military-ai"
+  to   = "https://terrellos-backend.fly.dev/v1/legion/military-ai/query"
+  status = 200
+  force  = true
+
+# ── HEADERS ─────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-XSS-Protection       = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── PRETTY URLS ──────────────────────────────────────────────
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true

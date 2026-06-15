@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilities Improvements — American Legion Post 579</title>
+<meta name="description" content="Track capital improvement projects, facilities upgrades, and sponsor recognition at American Legion Post 579, San Antonio TX.">
+<link rel="stylesheet" href="style.css">
+<style>
+.proj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:28px; }
+.proj-card {
+  background:var(--white); border-radius:14px; overflow:hidden;
+  box-shadow:0 4px 18px rgba(0,0,0,.1); transition:transform .2s, box-shadow .2s;
+  border-top:5px solid var(--navy);
+}
+.proj-card:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.14); }
+.proj-card.approved { border-top-color:var(--gold); }
+.proj-card.in-progress { border-top-color:#16a34a; }
+.proj-card.completed { border-top-color:#6b7280; }
+.proj-card.proposed { border-top-color:var(--red); }
+.proj-header { padding:20px 22px 14px; border-bottom:1px solid #f0f0f0; }
+.proj-header .badge {
+  display:inline-block; padding:3px 10px; border-radius:20px;
+  font-size:.68rem; font-weight:900; text-transform:uppercase;
+  letter-spacing:1px; margin-bottom:10px;
+}
+.badge-approved   { background:#fef9c3; color:#854d0e; }
+.badge-inprogress { background:#dcfce7; color:#166534; }
+.badge-completed  { background:#f3f4f6; color:#374151; }
+.badge-proposed   { background:#eff6ff; color:#1d4ed8; }
+.proj-header h3 { color:var(--navy); font-size:1.05rem; line-height:1.3; margin-bottom:6px; }
+.proj-header .cat { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; }
+.proj-body { padding:16px 22px; }
+.proj-body p { font-size:.88rem; color:#555; line-height:1.6; margin-bottom:12px; }
+.proj-meta { display:flex; flex-direction:column; gap:6px; }
+.proj-meta-row { display:flex; justify-content:space-between; font-size:.82rem; }
+.proj-meta-row .lbl { color:var(--muted); }
+.proj-meta-row .val { font-weight:700; color:var(--navy); }
+.proj-meta-row .val.gold { color:#8B6914; }
+.proj-meta-row .val.green { color:#16a34a; }
+.proj-footer { padding:14px 22px; background:#fafbfc; border-top:1px solid #f0f0f0; }
+.progress-bar-wrap { margin-top:8px; }
+.progress-bar-track { background:#e5e7eb; border-radius:999px; height:10px; overflow:hidden; }
+.progress-bar-fill { height:100%; border-radius:999px; background:linear-gradient(90deg,var(--gold),#16a34a); transition:width .6s; }
+.progress-label { display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); margin-top:4px; }
+
+.tab-section { display:none; }
+.tab-section.active { display:block; }
+.tabs-nav { display:flex; gap:4px; flex-wrap:wrap; border-bottom:2px solid #e5e7eb; margin-bottom:28px; }
+.tab-btn {
+  padding:10px 18px; border:none; background:none; cursor:pointer;
+  font-size:.85rem; font-weight:700; color:var(--muted);
+  border-bottom:3px solid transparent; margin-bottom:-2px;
+  text-transform:uppercase; letter-spacing:.5px; transition:.15s;
+}
+.tab-btn:hover { color:var(--navy); }
+.tab-btn.active { color:var(--navy); border-bottom-color:var(--navy); }
+
+.funding-bar-container { background:var(--white); border-radius:14px; padding:32px; box-shadow:0 4px 18px rgba(0,0,0,.08); margin-bottom:24px; }
+.big-progress { height:28px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin:16px 0; }
+.big-progress-fill { height:100%; border-radius:999px; background:linear-gradient(90deg,var(--navy),var(--gold)); }
+.sponsor-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:24px; }
+.sponsor-card { background:var(--white); border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,.07); border:2px solid var(--gold); }
+.sponsor-card .tier { font-size:.68rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:8px; }
+.sponsor-card h4 { color:var(--navy); font-size:.95rem; }
+.sponsor-card .amount { font-size:1.2rem; font-weight:900; color:#8B6914; margin-top:4px; }
+
+.suggest-form-wrap { max-width:680px; margin:0 auto; }
+@media(max-width:900px){.proj-grid{grid-template-columns:1fr 1fr;}.sponsor-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.proj-grid{grid-template-columns:1fr;}.sponsor-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="container nav-wrapper">
+  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Mrs. Carden Post · San Antonio, TX</p></div></div>
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
+    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
+    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
+    <a href="gallery.html">Gallery</a><a href="news.html">News</a>
+    <a href="facilities.html" class="active" style="color:var(--gold)">Facilities</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</div></header>
+
+<section style="background:linear-gradient(135deg,var(--navy) 0%,#0d3b78 100%);padding:60px 0;color:#fff;text-align:center;">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold)">Facilities & Improvements</span>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Investing in Our Post</h1>
+    <p style="color:rgba(255,255,255,.8);max-width:600px;margin:0 auto 24px;">
+      Every improvement to Post 579 makes us a better home for veterans, a stronger community asset, and a more attractive venue for fundraising events.
+    </p>
+    <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:20px;">
+      <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;color:var(--gold)">$4,060</div><div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px">Approved Budget</div></div>
+      <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;color:var(--gold)">1</div><div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px">Active Project</div></div>
+      <div style="text-align:center;"><div style="font-size:2rem;font-weight:900;color:var(--gold)">30</div><div style="font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px">Days to Completion</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="showTab('current',this)">Current Projects</button>
+      <button class="tab-btn" onclick="showTab('approved',this)">Approved</button>
+      <button class="tab-btn" onclick="showTab('completed',this)">Completed</button>
+      <button class="tab-btn" onclick="showTab('funding',this)">Funding Progress</button>
+      <button class="tab-btn" onclick="showTab('sponsors',this)">Sponsor Recognition</button>
+      <button class="tab-btn" onclick="showTab('suggest',this)">Submit Suggestion</button>
+    </div>
+
+    <!-- CURRENT PROJECTS -->
+    <div class="tab-section active" id="tab-current">
+      <span class="eyebrow">Active & In Progress</span>
+      <h2>Current Improvement Projects</h2>
+      <div class="proj-grid">
+
+        <!-- TV UPGRADE -->
+        <div class="proj-card approved">
+          <div class="proj-header">
+            <span class="badge badge-approved">✅ Approved</span>
+            <h3>Large Screen Display TV Upgrade</h3>
+            <div class="cat">Facilities · Audio/Visual</div>
+          </div>
+          <div class="proj-body">
+            <p>98-inch TCL primary display plus 85-inch secondary display, professional mounts, installation, and complete cabling. Transforms the Post hall into a world-class venue.</p>
+            <div class="proj-meta">
+              <div class="proj-meta-row"><span class="lbl">Estimated Cost</span><span class="val gold">$4,060</span></div>
+              <div class="proj-meta-row"><span class="lbl">Approved Budget</span><span class="val gold">$4,060</span></div>
+              <div class="proj-meta-row"><span class="lbl">Vendor</span><span class="val">TBD</span></div>
+              <div class="proj-meta-row"><span class="lbl">Target Completion</span><span class="val green">30 Days</span></div>
+            </div>
+            <div class="progress-bar-wrap" style="margin-top:14px;">
+              <div style="font-size:.78rem;color:var(--muted);margin-bottom:4px;font-weight:700">FUNDING PROGRESS</div>
+              <div class="progress-bar-track"><div class="progress-bar-fill" style="width:0%" id="tv-progress"></div></div>
+              <div class="progress-label"><span>$0 raised</span><span>$4,060 goal</span></div>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <div style="font-size:.8rem;color:#666;margin-bottom:8px;"><strong>Benefits:</strong></div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">📺 Sporting Events</span>
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">🎖️ Memorial Services</span>
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">📋 Meetings</span>
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">🎉 Community Events</span>
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">🏛️ Hall Rentals</span>
+              <span style="background:#f0f4ff;color:var(--navy);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:600">💰 Revenue</span>
+            </div>
+            <a href="#" onclick="showTab('sponsors',document.querySelector('.tab-btn:nth-child(5)'));return false;" class="btn btn-gold btn-sm" style="display:inline-block;margin-top:14px;">Sponsor This Project</a>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PROJECT 2 -->
+        <div class="proj-card proposed">
+          <div class="proj-header">
+            <span class="badge badge-proposed">📋 Proposed</span>
+            <h3>Parking Lot Resurfacing</h3>
+            <div class="cat">Facilities · Infrastructure</div>
+          </div>
+          <div class="proj-body">
+            <p>Resurface and restripe the Post 579 parking lot to improve safety, accessibility, and curb appeal for members, events, and hall rental guests.</p>
+            <div class="proj-meta">
+              <div class="proj-meta-row"><span class="lbl">Estimated Cost</span><span class="val">TBD</span></div>
+              <div class="proj-meta-row"><span class="lbl">Status</span><span class="val">Under Review</span></div>
+              <div class="proj-meta-row"><span class="lbl">Priority</span><span class="val">Medium</span></div>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <a href="#" onclick="showTab('suggest',document.querySelector('.tab-btn:nth-child(6)'));return false;" class="btn btn-outline btn-sm" style="color:var(--navy);border-color:var(--navy);display:inline-block;">Submit Input</a>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PROJECT 3 -->
+        <div class="proj-card proposed">
+          <div class="proj-header">
+            <span class="badge badge-proposed">📋 Proposed</span>
+            <h3>Kitchen Appliance Upgrade</h3>
+            <div class="cat">Facilities · Kitchen</div>
+          </div>
+          <div class="proj-body">
+            <p>Commercial-grade stove, refrigerator, and prep equipment to support larger events, fundraisers, and hall rental catering needs.</p>
+            <div class="proj-meta">
+              <div class="proj-meta-row"><span class="lbl">Estimated Cost</span><span class="val">TBD</span></div>
+              <div class="proj-meta-row"><span class="lbl">Status</span><span class="val">Under Review</span></div>
+              <div class="proj-meta-row"><span class="lbl">Priority</span><span class="val">Medium</span></div>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <a href="#" onclick="showTab('suggest',document.querySelector('.tab-btn:nth-child(6)'));return false;" class="btn btn-outline btn-sm" style="color:var(--navy);border-color:var(--navy);display:inline-block;">Submit Input</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPROVED -->
+    <div class="tab-section" id="tab-approved">
+      <span class="eyebrow">Board Approved</span>
+      <h2>Approved Projects</h2>
+      <div class="proj-grid">
+        <div class="proj-card approved">
+          <div class="proj-header">
+            <span class="badge badge-approved">✅ Commander Approved</span>
+            <h3>Large Screen Display TV Upgrade</h3>
+            <div class="cat">Facilities · Audio/Visual</div>
+          </div>
+          <div class="proj-body">
+            <p>98-inch primary + 85-inch secondary TCL displays with mounts, installation, and full cabling. Approved by Commander. Vendor selection in progress.</p>
+            <div class="proj-meta">
+              <div class="proj-meta-row"><span class="lbl">Approved Budget</span><span class="val gold">$4,060</span></div>
+              <div class="proj-meta-row"><span class="lbl">Approved By</span><span class="val">Commander</span></div>
+              <div class="proj-meta-row"><span class="lbl">Target</span><span class="val green">30 Days</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETED -->
+    <div class="tab-section" id="tab-completed">
+      <span class="eyebrow">Project History</span>
+      <h2>Completed Projects</h2>
+      <div style="background:var(--light);border-radius:12px;padding:40px;text-align:center;color:var(--muted);">
+        <div style="font-size:2.5rem;margin-bottom:12px;">🏗️</div>
+        <h3 style="color:var(--navy);margin-bottom:8px;">No Completed Projects Yet</h3>
+        <p>Completed improvement projects will be documented here as they finish. The TV Upgrade will be the first entry upon completion.</p>
+      </div>
+    </div>
+
+    <!-- FUNDING PROGRESS -->
+    <div class="tab-section" id="tab-funding">
+      <span class="eyebrow">Financial Progress</span>
+      <h2>Funding Progress</h2>
+      <div class="funding-bar-container">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+          <div>
+            <h3 style="color:var(--navy);margin-bottom:4px;">Large Screen TV Upgrade</h3>
+            <p style="color:var(--muted);font-size:.88rem;">98-inch + 85-inch TCL Display System · Approved · 30-Day Target</p>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:2rem;font-weight:900;color:#8B6914;">$4,060</div>
+            <div style="font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;">Total Budget</div>
+          </div>
+        </div>
+        <div class="big-progress"><div class="big-progress-fill" style="width:0%" id="tv-big-progress"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);">
+          <span>$0 raised so far</span>
+          <span>$4,060 goal</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;">
+          <div style="background:var(--light);border-radius:8px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:900;color:var(--navy);">$0</div>
+            <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;">Donations Received</div>
+          </div>
+          <div style="background:var(--light);border-radius:8px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:900;color:#8B6914;">$4,060</div>
+            <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;">Remaining Needed</div>
+          </div>
+          <div style="background:var(--light);border-radius:8px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:900;color:#16a34a;">0%</div>
+            <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;">Funded</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="donate.html?campaign=TV+Upgrade" class="btn btn-gold">Donate to TV Project</a>
+          <a href="contact.html" class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);">Become a Sponsor</a>
+        </div>
+      </div>
+
+      <div style="background:var(--light);border-radius:12px;padding:24px;margin-top:20px;">
+        <h3 style="color:var(--navy);margin-bottom:8px;">How You Can Help</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+          <div style="background:#fff;border-radius:8px;padding:16px;border-left:4px solid var(--gold);">
+            <strong style="color:var(--navy);">💰 Individual Donation</strong>
+            <p style="font-size:.85rem;color:#666;margin-top:6px;">Any amount helps. $20, $50, $100 — every dollar gets us closer to installation day.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:16px;border-left:4px solid var(--navy);">
+            <strong style="color:var(--navy);">🏢 Business Sponsorship</strong>
+            <p style="font-size:.85rem;color:#666;margin-top:6px;">Sponsor the project for $500+ and get your business recognized on the display screen and website.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:16px;border-left:4px solid var(--red);">
+            <strong style="color:var(--navy);">🎖️ Veteran Sponsor</strong>
+            <p style="font-size:.85rem;color:#666;margin-top:6px;">Dedicate this upgrade in honor of a veteran. Name recognition on the donor wall.</p>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:16px;border-left:4px solid #16a34a;">
+            <strong style="color:var(--navy);">🍖 Fundraiser Events</strong>
+            <p style="font-size:.85rem;color:#666;margin-top:6px;">Attend Post 579 steak nights and fish fries — a portion of proceeds supports capital improvements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPONSORS -->
+    <div class="tab-section" id="tab-sponsors">
+      <span class="eyebrow">Thank You</span>
+      <h2>Sponsor Recognition</h2>
+      <div style="background:linear-gradient(135deg,var(--navy),#0d3b78);border-radius:14px;padding:32px;color:#fff;margin-bottom:28px;">
+        <h3 style="color:var(--gold);margin-bottom:8px;">Become a Project Sponsor</h3>
+        <p style="opacity:.85;margin-bottom:16px;">Sponsors of Post 579 capital improvement projects receive lasting recognition in our facility, on our website, and in our community newsletter.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0;">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(245,197,66,.3);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:6px;">🥇</div>
+            <div style="color:var(--gold);font-weight:900;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Patriot Sponsor</div>
+            <div style="font-size:1.4rem;font-weight:900;color:#fff;margin:6px 0;">$1,000+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.5">Name on display · Website listing · Wall plaque</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:6px;">🥈</div>
+            <div style="color:#c0c0c0;font-weight:900;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Commander Sponsor</div>
+            <div style="font-size:1.4rem;font-weight:900;color:#fff;margin:6px 0;">$500+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.5">Name on display · Website listing</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:6px;">🥉</div>
+            <div style="color:#cd7f32;font-weight:900;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Legion Sponsor</div>
+            <div style="font-size:1.4rem;font-weight:900;color:#fff;margin:6px 0;">$250+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.5">Website listing · Newsletter mention</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:6px;">⭐</div>
+            <div style="color:rgba(255,255,255,.8);font-weight:900;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;">Post Supporter</div>
+            <div style="font-size:1.4rem;font-weight:900;color:#fff;margin:6px 0;">$100+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.65);line-height:1.5">Newsletter recognition</div>
+          </div>
+        </div>
+        <a href="contact.html?subject=Facilities+Sponsorship" class="btn btn-gold">Become a Sponsor →</a>
+      </div>
+
+      <h3 style="color:var(--navy);margin-bottom:16px;">Current Sponsors — TV Upgrade Project</h3>
+      <div style="background:var(--light);border-radius:12px;padding:40px;text-align:center;color:var(--muted);">
+        <div style="font-size:2.5rem;margin-bottom:12px;">🤝</div>
+        <h4 style="color:var(--navy);margin-bottom:8px;">Your Name Could Be First</h4>
+        <p style="margin-bottom:16px;">Sponsors will be listed here upon contribution. Be the first to invest in Post 579's future.</p>
+        <a href="donate.html?campaign=TV+Upgrade" class="btn btn-primary">Donate Now</a>
+      </div>
+    </div>
+
+    <!-- SUBMIT SUGGESTION -->
+    <div class="tab-section" id="tab-suggest">
+      <span class="eyebrow">Member Input</span>
+      <h2>Submit an Improvement Suggestion</h2>
+      <p style="color:#666;margin-bottom:28px;">Members and community supporters are encouraged to suggest improvements to Post 579. All suggestions are reviewed by Post officers at the monthly meeting.</p>
+      <div class="suggest-form-wrap">
+        <div class="form" id="suggest-form-container">
+          <form id="suggest-form">
+            <h3 style="color:var(--navy);margin-bottom:4px;">Facilities Improvement Suggestion</h3>
+            <p style="font-size:.85rem;color:#888;margin-bottom:8px;">Your suggestion will be submitted to Post officers for review.</p>
+            <input type="text" name="submitter" placeholder="Your Name (optional — may remain anonymous)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <input type="email" name="email" placeholder="Email (for follow-up)">
+              <input type="tel" name="phone" placeholder="Phone (optional)">
+            </div>
+            <select name="category">
+              <option value="Veteran Assistance">Veteran Assistance</option>
+              <option value="Membership Inquiry">Membership Inquiry</option>
+              <option value="Hall Rental">Hall Rental</option>
+              <option value="Donation / Sponsorship">Donation / Sponsorship</option>
+              <option value="Volunteer Interest">Volunteer Interest</option>
+              <option value="Facilities Improvement Suggestion" selected>Facilities Improvement Suggestion</option>
+              <option value="Event Information">Event Information</option>
+              <option value="General Question">General Question</option>
+            </select>
+            <textarea name="suggestion" placeholder="Describe your improvement idea. What should be improved? Why does it matter? How would it benefit members and the community?" style="height:140px;" required></textarea>
+            <textarea name="estimated_benefit" placeholder="Estimated benefit or impact (optional) — e.g. 'Would allow us to host larger events and increase hall rental revenue'" style="height:80px;"></textarea>
+            <p style="font-size:.8rem;color:#888;">🔒 Submissions are reviewed only by Post officers. Your information is never published.</p>
+            <button type="submit" class="btn btn-primary btn-full">Submit Suggestion →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer"><div class="container footer-content">
+  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
+  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a> · <a href="admin/">Officer Login</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
+</div></footer>
+
+<script src="main.js"></script>
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-section').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.tabs-nav').offsetTop - 80, behavior: 'smooth' });
+}
+
+wireForm('suggest-form', '/v1/legion/contact',
+  '✅ Suggestion submitted! Post officers will review it at the next meeting. Thank you for investing in Post 579. 🇺🇸');
+</script>
+</body>
+</html>

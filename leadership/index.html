@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership — American Legion Post 579 | Mrs. Carden Post</title>
+<meta name="description" content="Meet the elected officers and leadership team of American Legion Bicentennial Post 579, Mrs. Carden Post, San Antonio, Texas.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .officers-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:28px; }
+  .officer-card {
+    background:var(--white); border:1px solid #e0e8f0;
+    border-radius:var(--radius); overflow:hidden;
+    box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s;
+    text-align:center;
+  }
+  .officer-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+  .officer-photo {
+    width:100%; height:260px; object-fit:cover; object-position:top;
+    background:linear-gradient(135deg,var(--navy),#2a4080);
+  }
+  .officer-photo-placeholder {
+    width:100%; height:260px;
+    background:linear-gradient(135deg,var(--navy) 0%,#2a4080 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-size:4rem;
+  }
+  .officer-info { padding:20px 24px 24px; }
+  .officer-info .title {
+    display:inline-block; background:var(--red); color:#fff;
+    font-size:.7rem; font-weight:bold; letter-spacing:1.5px;
+    text-transform:uppercase; padding:3px 10px; border-radius:20px;
+    margin-bottom:10px;
+  }
+  .officer-info h3 { color:var(--navy); font-size:1.15rem; margin-bottom:6px; }
+  .officer-info .bio { color:var(--muted); font-size:.88rem; line-height:1.6; margin-bottom:14px; }
+  .officer-info .contact a {
+    display:inline-block; color:var(--navy); font-size:.82rem;
+    padding:2px 0; border-bottom:1px dashed #ccc;
+  }
+  .officer-info .contact a:hover { color:var(--red); border-color:var(--red); }
+
+  .welcome-section {
+    background:linear-gradient(135deg,var(--navy) 0%,#1a3060 100%);
+    padding:60px 20px; color:var(--white);
+  }
+  .welcome-card {
+    max-width:900px; margin:0 auto;
+    display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start;
+  }
+  .welcome-photo {
+    width:220px; height:260px; object-fit:cover; object-position:top;
+    border-radius:var(--radius); border:4px solid var(--gold);
+    box-shadow:0 8px 32px rgba(0,0,0,.4);
+  }
+  .welcome-photo-placeholder {
+    width:220px; height:260px; border-radius:var(--radius);
+    border:4px solid var(--gold); box-shadow:0 8px 32px rgba(0,0,0,.4);
+    background:#1a3060; display:flex; align-items:center;
+    justify-content:center; font-size:5rem;
+  }
+  .welcome-text .eyebrow {
+    font-size:.75rem; letter-spacing:2px; text-transform:uppercase;
+    color:var(--gold); font-weight:bold; margin-bottom:12px;
+  }
+  .welcome-text h2 { font-size:1.8rem; color:var(--gold); margin-bottom:4px; }
+  .welcome-text .sub { color:rgba(255,255,255,.6); font-size:.9rem; margin-bottom:20px; }
+  .welcome-text p { color:rgba(255,255,255,.85); line-height:1.8; margin-bottom:12px; font-size:1rem; }
+  .welcome-text .sig { color:var(--gold); font-style:italic; margin-top:20px; font-size:1.05rem; }
+
+  .structure-table { background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .upload-note {
+    background:#fff9e6; border:1px dashed var(--gold); border-radius:var(--radius);
+    padding:20px 24px; text-align:center; margin:24px 0;
+  }
+  .upload-note p { color:#7a5c00; font-size:.9rem; }
+  @media(max-width:640px) {
+    .welcome-card { grid-template-columns:1fr; text-align:center; }
+    .welcome-photo, .welcome-photo-placeholder { width:150px; height:180px; margin:0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-bar-left">
+      <a href="tel:+12106748069">📞 (210) 674-8069</a>
+      <a href="mailto:commander@post579sa.org">✉ commander@post579sa.org</a>
+    </div>
+    <div class="utility-bar-right">
+      <a href="../membership.html">Join</a>
+      <a href="../renew/" class="renew">Renew</a>
+      <a href="../donate.html" class="donate">Donate</a>
+    </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo-lockup">
+      <div class="logo-flag"><span></span><span></span><span></span></div>
+      <div class="logo-text-block">
+        <h1>American Legion Post 579</h1>
+        <span>Mrs. Carden Post · San Antonio, TX</span>
+      </div>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="index.html" class="active">Leadership</a>
+      <a href="../membership.html">Membership</a>
+      <a href="../veterans-services.html">Veterans</a>
+      <a href="../events.html">Events</a>
+      <a href="../hall-rental.html">Hall Rental</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../news.html">News</a>
+      <a href="../contact.html" class="cta">Contact</a>
+    </nav>
+    <button class="hamburger" onclick="this.classList.toggle('open');document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / Leadership</div>
+    <h1>Post Leadership</h1>
+    <p>Elected officers dedicated to serving our veterans, members, and the San Antonio community with honor and integrity.</p>
+  </div>
+</section>
+
+<!-- COMMANDER WELCOME -->
+<section class="welcome-section">
+  <div class="welcome-card">
+    <div class="welcome-photo-placeholder">🎖️</div>
+    <div class="welcome-text">
+      <p class="eyebrow">Commander's Welcome Message</p>
+      <h2>Commander's Message</h2>
+      <p class="sub">American Legion Bicentennial Post 579 · Mrs. Carden Post</p>
+      <p>Welcome to Post 579 — one of San Antonio's proudest veterans' posts, serving the Lackland Terrace community since 1976. Our post carries the name of Mrs. Carden, a woman who embodied the spirit of service that defines The American Legion.</p>
+      <p>For nearly 50 years, Post 579 has been a home for veterans of all branches — a place where those who served can find fellowship, support, and community. Whether you're a longtime member or thinking about joining for the first time, you will find open doors and willing hands here.</p>
+      <p>Our mission is simple: to serve those who served. We advocate for veterans' benefits, support military families, mentor the next generation, and honor the memory of those who gave everything for this nation.</p>
+      <p>For God and Country.</p>
+      <p class="sig">— The Commander, American Legion Post 579<br>
+        <span style="font-size:.8rem;color:rgba(255,255,255,.5);font-style:normal">Bicentennial Post 579 · Mrs. Carden Post · San Antonio, TX</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ELECTED OFFICERS -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Elected Officers</h2>
+      <div class="divider"></div>
+      <p>Post 579's elected officers serve one-year terms and are responsible for the post's operations, programs, and community service efforts. Only approved officer information is published.</p>
+    </div>
+
+    <div class="upload-note">
+      <p>📸 <strong>Officer photos and updated bios</strong> are managed through the <a href="../admin/" style="color:var(--navy);font-weight:bold">Officer Admin Dashboard</a>. Submit your photo and bio to be published here.</p>
+    </div>
+
+    <div class="officers-grid" id="officers-container">
+      <!-- Officers loaded from backend or shown as placeholders -->
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Commander</span>
+          <h3>Post Commander</h3>
+          <p class="bio">The Commander serves as the chief executive officer of Post 579, presiding over all meetings, representing the post at district and department functions, and overseeing all post operations.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">1st Vice Commander</span>
+          <h3>1st Vice Commander</h3>
+          <p class="bio">Assists the Commander and presides in the Commander's absence. Oversees membership recruitment and retention programs.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">2nd Vice Commander</span>
+          <h3>2nd Vice Commander</h3>
+          <p class="bio">Assists the Commander and 1st Vice Commander. Oversees post programs and community outreach initiatives.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Adjutant</span>
+          <h3>Post Adjutant</h3>
+          <p class="bio">The Adjutant serves as the post's secretary and administrative officer — maintaining records, handling correspondence, and processing membership applications.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Finance Officer</span>
+          <h3>Finance Officer</h3>
+          <p class="bio">Responsible for all financial records, dues collection, disbursements, and annual financial reporting in compliance with national American Legion requirements.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Service Officer</span>
+          <h3>Veterans Service Officer</h3>
+          <p class="bio">Assists veterans and their families in filing VA claims, accessing benefits, and navigating the VA system. Free service to all veterans in the community.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Chaplain</span>
+          <h3>Post Chaplain</h3>
+          <p class="bio">Provides spiritual support to members and their families, leads opening and closing prayers at post functions, and offers pastoral care during times of loss.</p>
+        </div>
+      </div>
+      <div class="officer-card">
+        <div class="officer-photo-placeholder">👤</div>
+        <div class="officer-info">
+          <span class="title">Sergeant-at-Arms</span>
+          <h3>Sergeant-at-Arms</h3>
+          <p class="bio">Responsible for maintaining order during meetings and post events, assisting with setup and breakdown, and welcoming visitors at the door.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POST STRUCTURE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Post Structure</h2>
+      <div class="divider"></div>
+      <p>How Post 579 is organized and governed under The American Legion's national charter.</p>
+    </div>
+    <div class="structure-table table-wrap">
+      <table>
+        <thead>
+          <tr><th>Position</th><th>Role</th><th>Term</th><th>Election</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Commander</strong></td><td>Chief Executive Officer of the Post</td><td>1 Year</td><td>Annual (June)</td></tr>
+          <tr><td><strong>1st Vice Commander</strong></td><td>Membership programs; succeeds Commander</td><td>1 Year</td><td>Annual (June)</td></tr>
+          <tr><td><strong>2nd Vice Commander</strong></td><td>Programs and community outreach</td><td>1 Year</td><td>Annual (June)</td></tr>
+          <tr><td><strong>Adjutant</strong></td><td>Secretary; records; correspondence</td><td>1 Year</td><td>Annual (June)</td></tr>
+          <tr><td><strong>Finance Officer</strong></td><td>Treasury; dues; financial reports</td><td>1 Year</td><td>Annual (June)</td></tr>
+          <tr><td><strong>Service Officer</strong></td><td>VA claims; veterans assistance</td><td>Appointed</td><td>By Commander</td></tr>
+          <tr><td><strong>Chaplain</strong></td><td>Spiritual support; memorial ceremonies</td><td>Appointed</td><td>By Commander</td></tr>
+          <tr><td><strong>Sergeant-at-Arms</strong></td><td>Order; security; hospitality</td><td>Appointed</td><td>By Commander</td></tr>
+          <tr><td><strong>Historian</strong></td><td>Post records; photography; archives</td><td>Appointed</td><td>By Commander</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert alert-info" style="margin-top:24px">
+      <div>
+        <strong>Privacy Notice:</strong> Membership rosters are private and never published online. Only officer information explicitly approved for publication appears on this website. To update your officer profile, use the <a href="../admin/" style="color:var(--navy);font-weight:bold">Admin Dashboard</a> or contact the Adjutant.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>American Legion Post 579</h4>
+        <p><strong style="color:#fff">Mrs. Carden Post</strong><br>3002 Gunsmoke Street<br>San Antonio, Texas 78227<br><br>📞 (210) 674-8069<br>✉ commander@post579sa.org<br><br>Chartered 1976 · 501(c)(19) Veterans' Organization</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4>
+        <a href="../index.html">Home</a><a href="../about.html">About</a><a href="index.html">Leadership</a><a href="../membership.html">Membership</a><a href="../veterans-services.html">Veterans Services</a>
+      </div>
+      <div class="footer-col"><h4>Programs</h4>
+        <a href="../events.html">Events</a><a href="../hall-rental.html">Hall Rental</a><a href="../gallery.html">Gallery</a><a href="../donate.html">Donate</a><a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h4>Get Help Now</h4>
+        <a href="tel:988" style="color:#ff8080;font-weight:bold">☎ Crisis Line: 988 → 1</a>
+        <a href="https://www.va.gov" target="_blank">VA.gov</a>
+        <a href="../veterans-services.html">Benefits Help</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 American Legion Bicentennial Post 579 · San Antonio, TX</span>
+      <span>Built by <strong style="color:var(--gold)">TM Designs™</strong></span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

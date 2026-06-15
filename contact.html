@@ -1,233 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | American Legion Bicentennial Post 579 | San Antonio, TX</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    .contact-hero { background:linear-gradient(135deg,#0D1B33,#1B2A4A); padding:56px 0; text-align:center; border-bottom:4px solid #C8A84B; }
-    .contact-hero h1 { font-size:2.2rem; color:#fff; font-weight:900; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
-    .contact-hero p { color:rgba(255,255,255,0.7); font-size:0.95rem; }
-    .contact-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:40px; max-width:1100px; margin:0 auto; padding:60px 20px; }
-    .contact-info-block { background:#fff; border-radius:12px; padding:36px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border-top:4px solid #B22234; }
-    .contact-info-block h2 { font-size:1rem; color:#1B2A4A; text-transform:uppercase; letter-spacing:2px; font-weight:900; margin-bottom:24px; padding-bottom:12px; border-bottom:2px solid #f0f0ea; }
-    .cinfo-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
-    .cinfo-icon { width:40px; height:40px; background:#1B2A4A; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-    .cinfo-label { font-size:0.68rem; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; }
-    .cinfo-value { font-size:0.9rem; color:#1B2A4A; font-weight:bold; line-height:1.5; }
-    .cinfo-value a { color:#B22234; }
-    .map-box { background:#e8e8e0; border-radius:10px; overflow:hidden; margin-top:24px; height:220px; display:flex; align-items:center; justify-content:center; border:2px solid #e0e0e0; }
-    .social-row { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
-    .social-btn { padding:10px 16px; border-radius:6px; font-size:0.75rem; font-weight:bold; text-transform:uppercase; letter-spacing:1px; border:2px solid transparent; transition:all 0.2s; }
-    .contact-form-block { background:#fff; border-radius:12px; padding:36px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
-    .contact-form-block h2 { font-size:1rem; color:#1B2A4A; text-transform:uppercase; letter-spacing:2px; font-weight:900; margin-bottom:6px; }
-    .contact-form-block p { color:#999; font-size:0.85rem; margin-bottom:24px; }
-    .cf-field { margin-bottom:16px; }
-    .cf-field label { display:block; font-size:0.72rem; color:#1B2A4A; text-transform:uppercase; letter-spacing:1px; font-weight:bold; margin-bottom:5px; }
-    .cf-field input, .cf-field select, .cf-field textarea { width:100%; padding:11px 14px; border:1.5px solid #e0e0e0; border-radius:6px; font-size:0.9rem; color:#1a1a1a; font-family:Georgia,serif; transition:border-color 0.2s; }
-    .cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { outline:none; border-color:#1B2A4A; }
-    .cf-field textarea { min-height:120px; resize:vertical; }
-    .cf-btn { width:100%; padding:14px; background:#B22234; color:#fff; border:none; border-radius:6px; font-size:0.9rem; font-weight:bold; text-transform:uppercase; letter-spacing:2px; cursor:pointer; font-family:Georgia,serif; transition:background 0.2s; }
-    .cf-btn:hover { background:#8B0000; }
-    .volunteer-section { background:#f5f5f0; padding:60px 0; }
-    @media(max-width:768px){ .contact-grid{grid-template-columns:1fr;} }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — American Legion Post 579 | San Antonio TX</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="site-header"><div class="container nav-wrapper">
+  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Mrs. Carden Post · San Antonio, TX</p></div></div>
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
+    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
+    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
+    <a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="contact.html" class="active">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</div></header>
 
-<!-- NAV -->
-<div style="background:#0D1B33;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;">
-  <a href="index.html" style="color:#C8A84B;font-size:0.82rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">← Post 579 Home</a>
-  <div style="display:flex;gap:8px;">
-    <a href="membership.html" style="background:#B22234;color:#fff;padding:7px 14px;border-radius:3px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;">Join</a>
-    <a href="login/" style="background:#1B2A4A;color:#C8A84B;border:1px solid #C8A84B;padding:7px 14px;border-radius:3px;font-size:0.72rem;font-weight:bold;text-transform:uppercase;">Login</a>
+<div class="alert-bar">🆘 Veterans Crisis Line: <a href="tel:988">Call 988 — Press 1</a> · Free · Confidential · 24/7</div>
+
+<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold)">Contact Post 579</span>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Get in Touch</h1>
+    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">Questions about membership, veterans services, hall rental, events, or anything else — we're here.</p>
   </div>
-</div>
+</section>
 
-<div class="contact-hero">
-  <div style="font-size:0.72rem;color:#C8A84B;font-weight:bold;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;">For God and Country</div>
-  <h1>Contact Post 579</h1>
-  <p>American Legion Bicentennial Post 579 — San Antonio, Texas</p>
-</div>
-
-<div class="contact-grid">
-
-  <!-- LEFT: Real Post Info -->
-  <div>
-    <div class="contact-info-block">
-      <h2>Post 579 Contact Information</h2>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">📍</div>
-        <div><div class="cinfo-label">Physical Address</div><div class="cinfo-value">3002 Gunsmoke Drive<br/>San Antonio, Texas 78227</div></div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">📞</div>
-        <div><div class="cinfo-label">Main Phone</div><div class="cinfo-value"><a href="tel:2106748069">(210) 674-8069</a></div></div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">✉</div>
-        <div><div class="cinfo-label">Email</div><div class="cinfo-value"><a href="mailto:commander@post579sa.org">commander@post579sa.org</a></div></div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">👤</div>
-        <div><div class="cinfo-label">Commander</div><div class="cinfo-value">Commander Harold<br/><span style="font-size:0.8rem;color:#999;font-weight:normal;">American Legion Bicentennial Post 579</span></div></div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">🗓</div>
-        <div><div class="cinfo-label">Meeting Schedule</div><div class="cinfo-value">Monthly — Contact Commander Harold<br/><span style="font-size:0.8rem;color:#999;font-weight:normal;">Call (210) 674-8069 for current schedule</span></div></div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon">⚑</div>
-        <div><div class="cinfo-label">Veterans Crisis Line</div><div class="cinfo-value" style="color:#B22234;"><a href="tel:988" style="color:#B22234;">988 — Press 1</a><br/><span style="font-size:0.78rem;color:#999;font-weight:normal;">Free, confidential, 24/7</span></div></div>
-      </div>
-
-      <!-- Google Map -->
-      <div class="map-box">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3468.3!2d-98.6244!3d29.3893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s3002+Gunsmoke+Drive%2C+San+Antonio%2C+TX+78227!5e0!3m2!1sen!2sus!4v1"
-          width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-          title="American Legion Post 579 — 3002 Gunsmoke Drive, San Antonio TX">
-        </iframe>
-      </div>
-
-      <!-- Hours -->
-      <div style="margin-top:20px;background:#f5f5f0;border-radius:8px;padding:16px;">
-        <div style="font-size:0.72rem;color:#1B2A4A;font-weight:bold;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Hall Hours</div>
-        <div style="font-size:0.82rem;color:#666;line-height:2;">
-          Contact Commander Harold at (210) 674-8069<br/>
-          for current hall hours, event schedule,<br/>
-          and rental availability.
+<section class="section">
+  <div class="container">
+    <div class="two-column">
+      <div>
+        <span class="eyebrow">Post Information</span>
+        <h2>American Legion Bicentennial Post 579</h2>
+        <p style="font-size:.92rem;color:#555;margin-bottom:24px;">Mrs. Carden Post — Lackland Terrace, San Antonio, Texas</p>
+        <div class="contact-details">
+          <div class="contact-row"><span>📍</span><div><strong>Address</strong><br>3002 Gunsmoke Street<br>San Antonio, Texas 78227<br>Lackland Terrace</div></div>
+          <div class="contact-row"><span>📞</span><div><strong>Phone</strong><br><a href="tel:+12106748069">(210) 674-8069</a></div></div>
+          <div class="contact-row"><span>✉️</span><div><strong>Email</strong><br><a href="mailto:commander@post579sa.org">commander@post579sa.org</a></div></div>
+          <div class="contact-row"><span>🕐</span><div><strong>Hours</strong><br>Contact the Post for current office hours and meeting schedule</div></div>
+          <div class="contact-row"><span>🆘</span><div><strong>Veterans Crisis Line — 24/7</strong><br><a href="tel:988" style="color:var(--red);font-size:1.1rem;font-weight:900;">988 — Press 1</a><br><span style="font-size:.85rem;color:#888;">Free · Confidential · Available 24/7</span></div></div>
+        </div>
+        <a href="https://maps.google.com/?q=3002+Gunsmoke+Street+San+Antonio+TX+78227" target="_blank" class="btn btn-primary" style="margin-top:24px;display:inline-block;">📍 Get Directions</a>
+        <div style="margin-top:28px;background:var(--light);border-radius:10px;padding:20px;">
+          <h4 style="color:var(--navy);margin-bottom:12px;">Quick Links</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="veterans-services.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">🎖️ Request Veterans Assistance</a>
+            <a href="membership.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">★ Join / Membership Application</a>
+            <a href="hall-rental.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">🏛️ Hall Rental Inquiry</a>
+            <a href="donate.html" style="color:var(--navy);font-size:.9rem;font-weight:bold;">💙 Donate to Post 579</a>
+          </div>
         </div>
       </div>
-
-      <!-- Social -->
-      <div style="margin-top:16px;">
-        <div style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Follow Post 579</div>
-        <div class="social-row">
-          <a href="#" class="social-btn" style="background:#1877F2;color:#fff;">Facebook</a>
-          <a href="#" class="social-btn" style="background:#E1306C;color:#fff;">Instagram</a>
-          <a href="#" class="social-btn" style="background:#000;color:#fff;">X</a>
-          <a href="#" class="social-btn" style="background:#FF0000;color:#fff;">YouTube</a>
+      <form class="form" id="contact-form">
+        <h3>Contact Form</h3>
+        <input type="text" name="full_name" placeholder="Full Name" required>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="tel" name="phone" placeholder="Phone Number">
         </div>
-        <p style="font-size:0.72rem;color:#ccc;margin-top:8px;">Social links to be activated by Commander Harold</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: Contact Form -->
-  <div>
-    <div class="contact-form-block">
-      <h2>Send Post 579 a Message</h2>
-      <p>Use this form for general inquiries, hall rental questions, membership questions, or to request veteran assistance. A Post officer will respond within 1–2 business days.</p>
-      <form id="contactForm" data-form-type="contact">
-        <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off"/>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="cf-field"><label>First Name *</label><input type="text" name="first_name" required placeholder="First"/></div>
-          <div class="cf-field"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Last"/></div>
-        </div>
-        <div class="cf-field"><label>Email Address *</label><input type="email" name="email" required placeholder="your@email.com"/></div>
-        <div class="cf-field"><label>Phone Number</label><input type="tel" name="phone_number" placeholder="(210) 674-8069"/></div>
-        <div class="cf-field"><label>Subject *</label>
-          <select name="subject" required>
-            <option value="">-- Select a Topic --</option>
-            <option>General Inquiry</option>
-            <option>Membership Question</option>
-            <option>Hall Rental Inquiry</option>
-            <option>Veteran Benefits Assistance</option>
-            <option>Event Information</option>
-            <option>Volunteer Opportunity</option>
-            <option>Donation / Sponsorship</option>
-            <option>Media / Press Inquiry</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="cf-field"><label>Are you a veteran? *</label>
-          <select name="is_veteran">
-            <option value="">-- Select --</option>
-            <option>Yes — I served</option>
-            <option>No — Family member / supporter</option>
-            <option>Currently serving</option>
-          </select>
-        </div>
-        <div class="cf-field"><label>Message *</label><textarea name="message" required placeholder="Tell us how we can help..."></textarea></div>
-        <button type="submit" class="cf-btn">Send Message to Post 579</button>
-        <p style="font-size:0.72rem;color:#999;text-align:center;margin-top:10px;">Or call us directly at <a href="tel:2106748069" style="color:#B22234;font-weight:bold;">(210) 674-8069</a></p>
+        <select name="subject">
+          <option value="">Subject — How Can We Help?</option>
+          <option>Membership Information</option>
+          <option>Veterans Assistance / Benefits</option>
+          <option>Hall Rental Inquiry</option>
+          <option>Event Information</option>
+          <option>Volunteer Opportunity</option>
+          <option>Donation / Sponsorship</option>
+          <option>Media / Press Inquiry</option>
+          <option>General Question</option>
+        </select>
+        <textarea name="message" placeholder="Tell us how we can help…" style="height:160px;"></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p style="text-align:center;font-size:.8rem;color:#888;">We typically respond within 2–3 business days. For urgent matters, please call <a href="tel:+12106748069">(210) 674-8069</a>.</p>
       </form>
-      <div id="contactSuccess" style="display:none;background:#f0fff4;border:2px solid #2ecc71;border-radius:8px;padding:24px;text-align:center;margin-top:16px;">
-        <div style="font-size:2rem;margin-bottom:10px;">✅</div>
-        <strong style="color:#155724;font-size:1rem;">Message Received!</strong><br/>
-        <span style="font-size:0.85rem;color:#155724;">Post 579 will respond within 1–2 business days. You can also call us at (210) 674-8069.</span>
-      </div>
-    </div>
-
-    <!-- Volunteer Form -->
-    <div class="contact-form-block" style="margin-top:24px;" id="volunteer">
-      <h2>Volunteer Signup</h2>
-      <p>Join Post 579's volunteer team. Tell us your skills and availability.</p>
-      <form id="volunteerForm" data-form-type="volunteer">
-        <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off"/>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="cf-field"><label>Full Name *</label><input type="text" name="full_name" required placeholder="Your name"/></div>
-          <div class="cf-field"><label>Phone *</label><input type="tel" name="phone_number" required placeholder="(210) 674-8069"/></div>
-        </div>
-        <div class="cf-field"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"/></div>
-        <div class="cf-field"><label>Veteran Status</label>
-          <select name="veteran_status">
-            <option>Veteran</option><option>Active Duty</option>
-            <option>Family Member</option><option>Community Supporter</option>
-          </select>
-        </div>
-        <div class="cf-field"><label>Skills / Experience</label>
-          <textarea name="skills" placeholder="e.g. Event setup, cooking, honor guard, office work, social media..." style="min-height:80px;resize:vertical;"></textarea>
-        </div>
-        <div class="cf-field"><label>Availability</label>
-          <select name="availability">
-            <option>Weekends only</option><option>Weekdays only</option>
-            <option>Evenings only</option><option>Flexible — anytime</option>
-            <option>Events only (as-needed)</option>
-          </select>
-        </div>
-        <button type="submit" class="cf-btn" style="background:#1B2A4A;">Sign Up to Volunteer</button>
-      </form>
-      <div id="volunteerSuccess" style="display:none;background:#f0fff4;border:2px solid #2ecc71;border-radius:8px;padding:20px;text-align:center;margin-top:16px;">
-        <strong style="color:#155724;">✅ Volunteer registration received! Commander Harold will be in touch.</strong>
-      </div>
     </div>
   </div>
+</section>
 
-</div>
-
-<!-- FOOTER -->
-<footer style="background:#1B2A4A;border-top:4px solid #C8A84B;padding:32px 20px;text-align:center;">
-  <div style="max-width:1400px;margin:0 auto;">
-    <div style="color:#C8A84B;font-size:0.85rem;font-weight:bold;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">American Legion Bicentennial Post 579</div>
-    <div style="color:rgba(255,255,255,0.6);font-size:0.82rem;margin-bottom:4px;">3002 Gunsmoke Drive, San Antonio, Texas 78227</div>
-    <div style="color:rgba(255,255,255,0.6);font-size:0.82rem;margin-bottom:16px;"><a href="tel:2106748069" style="color:#C8A84B;">(210) 674-8069</a> | commander@post579sa.org</div>
-    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
-      <a href="index.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Home</a>
-      <a href="membership.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Membership</a>
-      <a href="veterans-services.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Veterans Services</a>
-      <a href="events.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Events</a>
-      <a href="tickets/" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Buy Tickets</a>
-      <a href="login/" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Member Login</a>
-      <a href="privacy-policy/" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Privacy</a>
-      <a href="terms/" style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Terms</a>
-    </div>
-    <p style="color:rgba(255,255,255,0.25);font-size:0.72rem;">&copy; 2026 American Legion Bicentennial Post 579 — Mrs. Carden Post | San Antonio, TX | Built by TM Designs™</p>
-  </div>
-</footer>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  this.style.display='none';
-  document.getElementById('contactSuccess').style.display='block';
-});
-document.getElementById('volunteerForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  this.style.display='none';
-  document.getElementById('volunteerSuccess').style.display='block';
-});
-</script>
+<footer class="footer"><div class="container footer-content">
+  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
+  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
+</div></footer>
+<script src="main.js"></script>
 </body>
 </html>

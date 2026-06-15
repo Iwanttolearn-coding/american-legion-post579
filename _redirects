@@ -1,0 +1,8 @@
+/api/ai-intake      https://terrellos-backend.fly.dev/v1/legion/contact      200
+/api/membership     https://terrellos-backend.fly.dev/v1/legion/membership/apply  200
+/api/hall-rental    https://terrellos-backend.fly.dev/v1/legion/hall-rental   200
+/api/contact        https://terrellos-backend.fly.dev/v1/legion/contact       200
+/api/donate         https://terrellos-backend.fly.dev/v1/legion/donate        200
+/api/volunteer      https://terrellos-backend.fly.dev/v1/legion/volunteer     200
+/api/events         https://terrellos-backend.fly.dev/v1/legion/events        200
+/api/military-ai    https://terrellos-backend.fly.dev/v1/legion/military-ai/query  200

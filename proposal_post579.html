@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Development Proposal — American Legion Post 579</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fff; font-size: 14px; line-height: 1.7; }
+
+  /* PAGE LAYOUT */
+  .page { max-width: 850px; margin: 0 auto; padding: 0; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #002868 0%, #0d3b78 60%, #001a50 100%);
+    color: #fff;
+    padding: 48px 56px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #BF0A30, #F5C542, #BF0A30);
+  }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+  .header-logo { display: flex; align-items: center; gap: 16px; }
+  .flag-badge { font-size: 2.8rem; }
+  .org-info h1 { font-size: 1.1rem; font-weight: normal; color: rgba(255,255,255,.75); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .org-info h2 { font-size: 1.6rem; font-weight: bold; color: #F5C542; }
+  .org-info p { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: 2px; }
+  .proposal-badge {
+    background: rgba(245,197,66,.15);
+    border: 1.5px solid rgba(245,197,66,.4);
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: right;
+    flex-shrink: 0;
+    min-width: 140px;
+    max-width: 180px;
+  }
+  .proposal-badge .label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,.6); margin-bottom: 4px; }
+  .proposal-badge .doc-num { font-size: 1.1rem; font-weight: bold; color: #F5C542; }
+  .proposal-badge .date { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 4px; }
+
+  .header-title { margin-top: 32px; }
+  .header-title h3 { font-size: 2rem; color: #fff; font-weight: bold; line-height: 1.2; }
+  .header-title p { color: rgba(255,255,255,.7); font-size: .95rem; margin-top: 8px; }
+
+  /* SECTIONS */
+  .section { padding: 36px 56px; border-bottom: 1px solid #e8e8e8; }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-size: .68rem; font-weight: bold; text-transform: uppercase;
+    letter-spacing: 2px; color: #BF0A30; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #eee; }
+  h3 { font-size: 1.2rem; color: #002868; margin-bottom: 8px; }
+  p { margin-bottom: 10px; color: #444; }
+
+  /* PARTIES */
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .party-card { background: #f8f9fb; border-radius: 10px; padding: 20px 22px; border-left: 4px solid #002868; }
+  .party-card.client { border-left-color: #BF0A30; }
+  .party-label { font-size: .68rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #999; margin-bottom: 10px; }
+  .party-name { font-size: 1.05rem; font-weight: bold; color: #002868; margin-bottom: 6px; }
+  .party-detail { font-size: .84rem; color: #555; line-height: 1.8; }
+
+  /* SCOPE TABLE */
+  .scope-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: .88rem; }
+  .scope-table th { background: #002868; color: #fff; padding: 10px 14px; text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .8px; }
+  .scope-table td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .scope-table tr:nth-child(even) td { background: #fafafa; }
+  .scope-table tr:last-child td { border-bottom: none; }
+  .scope-table .check { color: #16a34a; font-weight: bold; }
+  .scope-table .cat { font-weight: bold; color: #002868; font-size: .82rem; }
+
+  /* DELIVERABLES */
+  .deliverable-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+  .deliv-card { background: #f8f9fb; border-radius: 8px; padding: 14px 16px; border-top: 3px solid #F5C542; }
+  .deliv-card h4 { font-size: .88rem; color: #002868; margin-bottom: 6px; }
+  .deliv-card p { font-size: .8rem; color: #666; margin: 0; }
+
+  /* INVESTMENT TABLE */
+  .inv-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: .9rem; }
+  .inv-table th { background: #002868; color: #fff; padding: 12px 16px; text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .8px; }
+  .inv-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; }
+  .inv-table tr:last-child td { border-bottom: none; }
+  .inv-table .subtotal { font-weight: bold; background: #fef9c3; }
+  .inv-table .total-row td { background: #002868; color: #fff; font-size: 1.1rem; font-weight: bold; padding: 16px; }
+  .inv-table .total-row td:last-child { color: #F5C542; font-size: 1.3rem; }
+  .inv-table .right { text-align: right; }
+  .included { color: #16a34a; font-weight: bold; font-size: .82rem; }
+
+  /* TIMELINE */
+  .timeline { display: flex; gap: 0; margin-top: 16px; }
+  .phase {
+    flex: 1; background: #f8f9fb; border-radius: 0; padding: 18px 16px;
+    border-top: 4px solid #002868; position: relative;
+    border-right: 1px solid #e8e8e8;
+  }
+  .phase:first-child { border-radius: 10px 0 0 10px; }
+  .phase:last-child { border-radius: 0 10px 10px 0; border-right: none; }
+  .phase.gold { border-top-color: #F5C542; }
+  .phase.red  { border-top-color: #BF0A30; }
+  .phase.green { border-top-color: #16a34a; }
+  .phase-num { font-size: .68rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; color: #999; margin-bottom: 6px; }
+  .phase h4 { font-size: .9rem; color: #002868; font-weight: bold; margin-bottom: 6px; }
+  .phase p { font-size: .78rem; color: #666; margin: 0; }
+  .phase .days { font-size: .72rem; font-weight: bold; color: #BF0A30; margin-top: 8px; }
+
+  /* PAYMENT TERMS */
+  .payment-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 12px; }
+  .payment-card {
+    background: #fff; border-radius: 10px; padding: 20px;
+    border: 2px solid #e8e8e8; text-align: center;
+  }
+  .payment-card.milestone1 { border-color: #002868; }
+  .payment-card.milestone2 { border-color: #F5C542; }
+  .payment-card.milestone3 { border-color: #16a34a; }
+  .payment-card .pct { font-size: 2rem; font-weight: bold; color: #002868; margin-bottom: 4px; }
+  .payment-card.milestone2 .pct { color: #8B6914; }
+  .payment-card.milestone3 .pct { color: #16a34a; }
+  .payment-card .amount { font-size: 1.1rem; font-weight: bold; color: #333; margin-bottom: 6px; }
+  .payment-card .when { font-size: .75rem; color: #888; }
+  .payment-card .trigger { font-size: .8rem; font-weight: bold; color: #555; margin-top: 8px; }
+
+  /* SIGNATURE */
+  .sig-section { background: #f8f9fb; border-radius: 12px; padding: 28px 32px; }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 20px; }
+  .sig-block .sig-line { border-bottom: 2px solid #1a1a1a; height: 40px; margin-bottom: 6px; }
+  .sig-block .sig-label { font-size: .75rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+  .sig-block .sig-name { font-size: .9rem; font-weight: bold; color: #002868; margin-top: 8px; }
+  .sig-block .sig-title { font-size: .8rem; color: #666; }
+  .sig-block .sig-date { margin-top: 16px; }
+
+  /* FOOTER */
+  .doc-footer {
+    background: #002868; color: rgba(255,255,255,.6); padding: 18px 56px;
+    display: flex; justify-content: space-between; font-size: .75rem;
+  }
+  .doc-footer strong { color: #F5C542; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, #002868, #0d3b78);
+    color: #fff; border-radius: 12px; padding: 24px 28px; margin-top: 16px;
+  }
+  .highlight-box h4 { color: #F5C542; margin-bottom: 8px; font-size: 1rem; }
+  .highlight-box p { color: rgba(255,255,255,.85); font-size: .88rem; margin: 0; }
+
+  .note-box {
+    background: #fffbeb; border: 1px solid #F5C542; border-left: 4px solid #F5C542;
+    border-radius: 6px; padding: 14px 18px; margin-top: 16px; font-size: .85rem; color: #555;
+  }
+
+  @media print {
+    body { font-size: 12px; }
+    .section { padding: 24px 40px; }
+    .header { padding: 36px 40px 28px; }
+    .doc-footer { padding: 14px 40px; }
+  }
+  @media (max-width: 600px) {
+    .header { padding: 28px 20px 24px; }
+    .section { padding: 24px 20px; }
+    .header-top { flex-direction: column; gap: 14px; }
+    .proposal-badge { text-align: left; max-width: 100%; width: 100%; }
+    .parties { grid-template-columns: 1fr; }
+    .deliverable-grid { grid-template-columns: 1fr; }
+    .payment-grid { grid-template-columns: 1fr; }
+    .timeline { flex-direction: column; }
+    .phase:first-child { border-radius: 10px 10px 0 0; }
+    .phase:last-child { border-radius: 0 0 10px 10px; border-right: none; }
+    .phase { border-right: none; border-bottom: 1px solid #e8e8e8; }
+    .sig-grid { grid-template-columns: 1fr; gap: 28px; }
+    .doc-footer { flex-direction: column; gap: 6px; padding: 14px 20px; font-size: .7rem; }
+    .header-title h3 { font-size: 1.5rem; }
+    .header-logo .flag-badge { font-size: 2rem; }
+    .org-info h2 { font-size: 1.3rem; }
+    .inv-table { font-size: .78rem; }
+    .inv-table th, .inv-table td { padding: 8px 10px; }
+    .scope-table { font-size: .78rem; }
+    .scope-table th, .scope-table td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="header-logo">
+        <div class="flag-badge">🇺🇸</div>
+        <div class="org-info">
+          <h1>American Legion</h1>
+          <h2>Bicentennial Post 579</h2>
+          <p>Mrs. Carden Post · San Antonio, Texas 78227</p>
+        </div>
+      </div>
+      <div class="proposal-badge">
+        <div class="label">Proposal No.</div>
+        <div class="doc-num">P579-WEB-001</div>
+        <div class="date">June 14, 2026</div>
+      </div>
+    </div>
+    <div class="header-title">
+      <h3>Website Development Proposal</h3>
+      <p>Full-Service Digital Presence Build for American Legion Post 579 — San Antonio, TX</p>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="section">
+    <div class="section-title">Parties to This Agreement</div>
+    <div class="parties">
+      <div class="party-card">
+        <div class="party-label">Developer / Service Provider</div>
+        <div class="party-name">TM Designs™</div>
+        <div class="party-detail">
+          Terrell Mills, Founder<br>
+          San Antonio, Texas<br>
+          (210) 846-6103<br>
+          millzterrell5@gmail.com<br>
+          app.tm-dezigns.com
+        </div>
+      </div>
+      <div class="party-card client">
+        <div class="party-label">Client / Organization</div>
+        <div class="party-name">American Legion Post 579</div>
+        <div class="party-detail">
+          Mrs. Carden Bicentennial Post<br>
+          3002 Gunsmoke Street<br>
+          San Antonio, Texas 78227<br>
+          (210) 674-8069<br>
+          Attn: Commander Harold
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section">
+    <div class="section-title">Executive Summary</div>
+    <p>
+      TM Designs™ proposes to design, develop, and deploy a complete professional website for
+      <strong>American Legion Post 579</strong> in San Antonio, Texas. This proposal covers the full
+      scope of work required to establish a modern, mobile-responsive digital presence that serves
+      Post members, veterans, the community, and prospective new members.
+    </p>
+    <p>
+      The website will serve as Post 579's official online home — enabling online membership
+      applications, event announcements, hall rental inquiries, veteran assistance resources,
+      donation processing, and officer communications from a single, professionally designed platform.
+    </p>
+    <div class="highlight-box">
+      <h4>🎖️ Our Commitment to Post 579</h4>
+      <p>
+        As a San Antonio veteran-owned technology firm, TM Designs™ is honored to serve the men and women
+        of Post 579. This proposal reflects our best work — production-grade, mobile-ready, and built
+        to serve veterans and the community for years to come. We stand behind every line of code
+        with full support and documentation.
+      </p>
+    </div>
+  </div>
+
+  <!-- SCOPE OF WORK -->
+  <div class="section">
+    <div class="section-title">Scope of Work — What's Included</div>
+    <p>The following complete website build is included in this proposal at the stated investment:</p>
+    <table class="scope-table">
+      <thead>
+        <tr><th>Category</th><th>Deliverable</th><th>Included</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="cat">Website Pages</td><td>30 fully designed, mobile-responsive HTML pages</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Design</td><td>Custom red, white &amp; blue patriotic theme; branch-specific military color accents</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Membership</td><td>Online membership application form with Supabase database backend</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">AI Intake Assistant</td><td>Smart AI chat + intake form for veteran assistance, hall rental, events, donations, volunteer (8 categories)</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Events System</td><td>Events calendar, ticket sales (Steak Night, Fish Fry, Veterans Day), PayPal checkout</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Hall Rental</td><td>Online hall rental inquiry form, pricing display, deposit handling</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Donations</td><td>Online donation page with PayPal integration, campaign-specific giving (General, TV Project, Veterans)</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Veterans Services</td><td>VA benefits page, crisis line integration, VSO contact page</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Officer Dashboard</td><td>Password-protected admin panel: membership, events, hall rentals, donations, announcements, gallery, capital projects, maintenance</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Facilities Tracker</td><td>Capital improvement project tracker — current projects, funding progress, sponsor recognition (TV Upgrade live)</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Gallery</td><td>Photo gallery with album organization, upload management</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">News &amp; Announcements</td><td>News page with admin publish/draft controls</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Military AI Guide</td><td>Interactive military history guide for all 5 branches with Q&amp;A</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Youth Programs</td><td>Boys State / Girls State page, scholarship info, community service</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Database</td><td>Full Supabase database — 13 tables with row-level security (members, events, rentals, donations, intakes, projects, maintenance, etc.)</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Hosting Config</td><td>Netlify deploy config + Cloudflare-ready _redirects, security headers, caching rules</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Mobile Responsive</td><td>Fully responsive on all devices — phone, tablet, desktop</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Source Code</td><td>Complete source code delivered via GitHub repository (Post 579 ownership)</td><td class="check">✅ Yes</td></tr>
+        <tr><td class="cat">Documentation</td><td>Admin user guide, deployment checklist, maintenance instructions</td><td class="check">✅ Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <div class="section">
+    <div class="section-title">Key Deliverables</div>
+    <div class="deliverable-grid">
+      <div class="deliv-card">
+        <h4>📄 30-Page Website</h4>
+        <p>Complete site with all public pages, member portal, admin dashboard, and legal pages — production-ready on day one.</p>
+      </div>
+      <div class="deliv-card">
+        <h4>🤖 AI Intake Assistant</h4>
+        <p>Smart chat interface and official request form covering all 8 intake categories. Answers questions instantly, routes submissions to Post officers.</p>
+      </div>
+      <div class="deliv-card">
+        <h4>⚙️ Officer Admin Dashboard</h4>
+        <p>Secure back-office panel for managing members, events, rentals, donations, announcements, projects, and maintenance requests.</p>
+      </div>
+      <div class="deliv-card">
+        <h4>💰 Payment Integration</h4>
+        <p>PayPal checkout for ticket sales, hall rental deposits, and donations. Fully wired to the events and fundraising system.</p>
+      </div>
+      <div class="deliv-card">
+        <h4>🗄️ Database Backend</h4>
+        <p>13-table Supabase database with row-level security. All form submissions persist to a secure cloud database under Post 579's control.</p>
+      </div>
+      <div class="deliv-card">
+        <h4>🏗️ Facilities Tracker</h4>
+        <p>Live capital improvement tracker with funding progress bars, sponsor tiers, and member suggestion submission — TV Upgrade already loaded.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <div class="section-title">Investment Summary</div>
+    <p>The following investment covers the complete scope of work outlined in this proposal, including design, development, database setup, payment integration, and deployment configuration.</p>
+    <table class="inv-table">
+      <thead>
+        <tr><th>Service</th><th>Description</th><th class="right">Value</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Website Design &amp; Development</strong></td>
+          <td>30-page custom patriotic design, mobile-responsive, full layout system</td>
+          <td class="right">$600</td>
+        </tr>
+        <tr>
+          <td><strong>Admin Dashboard &amp; Officer Portal</strong></td>
+          <td>Full-featured officer back-office with 11 management modules</td>
+          <td class="right">$250</td>
+        </tr>
+        <tr>
+          <td><strong>AI Intake Assistant</strong></td>
+          <td>Smart chat + 8-category intake form with local knowledge base + backend AI</td>
+          <td class="right">$350</td>
+        </tr>
+        <tr>
+          <td><strong>Database Architecture &amp; Backend</strong></td>
+          <td>13-table Supabase schema with RLS, all API endpoints, Fly.io backend integration</td>
+          <td class="right">$300</td>
+        </tr>
+        <tr>
+          <td><strong>Payment Integration</strong></td>
+          <td>PayPal checkout for tickets, hall rentals, and donations with webhook verification</td>
+          <td class="right">$200</td>
+        </tr>
+        <tr>
+          <td><strong>Facilities Improvement Tracker</strong></td>
+          <td>Capital projects tracking, sponsor recognition, funding progress, maintenance requests</td>
+          <td class="right">Included</td>
+        </tr>
+        <tr>
+          <td><strong>Deployment Configuration</strong></td>
+          <td>Netlify config, Cloudflare integration, security headers, redirect rules, domain setup</td>
+          <td class="right">Included</td>
+        </tr>
+        <tr>
+          <td><strong>Source Code &amp; Documentation</strong></td>
+          <td>Full GitHub delivery + admin user guide + deployment checklist</td>
+          <td class="right">Included</td>
+        </tr>
+        <tr class="subtotal">
+          <td colspan="2"><strong>Total Project Value</strong></td>
+          <td class="right"><strong>$1,800 – $2,000</strong></td>
+        </tr>
+        <tr style="background:#fffbeb;">
+          <td colspan="2"><strong>🤝 Initial Retainer — Due at Signing</strong></td>
+          <td class="right"><strong style="color:#002868; font-size:1.1rem;">$500</strong></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2"><strong>🇺🇸 Balance Due Upon Completion &amp; Approval</strong></td>
+          <td class="right"><strong>$1,300 – $1,500</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      <strong>📌 Veteran Organization Rate:</strong> TM Designs™ is proud to serve American Legion Post 579 at a discounted veteran organization rate. Development is already underway — the $500 initial retainer activates full delivery and first-year support. The balance is due only after Commander Harold approves the completed, live site.
+    </div>
+  </div>
+
+  <!-- PAYMENT TERMS -->
+  <div class="section">
+    <div class="section-title">Payment Schedule</div>
+    <p>Payment is structured in two simple steps — a <strong>$500 initial retainer</strong> to kick off the project, and the <strong>balance due only after Commander Harold approves the completed site</strong>. No large upfront cost. No risk to Post 579.</p>
+    <div class="payment-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div class="payment-card milestone1" style="border-color:#002868;">
+        <div class="pct" style="font-size:2.4rem;">$500</div>
+        <div class="amount">Initial Retainer</div>
+        <div class="when">Due at Contract Signing — <strong>Due Now</strong></div>
+        <div class="trigger" style="margin-top:10px;">Kickoff fee to initiate the project. Development work is already underway. This payment activates full site delivery, launch, and first-year coverage.</div>
+      </div>
+      <div class="payment-card milestone3" style="border-color:#16a34a;">
+        <div class="pct" style="font-size:2.4rem; color:#16a34a;">Balance</div>
+        <div class="amount">Remaining Amount</div>
+        <div class="when">Due Upon Completion &amp; Approval</div>
+        <div class="trigger" style="margin-top:10px;">Remaining balance paid after Post 579 reviews and approves the completed, live website. Amount based on final scope approved by Commander Harold.</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:20px; background: linear-gradient(135deg, #002868, #1a4a8a);">
+      <h4>🤝 What the $500 Covers — Year One</h4>
+      <p style="margin-top:6px; line-height:1.8;">
+        ✅ Complete 30-page website — fully built &amp; deployed<br>
+        ✅ AI Intake Assistant + Officer Admin Dashboard<br>
+        ✅ Supabase database backend (13 tables, full RLS)<br>
+        ✅ PayPal payment integration (tickets, donations, hall rental)<br>
+        ✅ Netlify hosting setup + Cloudflare config<br>
+        ✅ Source code delivery via GitHub<br>
+        ✅ 30-day post-launch support<br>
+        ✅ First-year maintenance coverage included
+      </p>
+    </div>
+
+    <div class="note-box" style="margin-top:16px;">
+      <strong>Payment Method:</strong> PayPal · Zelle · Cash · Check payable to <em>TM Designs</em><br>
+      <strong>Expansion:</strong> Additional features, integrations, or services available after launch — pricing based on Commander Harold's needs at that time.<br>
+      <strong>Annual Renewal:</strong> Ongoing maintenance &amp; support after Year One quoted separately upon renewal.
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-title">Project Timeline</div>
+    <p>Hard deadline: <strong>July 1, 2026</strong> — Commander Harold's first day in office. The site will be live, tested, and ready before he walks through the door. Development is already complete — this is a content + launch sprint.</p>
+    <div class="timeline">
+      <div class="phase">
+        <div class="phase-num">Now — June 15</div>
+        <h4>✅ Contract &amp; $500</h4>
+        <p>Proposal signed, initial retainer received. Site is already built and ready.</p>
+        <div class="days">June 14–15</div>
+      </div>
+      <div class="phase gold">
+        <div class="phase-num">June 15–20</div>
+        <h4>Content Drop</h4>
+        <p>Commander provides PayPal email, officer names, photos, social links &amp; dues amount</p>
+        <div class="days">5 Days</div>
+      </div>
+      <div class="phase red">
+        <div class="phase-num">June 21–26</div>
+        <h4>Final Build &amp; Review</h4>
+        <p>Content inserted, PayPal activated, Commander Harold reviews and approves the live site</p>
+        <div class="days">5 Days</div>
+      </div>
+      <div class="phase green">
+        <div class="phase-num">By July 1</div>
+        <h4>🚀 LIVE — Day 1</h4>
+        <p>Site is live on Post 579's domain. Commander Harold walks in — website is up and running.</p>
+        <div class="days">Hard Deadline ✅</div>
+      </div>
+    </div>
+    <div class="note-box" style="margin-top:16px; border-left-color:#002868; background:#f0f4ff;">
+      <strong>🎯 July 1 Commitment:</strong> TM Designs™ guarantees the website will be live before Commander Harold's first day in office on <strong>July 1, 2026</strong>. The development work is already done. The only items needed from Post 579 to meet this deadline are: Commander's PayPal email, officer names, social media links, and the Post's annual dues amount. The faster those are provided, the sooner the site goes live.
+    </div>
+  </div>
+
+  <!-- TERMS -->
+  <div class="section">
+    <div class="section-title">Terms &amp; Conditions</div>
+    <table class="scope-table">
+      <tbody>
+        <tr><td class="cat" style="width:180px">Ownership</td><td>Upon final payment, Post 579 owns all website files, source code, and database content outright. TM Designs retains no claim to the deliverables.</td></tr>
+        <tr><td class="cat">Hosting Costs</td><td>Not included. Netlify (free tier available) + Supabase (free tier available) + custom domain (~$12/yr) are Post 579's ongoing operational costs, estimated under $25/year at current usage levels.</td></tr>
+        <tr><td class="cat">Revisions</td><td>Two (2) rounds of revisions included within 30 days of delivery. Additional revisions billed at $75/hour.</td></tr>
+        <tr><td class="cat">Content</td><td>Post 579 is responsible for providing: Commander's PayPal email, officer names, post photos, social media links, meeting schedule, and dues amounts. Developer provides placeholder content until real content is received.</td></tr>
+        <tr><td class="cat">Support</td><td>30-day post-launch support included at no charge. Ongoing maintenance available at $75/hour or monthly retainer (quoted separately).</td></tr>
+        <tr><td class="cat">Confidentiality</td><td>TM Designs agrees to keep all member data, officer information, and financial details strictly confidential.</td></tr>
+        <tr><td class="cat">Validity</td><td>This proposal is valid through <strong>June 20, 2026</strong> to meet the July 1 launch deadline. Signing and $500 retainer must be received by June 20 to guarantee the July 1 go-live date.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="section">
+    <div class="section-title">Authorization &amp; Signatures</div>
+    <p>By signing below, both parties agree to the scope, investment, payment schedule, and terms outlined in this proposal. This signed document serves as the binding agreement between TM Designs™ and American Legion Post 579.</p>
+    <div class="sig-section">
+      <div class="sig-grid">
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <div class="sig-label">Authorized Signature — Developer</div>
+          <div class="sig-name">Terrell Mills</div>
+          <div class="sig-title">Founder, TM Designs™</div>
+          <div class="sig-date">
+            <div class="sig-line" style="width:160px;display:inline-block;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <div class="sig-label">Authorized Signature — Post 579</div>
+          <div class="sig-name">Commander Harold</div>
+          <div class="sig-title">Mrs. Carden Bicentennial Post · San Antonio, TX</div>
+          <div class="sig-date">
+            <div class="sig-line" style="width:160px;display:inline-block;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div><strong>TM Designs™</strong> · San Antonio, TX · (210) 846-6103 · millzterrell5@gmail.com</div>
+    <div>Proposal No. <strong>P579-WEB-001</strong> · Sign By June 20 · Go-Live July 1, 2026 · Confidential</div>
+  </div>
+
+</div>
+</body>
+</html>

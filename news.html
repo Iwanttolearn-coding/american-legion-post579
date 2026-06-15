@@ -1,33 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>News & Announcements | American Legion Post 579 | San Antonio, TX</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Announcements — American Legion Post 579</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.news-card { background:var(--white); border-radius:12px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.09); transition:transform .2s, box-shadow .2s; }
+.news-card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,.14); }
+.news-img { height:160px; background:linear-gradient(135deg,var(--navy),#1a4080); display:flex; align-items:flex-end; padding:14px; }
+.news-img.red { background:linear-gradient(135deg,#7a0010,var(--red)); }
+.news-img.gold { background:linear-gradient(135deg,#6b4a00,#a07020); }
+.news-card-body { padding:20px; }
+.news-meta { font-size:.75rem; color:#999; text-transform:uppercase; letter-spacing:.8px; margin-bottom:8px; }
+.news-card-body h3 { color:var(--navy); font-size:1rem; margin-bottom:8px; line-height:1.4; }
+.news-card-body p { color:#555; font-size:.88rem; line-height:1.6; margin-bottom:12px; }
+@media(max-width:768px){.news-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-<div class="top-bar"><div class="container"><div class="top-bar-left"><span>📍 San Antonio, Texas</span><span>📞 (210) TBD-POST</span></div><div class="top-bar-right"><a href="membership.html">Join</a><a href="membership.html#renew">Renew</a><a href="donate.html">Donate</a><a href="contact.html">Contact Us</a></div></div></div>
-<div class="flag-stripe"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<header class="main-header"><div class="container"><div class="header-inner"><a href="index.html" class="logo-block"><div class="logo-emblem">★</div><div class="logo-text"><h1>American Legion</h1><p>Post 579 — Mrs. Carden Post</p></div></a><nav class="main-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a><a href="programs.html">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="gallery.html">Gallery</a><a href="news.html" class="active">News</a><a href="contact.html">Contact</a><a href="membership.html" class="btn-nav-join">Join Now</a></nav><button class="hamburger"><span></span><span></span><span></span></button></div></div><div class="mobile-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a><a href="programs.html">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="gallery.html">Gallery</a><a href="news.html">News</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></div></header>
-<div class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>News & Announcements</span></div><h1>News &amp; Announcements</h1><p>Updates from Commander Harold, community news, and urgent announcements</p></div></div>
-<section class="section-pad bg-white">
+<header class="site-header"><div class="container nav-wrapper">
+  <div class="logo"><span class="logo-badge">🇺🇸</span><div><h1>American Legion Post 579</h1><p>Mrs. Carden Post · San Antonio, TX</p></div></div>
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="leadership/">Leadership</a>
+    <a href="veterans-services.html">Veterans</a><a href="membership.html">Membership</a>
+    <a href="events.html">Events</a><a href="hall-rental.html">Hall Rental</a>
+    <a href="gallery.html">Gallery</a><a href="news.html" class="active">News</a><a href="contact.html">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</div></header>
+
+<section style="background:linear-gradient(135deg,var(--navy),#0d3b78);padding:60px 0;color:#fff;text-align:center;">
   <div class="container">
-    <div class="section-title">Latest from Post 579</div>
-    <div class="section-divider left"></div>
+    <span class="eyebrow" style="color:var(--gold)">News & Announcements</span>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:12px;">Post 579 Updates</h1>
+    <p style="color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;">Official announcements, event recaps, community news, and important updates from American Legion Post 579.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="news-grid">
-      <div class="news-card"><div class="news-card-header"><div class="event-tag">Announcement</div><div class="news-card-date">June 2026</div></div><div class="news-card-body"><h3>Post 579 Website Now Live</h3><p>American Legion Post 579 — Mrs. Carden Post — is proud to launch our new official website. Veterans, families, and community members can now find information about membership, veteran services, events, and more online.</p><a href="contact.html" class="btn btn-outline-navy btn-sm" style="margin-top:16px;">Contact the Post</a></div></div>
-      <div class="news-card"><div class="news-card-header"><div class="event-tag">Veterans</div><div class="news-card-date">Ongoing</div></div><div class="news-card-body"><h3>Free VA Benefits Assistance Available</h3><p>Are you a veteran who needs help understanding your VA benefits or filing a disability claim? Post 579's Service Officer provides free, confidential assistance. No appointment needed — just reach out.</p><a href="veterans-services.html" class="btn btn-primary btn-sm" style="margin-top:16px;">Get Help</a></div></div>
-      <div class="news-card"><div class="news-card-header"><div class="event-tag">Community</div><div class="news-card-date">Ongoing</div></div><div class="news-card-body"><h3>Post 579 — 3002 Gunsmoke Drive, San Antonio TX 78227 Available for Rent</h3><p>Looking for a venue for your next event? Post 579's facility is available for community rentals. Renting the hall supports our veteran programs. Contact us to check availability.</p><a href="hall-rental.html" class="btn btn-outline-navy btn-sm" style="margin-top:16px;">Inquire Now</a></div></div>
+      <div class="news-card">
+        <div class="news-img"><span class="event-badge">Post Update</span></div>
+        <div class="news-card-body">
+          <div class="news-meta">June 2026 · Post 579 Staff</div>
+          <h3>Post 579 Official Website Now Live</h3>
+          <p>American Legion Bicentennial Post 579 — Mrs. Carden Post — officially launches our new website. Veterans, members, and the community can now connect with us online.</p>
+          <a href="contact.html" style="color:var(--red);font-size:.82rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Contact Post →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img red"><span class="event-badge">Veterans</span></div>
+        <div class="news-card-body">
+          <div class="news-meta">Ongoing · Service Officers</div>
+          <h3>Free VA Benefits Assistance Available to All Veterans</h3>
+          <p>Post 579 Service Officers provide free, confidential VA claims help and benefits counseling. No membership required. Available to all veterans in Bexar County.</p>
+          <a href="veterans-services.html" style="color:var(--red);font-size:.82rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Get Help →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img gold"><span class="event-badge">Facility</span></div>
+        <div class="news-card-body">
+          <div class="news-meta">Now Accepting Inquiries</div>
+          <h3>Hall Rental Now Available for Community Events</h3>
+          <p>Reserve the Post 579 facility for birthdays, quinceañeras, receptions, meetings, and more. All proceeds support veteran programs.</p>
+          <a href="hall-rental.html" style="color:var(--red);font-size:.82rem;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Inquire Now →</a>
+        </div>
+      </div>
     </div>
-    <div class="text-center" style="margin-top:48px;padding:40px;background:#f9f9f9;border-radius:12px;border:2px dashed #ddd;">
-      <div style="font-size:2rem;color:#C8A84B;margin-bottom:12px;">📋</div>
-      <h3 style="color:#1B2A4A;margin-bottom:8px;">More News Coming Soon</h3>
-      <p style="color:#999;font-size:0.9rem;max-width:500px;margin:0 auto 20px;">Announcements, commander messages, event recaps, and community news will be posted here by Commander Harold. Check back regularly.</p>
-      <a href="contact.html" class="btn btn-outline-navy">Contact the Commander</a>
+
+    <div style="background:var(--light);border-radius:12px;padding:32px;text-align:center;margin-top:40px;">
+      <h3 style="color:var(--navy);margin-bottom:8px;">📰 More News Coming Soon</h3>
+      <p style="color:#666;margin-bottom:16px;">Officers can publish news and announcements through the Admin Dashboard. All articles are reviewed before publication.</p>
+      <a href="admin/" class="btn btn-primary">Post an Announcement (Officers)</a>
     </div>
   </div>
 </section>
-<footer><div class="footer-main"><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>American Legion Post 579</h3><p>Mrs. Carden Post — San Antonio, Texas 78227. For God and Country.</p></div><div class="footer-col"><h4>Navigate</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="membership.html">Membership</a><a href="veterans-services.html">Veterans</a><a href="events.html">Events</a></div><div class="footer-col"><h4>Services</h4><a href="programs.html">Programs</a><a href="hall-rental.html">Hall Rental</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Emergency</h4><a href="tel:988">Veterans Crisis: 988</a><a href="veterans-services.html">Get Help Now</a></div></div></div></div><div class="footer-bottom"><div class="container"><p>&copy; 2026 <span>American Legion Post 579</span>. San Antonio, TX. Built by <span>TM Designs&trade;</span> | <a href="privacy-policy/" style="color:rgba(255,255,255,0.4);">Privacy</a> | <a href="terms/" style="color:rgba(255,255,255,0.4);">Terms</a></p></div></div></footer>
-<script src="assets/js/main.js"></script>
+
+<footer class="footer"><div class="container footer-content">
+  <div><strong>American Legion Bicentennial Post 579</strong><br>3002 Gunsmoke Street, San Antonio, Texas 78227 · (210) 674-8069</div>
+  <div><a href="tel:988" style="color:#ff8080;font-weight:bold">Crisis: 988 → 1</a><br><span style="opacity:.5">© 2026 · Built by TM Designs™</span></div>
+</div></footer>
+<script src="main.js"></script>
 </body>
 </html>
