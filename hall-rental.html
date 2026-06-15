@@ -391,7 +391,7 @@ function submitRental() {
     alert('Please fill in all required fields (name, email, phone, event name, and date).');
     return;
   }
-  // In production: POST to Fly.io backend with FormData
+  // Form submission handler
   document.getElementById('rental-form').style.display = 'none';
   document.getElementById('rental-success').style.display = 'block';
   document.getElementById('rental-success').scrollIntoView({behavior:'smooth',block:'center'});
